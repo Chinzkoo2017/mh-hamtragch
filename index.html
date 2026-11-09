@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="mn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Эрүүл амьдралын хөтөч</title>
+<meta name="description" content="Marine Health бүтээгдэхүүн, 11-р сарын урамшуулал — бизнес хамтрагчийн танилцуулга сайт.">
+<meta property="og:title" content="Эрүүл амьдралын хөтөч — Marine Health урамшуулал">
+<meta property="og:description" content="6 багц 800,000₮ (−47%), Collagen ба шүдний оо 1+1. 11-р сарын 30 хүртэл.">
+<meta property="og:image" content="https://my.marinehealth.asia/files/products/2301.webp?v2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@400;500;700;800&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: deep-sea night — sale ticker, oversized type hero with live end-of-sale countdown, promo bundle wall, product shelf, sticky order bar on phones */
+:root{
+  --abyss:#06121f; --deep:#0b2035; --tide:#173a57; --line:#24506f;
+  --foam:#eaf2f5; --mist:#9fb6c4; --paper:#f4f7f8;
+  --tag:#ffb547; --coral:#ff6b57; --sea:#4fd1c5;
+  --f-display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --f-body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--abyss);color:var(--foam);font-family:var(--f-body);font-size:16px;line-height:1.55;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--abyss)}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.08}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--tag)}
+:focus-visible{outline:2px solid var(--tag);outline-offset:3px;border-radius:6px}
+.num{font-variant-numeric:tabular-nums}
+
+.ticker{background:var(--tag);color:var(--abyss);overflow:hidden;white-space:nowrap;font-family:var(--f-display);font-weight:700;font-size:13px;letter-spacing:.04em}
+.ticker .run{display:inline-flex;gap:28px;padding-block:9px;animation:run 30s linear infinite}
+.ticker span::after{content:"✦";margin-left:28px}
+@keyframes run{to{transform:translateX(-50%)}}
+
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--abyss) 84%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.brand{display:flex;flex-direction:column;text-decoration:none;min-width:0}
+.brand b{font-family:var(--f-display);font-size:15px;font-weight:700}
+.brand small{font-size:11.5px;color:var(--mist)}
+nav.links{display:flex;gap:22px;font-weight:700;font-size:14px}
+nav.links a{text-decoration:none;color:var(--mist)}
+nav.links a:hover{color:var(--foam)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:800;font-size:14.5px;text-decoration:none;border-radius:999px;padding:12px 20px;border:1px solid transparent;transition:transform .2s;cursor:pointer;white-space:nowrap}
+.btn:hover{transform:translateY(-2px)}
+.btn-tag{background:var(--tag);color:var(--abyss)}
+.btn-ghost{border-color:var(--line);color:var(--foam)}
+.btn-ghost:hover{border-color:var(--mist)}
+@media (max-width:860px){nav.links{display:none}}
+
+.hero{position:relative;overflow:hidden;padding-block:52px 44px}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.55;pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center}
+.bf{font-family:var(--f-display);font-weight:900;font-size:clamp(52px,10.5vw,142px);line-height:.86;letter-spacing:-.03em;margin:14px 0 20px}
+.bf .out{color:transparent;-webkit-text-stroke:2px var(--foam)}
+.bf .hot{color:var(--tag)}
+.hero p.lead{font-size:clamp(16px,1.9vw,19px);max-width:52ch;color:var(--mist);margin:0 0 24px}
+.hero p.lead strong{color:var(--foam)}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.stamp{justify-self:end;width:min(320px,100%);aspect-ratio:1;border-radius:50%;background:var(--coral);color:var(--abyss);display:grid;place-items:center;text-align:center;padding:28px;transform:rotate(-7deg);box-shadow:0 0 0 10px var(--abyss),0 0 0 11px var(--coral)}
+.stamp .pct{font-family:var(--f-display);font-weight:900;font-size:clamp(54px,7vw,76px);line-height:.9;display:block;letter-spacing:-.03em}
+.stamp small{font-weight:800;font-size:13px;display:block;margin-top:6px}
+.countdown{display:flex;gap:6px;justify-content:center;margin-top:12px;font-family:var(--f-mono)}
+.countdown span{background:var(--abyss);color:var(--foam);border-radius:8px;padding:6px 7px;font-size:15px;min-width:44px}
+.countdown em{display:block;font-style:normal;font-size:9px;color:var(--mist);letter-spacing:.08em}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.stamp{justify-self:center;width:260px}}
+
+section{padding-block:60px}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:28px}
+.sec-head h2{font-size:clamp(28px,4.6vw,48px);margin-top:8px}
+.sec-head p{color:var(--mist);max-width:48ch;margin:0}
+
+/* promo wall */
+.deals{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.deal{background:var(--deep);border:1px solid var(--line);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;min-width:0;transition:transform .25s,border-color .25s}
+.deal:hover{transform:translateY(-4px);border-color:var(--tag)}
+.shot{background:var(--paper);display:grid;place-items:center;padding:18px 14px;height:220px;position:relative}
+.shot img{max-width:100%;max-height:184px;width:auto;object-fit:contain}
+.flag{position:absolute;top:12px;right:12px;font-family:var(--f-display);font-weight:900;font-size:15px;background:var(--coral);color:var(--abyss);border-radius:999px;padding:6px 12px}
+.deal .body,.prod .body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:10px;flex:1}
+.deal h3,.prod h3{font-size:18px}
+.contents{display:flex;flex-wrap:wrap;gap:6px}
+.contents span{font-family:var(--f-mono);font-size:12px;padding:4px 9px;border-radius:999px;border:1px solid var(--line);color:var(--sea)}
+.deal p,.prod p{margin:0;color:var(--mist);font-size:14.5px}
+.foot{margin-top:auto;padding-top:10px;display:flex;justify-content:space-between;align-items:end;gap:10px;flex-wrap:wrap}
+.price{font-family:var(--f-display);font-size:22px;line-height:1.1}
+.was{display:block;font-family:var(--f-body);font-size:13px;color:var(--mist);text-decoration:line-through}
+.save{display:block;font-family:var(--f-mono);font-size:12px;color:var(--tag);margin-top:2px}
+.deal .btn,.prod .btn{padding:10px 16px;font-size:13.5px}
+.deal.wide{grid-column:span 3;flex-direction:row}
+.deal.wide .shot{width:44%;height:auto;min-height:240px}
+@media (max-width:980px){.deals{grid-template-columns:repeat(2,1fr)}.deal.wide{grid-column:span 2}}
+@media (max-width:620px){.deals{grid-template-columns:1fr}.deal.wide{grid-column:auto;flex-direction:column}.deal.wide .shot{width:auto;min-height:0;height:220px}}
+details.warn{font-size:13px;color:var(--mist)}
+details.warn summary{cursor:pointer;color:var(--coral);font-weight:700}
+
+.subhead{display:flex;align-items:center;gap:12px;margin:34px 0 16px;font-family:var(--f-display);font-size:18px}
+.subhead::after{content:"";flex:1;height:1px;background:var(--line)}
+
+/* product shelf */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+.prod{background:var(--deep);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;min-width:0;transition:transform .25s,border-color .25s}
+.prod:hover{transform:translateY(-4px);border-color:var(--mist)}
+.prod .shot{height:230px}
+.prod .meta{font-family:var(--f-mono);font-size:12px;color:var(--sea)}
+.badge{position:absolute;top:12px;left:12px;font-family:var(--f-mono);font-size:11px;padding:4px 9px;border-radius:999px;background:var(--abyss);color:var(--tag)}
+
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;counter-reset:s}
+.step{border-top:2px solid var(--tag);padding-top:16px}
+.step::before{counter-increment:s;content:counter(s,decimal-leading-zero);font-family:var(--f-mono);color:var(--tag);font-size:13px}
+.step h3{font-size:17px;margin:6px 0}
+.step p{margin:0;color:var(--mist);font-size:14.5px}
+@media (max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:440px){.steps{grid-template-columns:1fr}}
+
+.trust{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.box{border:1px solid var(--line);border-radius:22px;padding:24px;background:var(--deep)}
+.box h3{font-size:19px;margin:6px 0 10px}
+.box ul{margin:0;padding-left:18px;color:var(--mist)}
+.box li+li{margin-top:6px}
+.box.alert{border-color:var(--coral)}
+.box.alert h3,.box.alert .eyebrow{color:var(--coral)}
+@media (max-width:860px){.trust{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--line);padding-block:36px 110px;color:var(--mist);font-size:13.5px}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer b{color:var(--foam);font-family:var(--f-display);font-size:15px}
+footer p{margin:6px 0 0;max-width:62ch}
+.socials{display:flex;gap:10px;flex-wrap:wrap}
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:55;display:none;gap:10px;background:color-mix(in srgb,var(--abyss) 92%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line);padding-top:10px;padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.dock .btn{flex:1}
+@media (max-width:860px){.dock{display:flex}}
+@media (prefers-reduced-motion:reduce){.ticker .run{animation:none}.btn,.deal,.prod{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+
+<div class="ticker" aria-hidden="true"><div class="run" id="tick"></div></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top"><b>Эрүүл амьдралын хөтөч</b><small>Marine Health-ийн бизнес хамтрагч</small></a>
+    <nav class="links" aria-label="Хэсгүүд">
+      <a href="#promo">Урамшуулал</a><a href="#products">Бүтээгдэхүүн</a><a href="#how">Хэрхэн авах</a><a href="#safe">Анхааруулга</a>
+    </nav>
+    <a class="btn btn-tag" data-order href="#">Захиалах ↗</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <canvas id="sea" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Marine Health · 11.09 – 11.30</span>
+        <h1 class="bf"><span class="out">BLACK</span><br><span class="hot">FRIDAY</span></h1>
+        <p class="lead"><strong>11-р сарын урамшуулал эхэллээ.</strong> 4 савтай 6 багц тус бүр 800,000₮, Collagen болон ASHITABA шүдний оо 1+1. Урамшуулал 11-р сарын 30 хүртэл.</p>
+        <div class="cta-row">
+          <a class="btn btn-tag" href="#promo">Урамшууллыг харах</a>
+          <a class="btn btn-ghost" data-order href="#">Дэлгүүр рүү ↗</a>
+        </div>
+      </div>
+      <div class="stamp" role="img" aria-label="Багц 47% хямд, урамшуулал дуусах хүртэлх хугацаа">
+        <div>
+          <span class="pct">−47%</span>
+          <small>4 савтай багцууд</small>
+          <div class="countdown num" id="cd"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="promo">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="eyebrow">Урамшуулал · 11.09 – 11.30</span><h2>Энэ сарын багцууд</h2></div>
+        <p>Багц бүр 4 сав. Тус тусад нь авахтай харьцуулсан хэмнэлтийг доор харуулав. Үнийг захиалахдаа апп дээрээс баталгаажуулна уу.</p>
+      </div>
+      <div class="deals" id="deals"></div>
+      <div class="subhead">1 + 1 бэлэг</div>
+      <div class="deals" id="gifts"></div>
+    </div>
+  </section>
+
+  <section id="products">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="eyebrow">Каталог · Монгол</span><h2>Бүтээгдэхүүнүүд</h2></div>
+        <p>Эм биш, өдөр тутмын эрүүл мэндийн нэмэлт. Монгол руу хүргэлттэй каталогт байгаа бүтээгдэхүүнүүд.</p>
+      </div>
+      <div class="grid" id="grid"></div>
+      <div class="subhead">Цогц багц</div>
+      <div class="deals" id="sets"></div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="sec-head"><div><span class="eyebrow">Захиалга</span><h2>Хэрхэн авах вэ</h2></div></div>
+      <div class="steps">
+        <div class="step"><h3>Холбоосоор нэвтрэх</h3><p>«Захиалах» товчоор Marine Health-ийн албан ёсны дэлгүүр рүү орно.</p></div>
+        <div class="step"><h3>Бүртгүүлэх</h3><p>MH GO апп эсвэл вэб дээр бүртгүүлнэ. Нэг удаа бүртгүүлэхэд хангалттай.</p></div>
+        <div class="step"><h3>QPay-ээр төлөх</h3><p>Багц, бүтээгдэхүүнээ сонгоод QPay-ээр төлнө. Хүргэлтийн төлбөр тусдаа.</p></div>
+        <div class="step"><h3>Тусламж хэрэгтэй юу?</h3><p>Апп ашиглахад хүндрэлтэй ахмад настанд захиалгыг нь хийж өгнө. Messenger-ээр бичээрэй.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="safe">
+    <div class="wrap trust">
+      <div class="box">
+        <span class="eyebrow">Баталгаа</span>
+        <h3>Үйлдвэрлэгч, гэрчилгээ</h3>
+        <ul>
+          <li>Үйлдвэрлэгч: Akyldy Food Supplements (Казахстан).</li>
+          <li>ЕАЭЗХ-ны улсын бүртгэлийн гэрчилгээ (СГР).</li>
+          <li>Бүтээгдэхүүн бүр эм биш, өдөр тутмын эрүүл мэндийн нэмэлт.</li>
+          <li>Захиалга, төлбөр, и-баримт Marine Health-ийн албан ёсны системээр.</li>
+        </ul>
+      </div>
+      <div class="box alert">
+        <span class="eyebrow">Анхааруулга</span>
+        <h3>Хэрэглэхгүй байх хүмүүс</h3>
+        <ul>
+          <li>18-аас доош насны хүүхэд</li>
+          <li>Жирэмсэн, хөхүүл эхчүүд</li>
+          <li>Цус шингэлэх эм (антикоагулянт) хэрэглэдэг хүмүүс</li>
+          <li>Найрлагад нь харшилтай, мэдрэг хүмүүс</li>
+        </ul>
+        <p style="color:var(--mist);margin:12px 0 0">Эмчийн хяналтад байгаа бол эмчдээ зөвлөөрэй. Бүтээгдэхүүний найрлагыг илгээж өгнө.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <b>Эрүүл амьдралын хөтөч</b>
+      <p>Marine Health-ийн бизнес хамтрагчийн танилцуулга сайт. Энэ нь компанийн албан ёсны вэб сайт биш. Худалдан авалт marinehealth.asia болон MH GO апп дээр хийгдэнэ. Бүтээгдэхүүний зураг: Marine Health.</p>
+    </div>
+    <div class="socials">
+      <a class="btn btn-ghost" href="https://www.facebook.com/profile.php?id=100063525612074" target="_blank" rel="noopener">Facebook / Messenger</a>
+      <a class="btn btn-ghost" href="https://www.instagram.com/eruul.amidral.hutuch/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<div class="dock">
+  <a class="btn btn-ghost" href="https://www.facebook.com/profile.php?id=100063525612074" target="_blank" rel="noopener">Асуух</a>
+  <a class="btn btn-tag" data-order href="#">Захиалах ↗</a>
+</div>
+
+<script>
+/* ===== Тохиргоо ===== */
+const ORDER_URL = "https://marinehealth.asia/mn/products?ref=Dinnak";
+const SALE_END = "2026-11-30T23:59:59+08:00";   // компанийн сайтад: 11/9/2026 – 11/30/2026
+const IMG = {"154":"https://my.marinehealth.asia/files/products/154.webp?v6","121":"https://my.marinehealth.asia/files/products/121.webp?v14","214":"https://my.marinehealth.asia/files/products/214.webp?v4","104":"https://my.marinehealth.asia/files/products/104.webp?v9","106":"https://my.marinehealth.asia/files/products/106.webp?v9","282":"https://my.marinehealth.asia/files/products/282.webp?v3","2028":"https://my.marinehealth.asia/files/products/2028.webp?v1","2301":"https://my.marinehealth.asia/files/products/2301.webp?v2","2302":"https://my.marinehealth.asia/files/products/2302.webp?v1","2303":"https://my.marinehealth.asia/files/products/2303.webp?v1","2304":"https://my.marinehealth.asia/files/products/2304.webp?v1","2305":"https://my.marinehealth.asia/files/products/2305.webp?v1","2306":"https://my.marinehealth.asia/files/products/2306.webp?v1","2279":"https://my.marinehealth.asia/files/products/2279.webp?v1","2275":"https://my.marinehealth.asia/files/products/2275.webp?v1","2127":"https://my.marinehealth.asia/files/products/2127.webp?v2","2102":"https://my.marinehealth.asia/files/products/2102.webp?v1"};
+const fmt = n => n.toLocaleString("en-US").replace(/,/g, ",") + "₮";
+const UNIT = 382360;
+const WARN = "18-аас доош, жирэмсэн, хөхүүл, цус шингэлэх эм хэрэглэдэг, найрлагад мэдрэг хүмүүс хэрэглэхгүй.";
+
+const DEALS = [
+  {id:"2301",n:"Зүрхний багц",items:["ASHITABA ×2","Cardio Marine ×2"],d:"Зүрх судас, хоол боловсруулалтыг дэмжих хослол.",wide:true},
+  {id:"2302",n:"Бамбай булчирхайн дэмжлэг",items:["ASHITABA ×2","Iodium Kelp ×2"],d:"Органик иод болон ашитабаг хослуулсан багц."},
+  {id:"2303",n:"Давхар дархлаа",items:["ASHITABA ×4"],d:"Хамгийн эрэлттэй ASHITABA — 4 сав, урт хугацааны хэрэглээнд."},
+  {id:"2304",n:"Хөдөлгөөний эрх чөлөө",items:["ASHITABA ×2","ArtroMarine ×2"],d:"Үе мөчний хөдөлгөөнийг дэмжих хослол."},
+  {id:"2305",n:"Эрэгтэй багц",items:["Iodium Kelp ×2","Cardio Marine ×2"],d:"Нөхөр, аавдаа — зүрх судас, бодисын солилцоог дэмжинэ."},
+  {id:"2306",n:"Спортын багц",items:["Cardio Marine ×2","ArtroMarine ×2"],d:"Идэвхтэй хөдөлгөөнтэй хүмүүст зүрх судас, үе мөчийг дэмжинэ."}
+];
+const GIFTS = [
+  {id:"2279",n:"Collagen 1+1",items:["Collagen ×2"],d:"Нэгийг авахад хоёр дахь нь бэлэг. Peptan® (Франц) пептидийн коллаген — арьс, яс шөрмөсийг дэмжинэ.",price:270001,was:540000},
+  {id:"2275",n:"ASHITABA шүдний оо 1+1",items:["Шүдний оо ×2"],d:"Нэгийг авахад хоёр дахь нь бэлэг. Мэдрэмтгий шүд, буйлны өдөр тутмын арчилгаа.",price:35001,was:70000}
+];
+const PRODUCTS = [
+  {id:"154",n:"ASHITABA",meta:"180 капсул · ~60 хоног",d:"Ашитаба ургамалд суурилсан өдөр тутмын нэмэлт. Хоол боловсруулалт, эрч хүчийг дэмжинэ.",top:"Хамгийн эрэлттэй",warn:true},
+  {id:"121",n:"Cardio Marine",meta:"90 капсул · курс 1 сар",d:"Наттокиназа, L-аргинин агуулсан. Зүрх судас, цусны эргэлтийг дэмжинэ.",top:"Нөхөр, аавдаа",warn:true},
+  {id:"214",n:"Squalen Premium",meta:"90 капсул",d:"Акулын элэгний тосны сквален. Антиоксидант, дархлаа, арьсыг дэмжинэ."},
+  {id:"104",n:"Iodium Kelp",meta:"120 капсул",d:"Бор замгийн органик иод. Бамбай булчирхай, бодисын солилцоог дэмжинэ."},
+  {id:"106",n:"ArtroMarine + MSM",meta:"120 капсул",d:"Глюкозамин, хондроитин, MSM. Үе мөчний хөдөлгөөнийг дэмжинэ."}
+];
+const SETS = [
+  {id:"2127",n:"Урт наслалтын нууц",items:["ASHITABA","Squalen Premium","Cardio Marine","Iodium Kelp"],d:"Дөрвөн гол бүтээгдэхүүнийг нэг дор: зүрх судас, бамбай булчирхай, дархлаа, бодисын солилцоог дэмжинэ.",price:1147081,was:UNIT*4,wide:true},
+  {id:"2102",n:"Залуу насны эрч хүч",items:["ASHITABA","Cardio Marine","Squalen Premium","Collagen"],d:"Арьс, судас, эсийн эрч хүчийг дэмжих дөрвөн бүтээгдэхүүн.",price:1147081,was:UNIT*3+270000}
+];
+
+/* ===== render ===== */
+const esc=s=>String(s).replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+document.querySelectorAll("[data-order]").forEach(a=>{a.href=ORDER_URL;a.target="_blank";a.rel="noopener"});
+const hasWarn=items=>items.some(i=>/ASHITABA|Cardio/.test(i));
+const warnHtml=`<details class="warn"><summary>Хэрэглэхгүй байх хүмүүс</summary>${WARN}</details>`;
+function card(o,{price,was,flag}){
+  const pct = was ? Math.round((1-price/was)*100) : 0;
+  return `<article class="deal${o.wide?" wide":""}">
+    <div class="shot">${flag?`<span class="flag">${flag}</span>`:""}<img src="${IMG[o.id]}" onerror="this.onerror=null;this.src='images/${o.id}.webp'" alt="${esc(o.n)} — бүтээгдэхүүний зураг" loading="lazy"></div>
+    <div class="body">
+      <h3>${esc(o.n)}</h3>
+      <div class="contents">${o.items.map(i=>`<span>${esc(i)}</span>`).join("")}</div>
+      <p>${esc(o.d)}</p>
+      ${hasWarn(o.items)?warnHtml:""}
+      <div class="foot">
+        <div class="num"><span class="price">${fmt(price)}</span>${was?`<span class="was">${fmt(was)}</span><span class="save">${fmt(was-price)} хэмнэнэ${pct?` · −${pct}%`:""}</span>`:""}</div>
+        <a class="btn btn-tag" href="${ORDER_URL}" target="_blank" rel="noopener">Авах ↗</a>
+      </div>
+    </div></article>`;
+}
+document.getElementById("deals").innerHTML=DEALS.map(o=>card(o,{price:800000,was:UNIT*4})).join("");
+document.getElementById("gifts").innerHTML=GIFTS.map(o=>card(o,{price:o.price,was:o.was,flag:"1+1"})).join("");
+document.getElementById("sets").innerHTML=SETS.map(o=>card(o,{price:o.price,was:o.was})).join("");
+document.getElementById("grid").innerHTML=PRODUCTS.map(p=>`
+  <article class="prod">
+    <div class="shot">${p.top?`<span class="badge">${esc(p.top)}</span>`:""}<img src="${IMG[p.id]}" onerror="this.onerror=null;this.src='images/${p.id}.webp'" alt="${esc(p.n)}" loading="lazy"></div>
+    <div class="body">
+      <span class="meta">${esc(p.meta)}</span>
+      <h3>${esc(p.n)}</h3>
+      <p>${esc(p.d)}</p>
+      ${p.warn?warnHtml:""}
+      <div class="foot"><span class="price num">${fmt(UNIT)}</span><a class="btn btn-tag" href="${ORDER_URL}" target="_blank" rel="noopener">Авах ↗</a></div>
+    </div>
+  </article>`).join("");
+
+const tickWords=["11-Р САРЫН УРАМШУУЛАЛ","6 БАГЦ — 800,000₮","COLLAGEN 1+1","ШҮДНИЙ ОО 1+1","11.30 ХҮРТЭЛ","ЭМ БИШ — ЭРҮҮЛ МЭНДИЙН НЭМЭЛТ"];
+document.getElementById("tick").innerHTML=[...tickWords,...tickWords].map(w=>`<span>${w}</span>`).join("");
+
+const target=new Date(SALE_END).getTime(),cd=document.getElementById("cd");
+function tickCd(){
+  const ms=Math.max(0,target-Date.now());
+  const d=Math.floor(ms/864e5),h=Math.floor(ms/36e5)%24,m=Math.floor(ms/6e4)%60;
+  cd.innerHTML=ms?[[d,"ӨДӨР"],[h,"ЦАГ"],[m,"МИН"]].map(([v,l])=>`<span>${String(v).padStart(2,"0")}<em>${l}</em></span>`).join(""):`<span>Урамшуулал дууссан</span>`;
+}
+tickCd();setInterval(tickCd,30000);
+
+(function(){
+  const c=document.getElementById("sea"),x=c.getContext("2d");
+  const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let w,h,pts=[];
+  function size(){const r=c.getBoundingClientRect(),dpr=Math.min(2,devicePixelRatio||1);w=r.width;h=r.height;c.width=w*dpr;c.height=h*dpr;x.setTransform(dpr,0,0,dpr,0,0);
+    pts=Array.from({length:Math.round(w/14)},()=>({x:Math.random()*w,y:Math.random()*h,r:Math.random()*2.2+.4,v:Math.random()*.35+.08}))}
+  function draw(){x.clearRect(0,0,w,h);for(const p of pts){x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fillStyle=p.r>2?"rgba(255,181,71,.55)":"rgba(159,182,196,.45)";x.fill();
+    if(!reduce){p.y-=p.v;p.x+=Math.sin(p.y/40)*.15;if(p.y<-5){p.y=h+5;p.x=Math.random()*w}}}
+    if(!reduce)requestAnimationFrame(draw)}
+  size();draw();addEventListener("resize",()=>{size();if(reduce)draw()});
+})();
+</script>
+
+</body>
+</html>

@@ -1,5 +1,5 @@
 """Download product images and certificates from Marine Health, render certificate
-previews, and synthesize Mongolian voice-overs for the reels. Runs in GitHub Actions."""
+previews, and compose background music for the reels. Runs in GitHub Actions."""
 import asyncio, hashlib, io, json, os, subprocess, sys, tempfile, urllib.request
 from pathlib import Path
 from PIL import Image
@@ -52,55 +52,57 @@ def certs(cfg):
         idx.append({**{k: c[k] for k in ("key", "pid", "title")}, "pdf": pdf.name, "pages": pages})
     (d / "index.json").write_text(json.dumps(idx, ensure_ascii=False, indent=1), encoding="utf-8")
 
-def dur(path):
-    out = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(path)],
-                         capture_output=True, text=True, check=True).stdout
-    return float(out.strip())
+CUT_KEYS = ["154","121","214","104","106","282","2028","2301","2302","2303","2304","2305","2306",
+            "2279","2275","2127","2102","154-m5","121-m1","214-m4","104-m1","106-m1","282-m6","2028-m4"]
 
-async def say(text, path, voice, rate):
-    import edge_tts
-    try:
-        com = edge_tts.Communicate(text, voice, rate=rate, boundary="WordBoundary")
-    except TypeError:
-        com = edge_tts.Communicate(text, voice, rate=rate)
-    words = []
-    with open(path, "wb") as f:
-        async for ch in com.stream():
-            if ch["type"] == "audio": f.write(ch["data"])
-            elif ch["type"] == "WordBoundary":
-                words.append({"t": round(ch["offset"] / 1e7, 3), "w": ch["text"]})
-    return words
+def cutouts():
+    """Remove photo backgrounds so products can sit on new animated scenes."""
+    import numpy as np
+    from rembg import remove, new_session
+    from scipy import ndimage
+    sess = new_session("isnet-general-use")
+    d = A / "cut"; d.mkdir(parents=True, exist_ok=True)
+    for k in CUT_KEYS:
+        out = d / f"{k}.webp"; src = A / "img" / f"{k}.webp"
+        if out.exists() or not src.exists(): continue
+        im = Image.open(src).convert("RGB")
+        rgba = remove(im, session=sess, post_process_mask=True)
+        a = np.array(rgba.split()[-1])
+        lab, n = ndimage.label(a > 40)
+        if n > 1:  # drop small detached bits such as promo lettering
+            sizes = ndimage.sum(np.ones_like(a), lab, range(1, n + 1))
+            keep = [i + 1 for i, v in enumerate(sizes) if v >= 0.08 * sizes.max()]
+            mask = np.isin(lab, keep)
+            mask = ndimage.binary_dilation(mask, iterations=3)
+            a = (a * mask).astype("uint8")
+        rgba.putalpha(Image.fromarray(a))
+        bb = rgba.getbbox()
+        if bb: rgba = rgba.crop(bb)
+        rgba.thumbnail((900, 900), Image.LANCZOS)
+        rgba.save(out, "WEBP", quality=86, method=6)
+        print("cut", k, rgba.size)
 
-def reels():
+def music():
+    sys.path.insert(0, str(ROOT / "tools"))
+    import music as M
     spec = json.loads((ROOT / "data" / "reels.json").read_text(encoding="utf-8"))
-    d = A / "reels"; d.mkdir(parents=True, exist_ok=True)
-    for r in spec["reels"]:
-        voice = r.get("voice", spec["voice"]); rate = r.get("rate", spec["rate"])
-        h = hashlib.sha1(json.dumps([voice, rate, [b["say"] for b in r["beats"]]], ensure_ascii=False).encode()).hexdigest()[:12]
+    bpm = spec.get("bpm", 120); bar = 240 / bpm
+    d = A / "music"; d.mkdir(parents=True, exist_ok=True)
+    for i, r in enumerate(spec["reels"]):
+        bars = sum(b["bars"] for b in r["beats"]); mu = r["music"]
+        h = hashlib.sha1(json.dumps([bars, mu, bpm, 3]).encode()).hexdigest()[:12]
         meta = d / f"{r['id']}.json"
-        if meta.exists() and json.loads(meta.read_text())["hash"] == h and (d / f"{r['id']}.mp3").exists():
-            continue
-        with tempfile.TemporaryDirectory() as t:
-            parts, beats, t0 = [], [], 0.0
-            for i, b in enumerate(r["beats"]):
-                p = Path(t) / f"b{i}.mp3"
-                words = asyncio.run(say(b["say"], p, voice, rate))
-                n = Path(t) / f"n{i}.wav"
-                subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(p), "-af", "apad=pad_dur=0.12", "-ar", "24000", "-ac", "1", str(n)], check=True)
-                L = dur(n)
-                beats.append({"t0": round(t0, 3), "t1": round(t0 + L, 3), "words": words})
-                parts.append(n); t0 += L
-            lst = Path(t) / "list.txt"
-            lst.write_text("".join(f"file '{p}'\n" for p in parts))
-            subprocess.run(["ffmpeg", "-y", "-v", "error", "-f", "concat", "-safe", "0", "-i", str(lst),
-                            "-c:a", "libmp3lame", "-b:a", "64k", str(d / f"{r['id']}.mp3")], check=True)
-        meta.write_text(json.dumps({"id": r["id"], "hash": h, "voice": voice, "dur": round(t0, 3), "beats": beats},
-                                   ensure_ascii=False), encoding="utf-8")
-        print("reel", r["id"], round(t0, 1), "s")
+        if meta.exists() and json.loads(meta.read_text())["hash"] == h: continue
+        mid = M.compose(bars, mu["key"], tuple(mu["prog"]), mu["lead"], mu["mood"], bpm, seed=i + 7)
+        secs = bars * bar + 1.4
+        M.render(mid, d / f"{r['id']}.mp3", secs)
+        meta.write_text(json.dumps({"id": r["id"], "hash": h, "bpm": bpm, "dur": round(secs, 2)}))
+        print("music", r["id"], round(secs, 1), "s")
 
 if __name__ == "__main__":
     cfg = json.loads((ROOT / "data" / "assets.json").read_text(encoding="utf-8"))
-    steps = sys.argv[1:] or ["images", "certs", "reels"]
+    steps = sys.argv[1:] or ["images", "cutouts", "certs", "music"]
     if "images" in steps: images(cfg)
+    if "cutouts" in steps: cutouts()
     if "certs" in steps: certs(cfg)
-    if "reels" in steps: reels()
+    if "music" in steps: music()

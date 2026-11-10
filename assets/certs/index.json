@@ -1,0 +1,79 @@
+[
+ {
+  "key": "ashitaba-sgr",
+  "pid": "154",
+  "title": "СГР — ASHITABA",
+  "pdf": "ashitaba-sgr.pdf",
+  "pages": [
+   "ashitaba-sgr-p1.webp"
+  ]
+ },
+ {
+  "key": "cardio-sgr",
+  "pid": "121",
+  "title": "СГР — Cardio Marine",
+  "pdf": "cardio-sgr.pdf",
+  "pages": [
+   "cardio-sgr-p1.webp"
+  ]
+ },
+ {
+  "key": "squalen-sgr",
+  "pid": "214",
+  "title": "СГР — Squalen Premium",
+  "pdf": "squalen-sgr.pdf",
+  "pages": [
+   "squalen-sgr-p1.webp",
+   "squalen-sgr-p2.webp",
+   "squalen-sgr-p3.webp",
+   "squalen-sgr-p4.webp"
+  ]
+ },
+ {
+  "key": "iodium-sgr",
+  "pid": "104",
+  "title": "СГР — Iodium Kelp",
+  "pdf": "iodium-sgr.pdf",
+  "pages": [
+   "iodium-sgr-p1.webp"
+  ]
+ },
+ {
+  "key": "artro-sgr",
+  "pid": "106",
+  "title": "СГР — ArtroMarine + MSM",
+  "pdf": "artro-sgr.pdf",
+  "pages": [
+   "artro-sgr-p1.webp",
+   "artro-sgr-p2.webp"
+  ]
+ },
+ {
+  "key": "collagen-sgr",
+  "pid": "282",
+  "title": "СГР — MH Collagen",
+  "pdf": "collagen-sgr.pdf",
+  "pages": [
+   "collagen-sgr-p1.webp",
+   "collagen-sgr-p2.webp"
+  ]
+ },
+ {
+  "key": "collagen-halal",
+  "pid": "282",
+  "title": "HALAL гэрчилгээ — MH Collagen",
+  "pdf": "collagen-halal.pdf",
+  "pages": [
+   "collagen-halal-p1.webp"
+  ]
+ },
+ {
+  "key": "toothpaste-ds",
+  "pid": "2028",
+  "title": "Тохирлын тунхаглал — ASHITABA шүдний оо",
+  "pdf": "toothpaste-ds.pdf",
+  "pages": [
+   "toothpaste-ds-p1.webp"
+  ]
+ }
+]

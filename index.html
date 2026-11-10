@@ -87,8 +87,10 @@ section{padding-block:56px}
 .rcard{flex:0 0 auto;width:156px;aspect-ratio:9/16;border-radius:20px;position:relative;overflow:hidden;scroll-snap-align:start;cursor:pointer;border:0;padding:0;background:var(--deep);text-align:left;isolation:isolate}
 .rcard::before{content:"";position:absolute;inset:0;border-radius:20px;padding:2px;background:conic-gradient(from 200deg,var(--tag),var(--coral),var(--sea),var(--tag));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;z-index:3;pointer-events:none}
 .rcard .bg{position:absolute;inset:0;background:var(--paper)}
-.rcard img{position:absolute;inset:8% 6% 30%;width:88%;height:62%;object-fit:contain;transition:transform .5s}
-.rcard:hover img{transform:scale(1.06)}
+.rcard .rsc{position:absolute;inset:0}
+.rcard .rsc .sc-prod{bottom:30%;max-height:52%}
+.rcard .rsc .sc-floor{height:36%}
+.rcard .rsc .sc-shadow{bottom:27%}
 .rcard .shade{position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(6,18,31,.92) 82%);z-index:1}
 .rcard .lbl{position:absolute;left:12px;right:12px;bottom:12px;z-index:2;color:#fff}
 .rcard .lbl b{display:block;font-family:var(--f-display);font-size:14px;line-height:1.15}
@@ -212,6 +214,13 @@ footer p{margin:6px 0 0;max-width:62ch}
 .stage .hero-img .card{width:100%;height:100%;border-radius:6cqw;background:var(--paper);display:grid;place-items:center;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.45)}
 .stage .hero-img img{width:100%;height:100%;object-fit:contain;transform-origin:center}
 .stage .hero-img.full{inset:0;height:auto}
+.stage .rscene{position:absolute;inset:0;z-index:0}
+.stage .rscene .sc-prod{max-height:52%;bottom:24%;max-width:80%}
+.stage .rscene .sc-floor{height:30%}
+.stage .rscene .sc-shadow{bottom:22%}
+.audio-tag{position:absolute;left:5cqw;bottom:calc(max(10px,env(safe-area-inset-bottom,0px)) + 9.5cqw);z-index:4;display:flex;align-items:center;gap:2cqw;color:#fff;font-size:2.9cqw;font-weight:700;text-shadow:0 1px 4px rgba(0,0,0,.6);max-width:70%;overflow:hidden;white-space:nowrap}
+.audio-tag i{font-style:normal;display:inline-block;animation:spin 3s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
 .stage .hero-img.full .card{border-radius:0;box-shadow:none;background:var(--ink)}
 .stage .hero-img.full img{object-fit:cover}
 .stage .hero-img.full::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,18,31,.55) 0%,transparent 30%,transparent 55%,rgba(6,18,31,.8) 100%)}
@@ -247,6 +256,38 @@ footer p{margin:6px 0 0;max-width:62ch}
 .reel .close{position:absolute;top:max(14px,env(safe-area-inset-top,0px));right:max(14px,env(safe-area-inset-right,0px));z-index:110}
 @media (max-width:699px){.reel .close{display:none}}
 
+/* product scenes */
+.scene{position:relative;overflow:hidden;isolation:isolate;background:var(--w2)}
+.scene .sc-wall{position:absolute;inset:0;background:radial-gradient(90% 75% at 50% 32%,var(--w1) 0%,var(--w2) 78%)}
+.scene .sc-floor{position:absolute;left:0;right:0;bottom:0;height:24%;background:linear-gradient(180deg,color-mix(in srgb,var(--fl) 70%,var(--w2)) 0%,var(--fl) 100%);box-shadow:0 -1px 0 rgba(255,255,255,.18) inset}
+.scene .sc-floor::before{content:"";position:absolute;inset:0 0 auto;height:40%;background:linear-gradient(180deg,rgba(0,0,0,.10),transparent)}
+.scene .sc-shadow{position:absolute;left:22%;right:22%;bottom:16%;height:9%;background:radial-gradient(50% 50% at 50% 50%,rgba(0,0,0,.38),rgba(0,0,0,0) 72%);transform:translateY(50%)}
+.scene .sc-prod{position:absolute;left:50%;bottom:19%;transform:translateX(-50%);max-width:74%;max-height:70%;width:auto;height:auto;object-fit:contain;filter:drop-shadow(0 10px 14px rgba(0,0,0,.22));z-index:1;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.scene .sc-prod.flat{mix-blend-mode:multiply;filter:none}
+.scene .sc-fx{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none}
+.shot.scene{padding:0;height:250px}
+.deal .shot.scene{height:250px}
+.deal.wide .shot.scene{height:auto;min-height:280px}
+.deal:hover .sc-prod,.prod:hover .sc-prod{transform:translateX(-50%) translateY(-4px) scale(1.03)}
+.gal figure.scene{background:none}
+.shot .flag,.shot .badge{z-index:3}
+
+/* price reveal */
+.pbox{display:flex;flex-direction:column;gap:2px}
+.pbox .was{position:relative;display:inline-block;align-self:flex-start;font-family:var(--f-display);font-size:16px;color:var(--foam);text-decoration:none;transition:color .5s .1s,font-size .5s .1s,opacity .5s .1s}
+.pbox .was::after{content:"";position:absolute;left:-2px;right:-2px;top:52%;height:2px;background:var(--coral);transform:scaleX(0);transform-origin:left;transition:transform .45s .35s cubic-bezier(.6,0,.2,1);border-radius:2px}
+.pbox .now{font-family:var(--f-display);font-size:26px;line-height:1.05;opacity:.25;transform:translateY(6px) scale(.92);transform-origin:left bottom;filter:blur(2px);transition:opacity .5s .7s,transform .6s .7s cubic-bezier(.2,1.5,.4,1),filter .5s .7s;background:linear-gradient(100deg,#ffb547 0%,#ffd88a 30%,#fff6dc 45%,#ffd88a 60%,#ffb547 100%);background-size:250% 100%;background-position:100% 0;-webkit-background-clip:text;background-clip:text;color:transparent;align-self:flex-start;position:relative}
+.pbox .save{opacity:0;transform:translateY(4px);transition:opacity .4s 1.2s,transform .4s 1.2s}
+.lit .pbox .was{color:var(--mist);opacity:.7;font-size:14px}
+.lit .pbox .was::after{transform:scaleX(1)}
+.lit .pbox .now{opacity:1;transform:none;filter:none;animation:sheen 2.8s 1.3s ease-in-out infinite}
+.lit .pbox .save{opacity:1;transform:none}
+.lit .pbox .now::after{content:"";position:absolute;right:-10px;top:-6px;width:12px;height:12px;background:radial-gradient(circle,#fff 0 15%,transparent 16%),conic-gradient(from 0deg,transparent 0 10%,#fff 12% 13%,transparent 15% 35%,#fff 37% 38%,transparent 40% 60%,#fff 62% 63%,transparent 65% 85%,#fff 87% 88%,transparent 90%);border-radius:50%;animation:twinkle 1.6s 1.4s ease-in-out infinite;opacity:0}
+@keyframes sheen{0%,100%{background-position:100% 0}50%{background-position:0 0}}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(.4) rotate(0)}50%{opacity:1;transform:scale(1.1) rotate(45deg)}}
+.dbuy .pbox .now{font-size:24px}
+
+@media (prefers-reduced-motion:reduce){.pbox .was,.pbox .now,.pbox .save,.pbox .was::after{transition:none}.lit .pbox .now,.lit .pbox .now::after{animation:none}}
 @media (prefers-reduced-motion:reduce){.ticker .run{animation:none}.btn,.deal,.prod{transition:none}html{scroll-behavior:auto}.cap.pop,.rcta,.sheet .panel{animation:none}}
 </style>
 </head>
@@ -290,8 +331,8 @@ footer p{margin:6px 0 0;max-width:62ch}
   <section id="reels">
     <div class="wrap">
       <div class="sec-head">
-        <div><span class="eyebrow">Reels · дуу хоолойтой</span><h2>30 секундэд танилц</h2></div>
-        <p>Бүтээгдэхүүн бүрийн тухай богино видео. Дарж үзээрэй, дуутай.</p>
+        <div><span class="eyebrow">Reels · аятай</span><h2>30 секундэд танилц</h2></div>
+        <p>Бүтээгдэхүүн бүрийн тухай богино видео. Дарж үзээрэй.</p>
       </div>
       <div class="rail" id="rail"></div>
     </div>
@@ -406,6 +447,7 @@ footer p{margin:6px 0 0;max-width:62ch}
   <div class="stage" id="stage">
     <div class="blur" id="rBlur"></div>
     <div class="tint"></div>
+    <div class="rscene" id="rScene"></div>
     <div class="hero-img" id="rHero"><div class="card"><img id="rImg" alt=""></div></div>
     <div class="cap" id="rCap"></div>
     <div class="subs" id="rSubs" aria-live="off"></div>
@@ -415,12 +457,14 @@ footer p{margin:6px 0 0;max-width:62ch}
       <div class="who"><div class="av">ЭА</div><div><b>eruul.amidral.hutuch</b><small id="rTitle"></small></div><span class="sp"></span><button class="rbtn" type="button" id="rMute" aria-label="Дуу хаах">🔊</button><button class="rbtn" type="button" id="rX" aria-label="Хаах">×</button></div>
     </div>
     <div class="rcta" id="rCta" hidden></div>
+    <div class="audio-tag"><i>♫</i><span>Эрүүл амьдралын хөтөч · Original audio</span></div>
     <div class="legal" id="rLegal"></div>
     <div class="paused" id="rPaused" hidden><div></div></div>
   </div>
   <audio id="rAudio" preload="auto" playsinline></audio>
 </div>
 
+<script src="scene.js"></script>
 <script>
 /* ======================= ТОХИРГОО ======================= */
 const ORDER_URL = "https://marinehealth.asia/mn/products?ref=Dinnak";
@@ -554,6 +598,36 @@ const REELS = [
   {id:"toothpaste",title:"Шүдний оо 1+1",img:"2275",slug:"toothpaste"}
 ];
 
+/* ---------- Хөдөлгөөнт дүр зураг (фон, капсул) ---------- */
+const SC = {
+  "154": {wall:["#eef3dc","#c2d3a0"],floor:"#a3b97f",fx:"capsule",styles:["green"],cut:"154-m5"},
+  "121": {wall:["#ffc382","#f28a2e"],floor:"#6c4291",fx:"capsule",styles:["white"],cut:"121-m1"},
+  "214": {wall:["#86ccd4","#3c97a6"],floor:"#2d4b7b",fx:"softgel",styles:["gel"],cut:"214-m4",count:11},
+  "104": {wall:["#fdeed6","#f0c895"],floor:"#dea86f",fx:"capsule",styles:["beige"],cut:"104-m1"},
+  "106": {wall:["#7480ad","#3b4772"],floor:"#283252",fx:"capsule",styles:["pearl"],cut:"106-m1"},
+  "282": {wall:["#fde7ec","#f1bdcb"],floor:"#e2a3b4",fx:"powder",cut:"282"},
+  "2028":{wall:["#e2f6ef","#a6dbc9"],floor:"#7cbfa8",fx:"bubbles",cut:"2028-m4"},
+  "2301":{wall:["#ffc382","#f28a2e"],floor:"#6c4291",fx:"mix",styles:["green","white"],cut:"2301",count:12},
+  "2302":{wall:["#fdeed6","#f0c895"],floor:"#dea86f",fx:"mix",styles:["green","beige"],cut:"2302",count:12},
+  "2303":{wall:["#eef3dc","#c2d3a0"],floor:"#a3b97f",fx:"capsule",styles:["green"],cut:"2303",count:12},
+  "2304":{wall:["#7480ad","#3b4772"],floor:"#283252",fx:"mix",styles:["green","pearl"],cut:"2304",count:12},
+  "2305":{wall:["#ffd9a8","#f3a650"],floor:"#8a5a3a",fx:"mix",styles:["beige","white"],cut:"2305",count:12},
+  "2306":{wall:["#c79bdc","#7b4d9c"],floor:"#3b2a5c",fx:"mix",styles:["white","pearl"],cut:"2306",count:12},
+  "2279":{wall:["#fde7ec","#f1bdcb"],floor:"#e2a3b4",fx:"powder",cut:"2279"},
+  "2275":{wall:["#e2f6ef","#a6dbc9"],floor:"#7cbfa8",fx:"bubbles",cut:"2275"},
+  "2127":{wall:["#86ccd4","#3c97a6"],floor:"#2d4b7b",fx:"mix",styles:["green","gel","white","beige"],cut:"2127",count:14},
+  "2102":{wall:["#fde7ec","#f1bdcb"],floor:"#e2a3b4",fx:"mix",styles:["green","white","gel"],cut:"2102",count:13}
+};
+function sceneCfg(id, extra={}){
+  const b = SC[id]; if(!b) return null;
+  return {...b, ...extra, cut:`assets/cut/${b.cut}.webp`,
+    fallback:[b.cut!==id?`assets/cut/${id}.webp`:null,`assets/img/${id}.webp`, MAIN_V[id]?`${MH}${id}.webp?${MAIN_V[id]}`:null].filter(Boolean)};
+}
+function mountScenes(root=document){
+  root.querySelectorAll("[data-scene]:not(.scene)").forEach(el=>{ const c=sceneCfg(el.dataset.scene); if(c) new Scene(el,c); });
+}
+document.addEventListener("pointerenter",e=>{ const h=e.target.closest&&e.target.closest(".deal,.prod"); if(h){ const sc=h.querySelector(".scene"); if(sc) Scene.replay(sc); } },true);
+
 /* ---------- Гэрчилгээ ---------- */
 const CERTS = [
   {key:"ashitaba-sgr",pid:"154",title:"СГР — ASHITABA",path:"2059/certificates_34e606d82c09406bb79dda42c5dcd146.pdf"},
@@ -591,22 +665,26 @@ document.querySelectorAll("[data-order]").forEach(a=>{a.href=ORDER_URL;a.target=
 const tickWords=["11-Р САРЫН УРАМШУУЛАЛ","6 БАГЦ — 800,000₮","COLLAGEN 1+1","ШҮДНИЙ ОО 1+1","11.30 ХҮРТЭЛ","ЭМ БИШ — ЭРҮҮЛ МЭНДИЙН НЭМЭЛТ"];
 $("#tick").innerHTML=[...tickWords,...tickWords].map(w=>`<span>${w}</span>`).join("");
 
-$("#rail").innerHTML = REELS.map(r=>`<button class="rcard" type="button" data-reel="${r.id}" aria-label="${esc(r.title)} reel үзэх"><span class="bg"></span>${imgTag(r.img,r.title)}<span class="shade"></span><span class="pl"></span><span class="lbl"><b>${esc(r.title)}</b><small data-dur="${r.id}">▶ үзэх</small></span></button>`).join("");
+$("#rail").innerHTML = REELS.map(r=>`<button class="rcard" type="button" data-reel="${r.id}" aria-label="${esc(r.title)} reel үзэх"><span class="rsc" data-scene="${r.img}"></span><span class="shade"></span><span class="pl"></span><span class="lbl"><b>${esc(r.title)}</b><small data-dur="${r.id}">▶ үзэх</small></span></button>`).join("");
 
 function chips(items){
   return items.map(([n,q])=>{const s=NAME2SLUG[n];const t=`${esc(n)}${q>1?` ×${q}`:""}`;return s?`<button type="button" data-open="${s}">${t}</button>`:`<span>${t}</span>`}).join("");
 }
+function priceBox(o){
+  const pct = o.was ? Math.round((1-o.price/o.was)*100) : 0;
+  return `<div class="pbox num">${o.was?`<span class="was">${fmt(o.was)}</span>`:""}<span class="now">${fmt(o.price)}</span>${o.was?`<span class="save">${fmt(o.was-o.price)} хэмнэнэ${pct?` · −${pct}%`:""}</span>`:""}</div>`;
+}
 function bundleCard(o){
   const pct = o.was ? Math.round((1-o.price/o.was)*100) : 0;
   return `<article class="deal${o.wide?" wide":""}">
-    <button class="shot" type="button" data-bundle="${o.id}" aria-label="${esc(o.n)} дэлгэрэнгүй">${o.flag?`<span class="flag">${o.flag}</span>`:""}${imgTag(o.id,o.n+" — бүтээгдэхүүний зураг")}</button>
+    <button class="shot" type="button" data-bundle="${o.id}" data-scene="${o.id}" aria-label="${esc(o.n)} дэлгэрэнгүй">${o.flag?`<span class="flag">${o.flag}</span>`:""}</button>
     <div class="body">
       <button class="ttl" type="button" data-bundle="${o.id}"><h3>${esc(o.n)}</h3></button>
       <div class="contents">${chips(o.items)}</div>
       <p>${esc(o.d)}</p>
       ${hasWarn(o.items)?`<p style="font-size:13px;color:var(--coral)">Хэрэглэхгүй: 18-аас доош, жирэмсэн, хөхүүл, цус шингэлэх эм уудаг, мэдрэг хүмүүс.</p>`:""}
       <div class="foot">
-        <div class="num"><span class="price">${fmt(o.price)}</span>${o.was?`<span class="was">${fmt(o.was)}</span><span class="save">${fmt(o.was-o.price)} хэмнэнэ${pct?` · −${pct}%`:""}</span>`:""}</div>
+        ${priceBox(o)}
         <div class="acts">${reelBtn(o.reel||(o.flag?null:"promo"))}${orderLink()}</div>
       </div>
     </div></article>`;
@@ -616,7 +694,7 @@ $("#gifts").innerHTML = GIFTS.map(bundleCard).join("");
 $("#sets").innerHTML = SETS.map(bundleCard).join("");
 $("#grid").innerHTML = Object.entries(P).map(([s,p])=>`
   <article class="prod">
-    <button class="shot" type="button" data-open="${s}" aria-label="${esc(p.name)} дэлгэрэнгүй">${p.top?`<span class="badge">${esc(p.top)}</span>`:""}${imgTag(p.id,p.name)}</button>
+    <button class="shot" type="button" data-open="${s}" data-scene="${p.id}" aria-label="${esc(p.name)} дэлгэрэнгүй">${p.top?`<span class="badge">${esc(p.top)}</span>`:""}</button>
     <div class="body">
       <span class="meta">${esc(p.meta)}</span>
       <button class="ttl" type="button" data-open="${s}"><h3>${esc(p.name)}</h3></button>
@@ -625,6 +703,10 @@ $("#grid").innerHTML = Object.entries(P).map(([s,p])=>`
       <div class="foot"><span class="price num">${fmt(p.price)}</span><div class="acts">${reelBtn(p.reel)}${orderLink()}</div></div>
     </div>
   </article>`).join("");
+
+mountScenes();
+const litIO = new IntersectionObserver(es=>{ for(const e of es){ if(e.isIntersecting) e.target.classList.add("lit"); else if(e.intersectionRatio===0) e.target.classList.remove("lit"); } },{threshold:[0,0.6]});
+document.querySelectorAll(".deal").forEach(d=>litIO.observe(d));
 
 function certThumb(c){
   const pg = (CERT_PAGES[c.key]||[])[0];
@@ -650,18 +732,19 @@ function secHTML([title,c]){
 function openSheet(html, buy, eyebrow){
   lastFocus=document.activeElement;
   $("#dEyebrow").textContent=eyebrow;
-  dBody.innerHTML=html; dBuy.innerHTML=buy;
+  Scene.forget(dBody); dBody.innerHTML=html; dBuy.innerHTML=buy;
   sheet.hidden=false; document.body.classList.add("locked");
   $("#panel").scrollTop=0; $("#dClose").focus();
+  requestAnimationFrame(()=>mountScenes(dBody));
 }
 function openProduct(slug, push=true){
   const p=P[slug]; if(!p) return;
   const gal=[p.id,...Array.from({length:p.gal},(_,i)=>`${p.id}-m${i+1}`)];
   const html=`
-    <div class="gal">${gal.map(k=>`<figure>${imgTag(k,p.name)}</figure>`).join("")}</div>
+    <div class="gal"><figure data-scene="${p.id}"></figure>${gal.map(k=>`<figure>${imgTag(k,p.name)}</figure>`).join("")}</div>
     <div class="dhead"><span class="meta">${esc(p.meta)}</span><h2 id="dTitle">${esc(p.name)}</h2><p>${esc(p.lead)}</p></div>
     <div class="facts">${p.facts.map(f=>`<div>${esc(f)}</div>`).join("")}</div>
-    ${p.reel?`<div><button class="btn btn-tag btn-play" type="button" data-reel="${p.reel}">Reel үзэх · дуутай</button></div>`:""}
+    ${p.reel?`<div><button class="btn btn-tag btn-play" type="button" data-reel="${p.reel}">Reel үзэх</button></div>`:""}
     ${p.secs.map(secHTML).join("")}
     <div class="dsec warn"><h4>Анхааруулга</h4><p>${esc(p.warn)}</p><p>Эм биш, өдөр тутмын эрүүл мэндийн нэмэлт. Өвчтэй, эмчийн хяналтад байгаа бол эмчдээ зөвлөөрэй.</p></div>
     <div class="dsec"><h4>Гэрчилгээ</h4><div class="certs">${p.certs.map(k=>certThumb(CERTS.find(c=>c.key===k))).join("")}</div></div>`;
@@ -673,14 +756,15 @@ function openBundle(id, push=true){
   const o=BUNDLES[id]; if(!o) return;
   const pct=o.was?Math.round((1-o.price/o.was)*100):0;
   const html=`
-    <div class="gal"><figure>${imgTag(o.id,o.n)}</figure></div>
+    <div class="gal"><figure data-scene="${o.id}"></figure></div>
     <div class="dhead"><span class="meta">${o.flag?"1 + 1 урамшуулал":"Багц · "+o.items.reduce((a,[,q])=>a+q,0)+" сав"}</span><h2 id="dTitle">${esc(o.n)}</h2><p>${esc(o.d)}</p></div>
     <div class="facts"><div>${fmt(o.price)}</div>${o.was?`<div>Тусдаа: ${fmt(o.was)}</div><div>Хэмнэлт: ${fmt(o.was-o.price)}</div><div>−${pct}%</div>`:""}</div>
     <div class="dsec"><h4>Багцад юу орох вэ</h4><p>Бүтээгдэхүүн дээр дарж дэлгэрэнгүйг уншина уу.</p><div class="contents" style="margin-top:8px">${chips(o.items)}</div></div>
     <div class="dsec"><h4>Хугацаа</h4><p>Урамшуулал 2026.11.09 – 11.30. Үнийг захиалахдаа апп дээрээс баталгаажуулна уу.</p></div>
     ${hasWarn(o.items)?`<div class="dsec warn"><h4>Анхааруулга</h4><p>${esc(WARN_STD)}</p><p>Эм биш, өдөр тутмын эрүүл мэндийн нэмэлт.</p></div>`:`<div class="dsec warn"><h4>Анхааруулга</h4><p>Найрлагад харшилтай бол хэрэглэхгүй. Эм биш, эрүүл мэндийн нэмэлт.</p></div>`}`;
-  const buy=`<div class="num"><span class="price">${fmt(o.price)}</span>${o.was?` <span class="was" style="display:inline">${fmt(o.was)}</span>`:""}</div><div class="acts">${reelBtn(o.reel||(o.flag?null:"promo"))}${orderLink("Захиалах ↗")}</div>`;
+  const buy=`${priceBox(o)}<div class="acts">${reelBtn(o.reel||(o.flag?null:"promo"))}${orderLink("Захиалах ↗")}</div>`;
   openSheet(html,buy,o.flag?"Урамшуулал":"Багц");
+  dBuy.classList.remove("lit"); setTimeout(()=>dBuy.classList.add("lit"),250);
   if(push) history.replaceState(null,"","#b"+id);
 }
 function closeSheet(){
@@ -707,37 +791,23 @@ $("#vClose").onclick=closeViewer;
 
 /* ======================= REEL PLAYER ======================= */
 const reel=$("#reel"), audio=$("#rAudio");
-let SPEC=null, R=null, raf=0, playing=false, muted=false, silentT=0, silentStart=0, curBeat=-1;
-let reelOpener=null;
+let SPEC=null, R=null, raf=0, playing=false, muted=false, silentT=0, silentStart=0, curBeat=-1, reelOpener=null, rScene=null, rSceneId=null;
 const SPEC_P = fetch("data/reels.json").then(r=>r.json()).then(j=>SPEC=j).catch(()=>null);
+const words = s => s.split(/\s+/).filter(Boolean);
 
-function splitWords(s){ return s.split(/\s+/).filter(Boolean); }
-function buildTimeline(spec, meta){
-  // returns {dur, beats:[{t0,t1,cap,img,cta,warn,words:[{t,w}]}]}
-  const beats=[]; let t=0;
-  spec.beats.forEach((b,i)=>{
-    const say=splitWords(b.say);
-    let t0,t1,ws;
-    const mb = meta && meta.beats && meta.beats[i];
-    if (mb){
-      t0=mb.t0; t1=mb.t1;
-      const tw=mb.words||[];
-      if (tw.length===say.length) ws=say.map((w,j)=>({t:t0+tw[j].t,w}));
-      else if (tw.length){ // align proportionally by index
-        ws=say.map((w,j)=>({t:t0+tw[Math.min(tw.length-1,Math.floor(j*tw.length/say.length))].t,w}));
-      }
-    } else {
-      const d=Math.max(2.2, b.say.length*0.062); t0=t; t1=t+d;
-    }
-    if(!ws){ const total=say.reduce((a,w)=>a+w.length+1,0); let acc=0; const span=(t1-t0)*0.92;
-      ws=say.map(w=>{const o={t:t0+0.08+span*acc/total,w}; acc+=w.length+1; return o;}); }
-    beats.push({...b,t0,t1,words:ws}); t=t1;
+function buildTimeline(spec, bpm){
+  const bar = 240/(bpm||120); let t=0;
+  const beats = spec.beats.map(b=>{
+    const t0=t, t1=t+bar*(b.bars||2); t=t1;
+    const ws=words(b.say), span=(t1-t0)*0.78, total=ws.reduce((a,w)=>a+w.length+2,0); let acc=0;
+    const wl=ws.map(w=>{ const o={t:t0+0.2+span*acc/total,w}; acc+=w.length+2; return o; });
+    return {...b,t0,t1,words:wl};
   });
-  return {dur:t, beats};
+  return {dur:t, bar, beats};
 }
-function chunks(words){ // up to 3 words / ~18 chars per caption chunk
+function chunks(ws){
   const out=[]; let cur=[];
-  for(const w of words){ cur.push(w); const len=cur.reduce((a,x)=>a+x.w.length,0);
+  for(const w of ws){ cur.push(w); const len=cur.reduce((a,x)=>a+x.w.length,0);
     if(cur.length>=3||len>16||/[.,?!]$/.test(w.w)){ out.push(cur); cur=[]; } }
   if(cur.length) out.push(cur); return out;
 }
@@ -745,18 +815,18 @@ async function openReel(id){
   await SPEC_P; if(!SPEC){ alertBox("Reel ачаалж чадсангүй."); return; }
   const spec=SPEC.reels.find(r=>r.id===id); if(!spec) return;
   let meta=null;
-  try{ const r=await fetch(`assets/reels/${id}.json`); if(r.ok) meta=await r.json(); }catch(e){}
-  R={id,spec,tl:buildTimeline(spec,meta),hasAudio:!!meta};
+  try{ const r=await fetch(`assets/music/${id}.json`); if(r.ok) meta=await r.json(); }catch(e){}
+  R={id,spec,tl:buildTimeline(spec,SPEC.bpm),hasAudio:!!meta};
   R.tl.beats.forEach(b=>b.chunks=chunks(b.words));
   const prod = P[SLUG_BY_ID[spec.pid]];
-  $("#rTitle").textContent=spec.title+(R.hasAudio?"":" · дуугүй");
-  $("#rLegal").textContent = "Эм биш, эрүүл мэндийн нэмэлт. " + (prod? prod.warn : "Хориглох заалттай: "+WARN_STD.replace(" хэрэглэхгүй.","")+" хэрэглэхгүй.");
+  $("#rTitle").textContent=spec.title;
+  $("#rLegal").textContent = "Эм биш, эрүүл мэндийн нэмэлт. " + (prod? prod.warn : "Хориглох заалттай: "+WARN_STD);
   $("#rSegs").innerHTML=R.tl.beats.map(()=>`<i><b></b></i>`).join("");
-  curBeat=-1; reelOpener=document.activeElement;
+  curBeat=-1; reelOpener=document.activeElement; rSceneId=null;
   reel.hidden=false; document.body.classList.add("locked");
   history.replaceState(null,"","#reel-"+id);
-  if(R.hasAudio){ audio.src=`assets/reels/${id}.mp3`; audio.currentTime=0; audio.muted=muted; }
-  else { audio.removeAttribute("src"); }
+  if(R.hasAudio){ audio.src=`assets/music/${id}.mp3`; audio.currentTime=0; audio.muted=muted; }
+  else audio.removeAttribute("src");
   silentT=0; play();
 }
 function now(){ return R.hasAudio ? audio.currentTime : silentT + (playing ? (performance.now()-silentStart)/1000 : 0); }
@@ -777,16 +847,25 @@ function seekBeat(i){
   if(R.hasAudio) audio.currentTime=t; else { silentT=t; silentStart=performance.now(); }
   curBeat=-1; if(!playing) play();
 }
+function showScene(id){
+  const host=$("#rScene");
+  if(rSceneId!==id){
+    Scene.forget(host); host.className="rscene"; host.innerHTML=""; host.removeAttribute("style");
+    const c=sceneCfg(id,{count:(SC[id]&&SC[id].count||10)+8});
+    if(c){ rScene=new Scene(host,c); } rSceneId=id;
+  } else Scene.replay(host);
+  setTimeout(()=>Scene.replay(host),30);
+}
 function setBeat(i){
   const b=R.tl.beats[i]; curBeat=i;
-  const src=`assets/img/${b.img}.webp`;
-  const img=$("#rImg"); img.dataset.alt=""; img.onerror=null;
-  const base=String(b.img).split("-")[0];
-  img.dataset.alt=[MAIN_V[base]?`${MH}${base}.webp?${MAIN_V[base]}`:""].filter(Boolean).join("|");
-  img.onerror=()=>imgFallback(img);
-  img.src=src; img.alt=b.cap;
-  $("#rHero").classList.toggle("full", String(b.img).includes("-m"));
-  $("#rBlur").style.backgroundImage=`url("${src}")`;
+  const photo=String(b.img).includes("-m");
+  $("#rHero").hidden=!photo; $("#rScene").hidden=photo;
+  if(photo){
+    const img=$("#rImg"); const src=`assets/img/${b.img}.webp`;
+    img.onerror=null; img.src=src; img.alt=b.cap;
+    $("#rHero").classList.add("full");
+    $("#rBlur").style.backgroundImage=`url("${src}")`;
+  } else showScene(b.img);
   const cap=$("#rCap"); cap.className="cap"+(b.warn?" warn":""); void cap.offsetWidth; cap.classList.add("pop");
   cap.innerHTML=`<span>${esc(b.cap)}</span>`;
   const cta=$("#rCta");
@@ -805,22 +884,22 @@ function tick(){
   let i=beats.findIndex(b=>t<b.t1); if(i<0) i=beats.length-1;
   if(i!==curBeat) setBeat(i);
   const b=beats[i];
-  // Ken Burns
   const k=Math.min(1,Math.max(0,(t-b.t0)/(b.t1-b.t0)));
-  $("#rImg").style.transform=`scale(${1+0.08*k}) translateY(${-2*k}%)`;
-  // progress
+  $("#rImg").style.transform=`scale(${1.02+0.08*k}) translateY(${-2*k}%)`;
+  // pulse on every quarter note
+  const q=(t/(R.tl.bar/4))%1, pulse=Math.max(0,1-q*4);
+  $("#rCap").style.scale=String(1+0.035*pulse);
   [...$("#rSegs").children].forEach((s,j)=>{ s.firstChild.style.transform=`scaleX(${j<i?1:j>i?0:k})`; });
-  // subtitles
-  let ci=b.chunks.findIndex(c=>t < (c[c.length-1].t + 0.35)); if(ci<0) ci=b.chunks.length-1;
-  if(t<b.t0+0.02) ci=0;
-  const ch=b.chunks[ci];
-  $("#rSubs").innerHTML=ch.map(w=>`<em class="${t>=w.t?(ch.filter(x=>t>=x.t).pop()===w?"on":"done"):""}">${esc(w.w.replace(/[.,]$/,""))}</em>`).join(" ");
+  let ci=b.chunks.findIndex(c=>t < (c[c.length-1].t + 0.45)); if(ci<0) ci=b.chunks.length-1;
+  const ch=b.chunks[ci], shown=ch.filter(x=>t>=x.t);
+  $("#rSubs").innerHTML=ch.map(w=>`<em class="${t>=w.t?(shown[shown.length-1]===w?"on":"done"):""}" style="${t>=w.t?"":"opacity:0"}">${esc(w.w.replace(/[.,]$/,""))}</em>`).join(" ");
   const end = R.hasAudio ? (audio.ended || t>=R.tl.dur-0.02) : t>=R.tl.dur;
-  if(end){ playing=false; $("#rPaused").hidden=false; [...$("#rSegs").children].forEach(s=>s.firstChild.style.transform="scaleX(1)"); return; }
+  if(end){ playing=false; audio.pause(); $("#rPaused").hidden=false; [...$("#rSegs").children].forEach(s=>s.firstChild.style.transform="scaleX(1)"); return; }
   if(playing) raf=requestAnimationFrame(tick);
 }
 function closeReel(){
   playing=false; cancelAnimationFrame(raf); audio.pause(); R=null; reel.hidden=true;
+  Scene.forget($("#rScene")); $("#rScene").innerHTML=""; rSceneId=null;
   if(sheet.hidden&&viewer.hidden) document.body.classList.remove("locked");
   if(location.hash.startsWith("#reel-")) history.replaceState(null,"",location.pathname);
   reelOpener&&reelOpener.focus&&reelOpener.focus();
@@ -831,13 +910,10 @@ $("#rNext").onclick=()=>{ if(curBeat>=R.tl.beats.length-1) closeReel(); else see
 $("#rMute").onclick=()=>{ muted=!muted; audio.muted=muted; $("#rMute").textContent=muted?"🔇":"🔊"; };
 $("#rX").onclick=closeReel; $("#rClose").onclick=closeReel;
 reel.addEventListener("click",e=>{ if(e.target===reel) closeReel(); });
-audio.addEventListener("ended",()=>{ if(R){ playing=false; $("#rPaused").hidden=false; } });
 function alertBox(msg){ const d=document.createElement("div"); d.textContent=msg; d.style.cssText="position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--coral);color:var(--abyss);padding:10px 16px;border-radius:999px;font-weight:800;z-index:200"; document.body.appendChild(d); setTimeout(()=>d.remove(),2600); }
 
 /* reel durations on rail */
-Promise.all(REELS.map(r=>fetch(`assets/reels/${r.id}.json`).then(x=>x.ok?x.json():null).catch(()=>null))).then(list=>{
-  list.forEach((m,i)=>{ if(!m) return; const el=document.querySelector(`[data-dur="${REELS[i].id}"]`); if(el) el.textContent=`▶ 0:${String(Math.round(m.dur)).padStart(2,"0")}`; });
-});
+SPEC_P.then(sp=>{ if(!sp) return; for(const r of sp.reels){ const el=document.querySelector(`[data-dur="${r.id}"]`); if(el){ const d=Math.round(r.beats.reduce((a,b)=>a+(b.bars||2),0)*240/(sp.bpm||120)); el.textContent=`▶ 0:${String(d).padStart(2,"0")}`; } } });
 
 /* ======================= EVENTS / ROUTING ======================= */
 document.addEventListener("click",e=>{

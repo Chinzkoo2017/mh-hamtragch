@@ -71,7 +71,7 @@ def compose(bars, key=60, prog=(6, 4, 1, 5), lead=12, mood="bright", bpm=120, se
         pool = ch + [n + 12 for n in ch] + [ch[0] + 24]
         for s in range(16):
             if intro and s % 2: continue
-            n = pool[motif[s % 8] + (3 if s >= 8 and b % 2 else 0)]
+            n = pool[(motif[s % 8] + (3 if s >= 8 and b % 2 else 0)) % len(pool)]
             arp.note(t0 + s * STEP, n + 12, STEP - 8, (88 if s % 4 == 0 else 66) - (14 if intro else 0))
         # hook: a short melodic phrase every second bar after the intro
         if not intro and b % 2 == 1:

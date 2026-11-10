@@ -235,7 +235,8 @@ footer p{margin:6px 0 0;max-width:62ch}
 .subs em.on{color:var(--abyss);background:var(--tag);border-radius:.18em;padding:0 .14em;transform:scale(1.08) rotate(-1.5deg)}
 .subs em.done{color:#fff}
 .legal{position:absolute;left:5cqw;right:5cqw;bottom:max(10px,env(safe-area-inset-bottom,0px));z-index:4;text-align:center;font-size:2.7cqw;color:rgba(255,255,255,.78);line-height:1.35}
-.rcta{position:absolute;left:8cqw;right:8cqw;bottom:13%;z-index:6;display:flex;flex-direction:column;align-items:center;gap:2cqw;animation:pop .5s cubic-bezier(.2,1.6,.4,1)}
+.stage.has-cta .subs{top:58%}
+.rcta{position:absolute;left:8cqw;right:8cqw;bottom:12%;z-index:6;display:flex;flex-direction:column;align-items:center;gap:2cqw;animation:pop .5s cubic-bezier(.2,1.6,.4,1)}
 .rcta .btn{font-size:4.2cqw;padding:3.2cqw 6cqw;box-shadow:0 10px 30px rgba(255,181,71,.35)}
 .rcta small{color:#fff;font-family:var(--f-mono);font-size:3cqw;text-shadow:0 1px 6px #000}
 .tapzones{position:absolute;inset:18% 0 22% 0;z-index:3;display:grid;grid-template-columns:1fr 1.2fr 1fr}
@@ -790,11 +791,13 @@ function setBeat(i){
   cap.innerHTML=`<span>${esc(b.cap)}</span>`;
   const cta=$("#rCta");
   if(b.cta){
-    const prod=P[SLUG_BY_ID[R.spec.pid]], bun=BUNDLES[R.spec.pid];
-    const pr = prod? fmt(prod.price) : bun? fmt(bun.price) : "";
+    const gift={collagen:"2279",toothpaste:"2275"}[R.id];
+    const prod=P[SLUG_BY_ID[R.spec.pid]], bun=BUNDLES[gift||R.spec.pid];
+    const pr = gift? "1+1 · "+fmt(bun.price) : bun? fmt(bun.price) : prod? fmt(prod.price) : "";
     cta.innerHTML=`<a class="btn btn-tag" href="${ORDER_URL}" target="_blank" rel="noopener">Захиалах ↗</a><small>${pr?pr+" · ":""}11/30 хүртэл</small>`;
     cta.hidden=false;
   } else cta.hidden=true;
+  $("#stage").classList.toggle("has-cta", !!b.cta);
 }
 function tick(){
   if(!R) return;

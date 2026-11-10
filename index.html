@@ -218,7 +218,7 @@ footer p{margin:6px 0 0;max-width:62ch}
 .stage .rscene .sc-prod{max-height:52%;bottom:24%;max-width:80%}
 .stage .rscene .sc-floor{height:30%}
 .stage .rscene .sc-shadow{bottom:22%}
-.audio-tag{position:absolute;left:5cqw;bottom:calc(max(10px,env(safe-area-inset-bottom,0px)) + 9.5cqw);z-index:4;display:flex;align-items:center;gap:2cqw;color:#fff;font-size:2.9cqw;font-weight:700;text-shadow:0 1px 4px rgba(0,0,0,.6);max-width:70%;overflow:hidden;white-space:nowrap}
+.audio-tag{position:absolute;left:5cqw;bottom:calc(max(10px,env(safe-area-inset-bottom,0px)) + 15cqw);z-index:4;display:flex;align-items:center;gap:2cqw;color:#fff;font-size:2.9cqw;font-weight:700;text-shadow:0 1px 4px rgba(0,0,0,.6);max-width:70%;overflow:hidden;white-space:nowrap}
 .audio-tag i{font-style:normal;display:inline-block;animation:spin 3s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .stage .hero-img.full .card{border-radius:0;box-shadow:none;background:var(--ink)}
@@ -244,7 +244,8 @@ footer p{margin:6px 0 0;max-width:62ch}
 .subs em.on{color:var(--abyss);background:var(--tag);border-radius:.18em;padding:0 .14em;transform:scale(1.08) rotate(-1.5deg)}
 .subs em.done{color:#fff}
 .legal{position:absolute;left:5cqw;right:5cqw;bottom:max(10px,env(safe-area-inset-bottom,0px));z-index:4;text-align:center;font-size:2.7cqw;color:rgba(255,255,255,.78);line-height:1.35}
-.stage.has-cta .subs{top:58%}
+.stage.has-cta .subs{top:56%}
+.stage.has-cta .audio-tag{display:none}
 .rcta{position:absolute;left:8cqw;right:8cqw;bottom:12%;z-index:6;display:flex;flex-direction:column;align-items:center;gap:2cqw;animation:pop .5s cubic-bezier(.2,1.6,.4,1)}
 .rcta .btn{font-size:4.2cqw;padding:3.2cqw 6cqw;box-shadow:0 10px 30px rgba(255,181,71,.35)}
 .rcta small{color:#fff;font-family:var(--f-mono);font-size:3cqw;text-shadow:0 1px 6px #000}
@@ -600,7 +601,7 @@ const REELS = [
 
 /* ---------- Хөдөлгөөнт дүр зураг (фон, капсул) ---------- */
 const SC = {
-  "154": {wall:["#eef3dc","#c2d3a0"],floor:"#a3b97f",fx:"capsule",styles:["green"],cut:"154-m5"},
+  "154": {wall:["#eef3dc","#c2d3a0"],floor:"#a3b97f",fx:"capsule",styles:["green"],cut:"154"},
   "121": {wall:["#ffc382","#f28a2e"],floor:"#6c4291",fx:"capsule",styles:["white"],cut:"121-m1"},
   "214": {wall:["#86ccd4","#3c97a6"],floor:"#2d4b7b",fx:"softgel",styles:["gel"],cut:"214-m4",count:11},
   "104": {wall:["#fdeed6","#f0c895"],floor:"#dea86f",fx:"capsule",styles:["beige"],cut:"104-m1"},
@@ -671,11 +672,11 @@ function chips(items){
   return items.map(([n,q])=>{const s=NAME2SLUG[n];const t=`${esc(n)}${q>1?` ×${q}`:""}`;return s?`<button type="button" data-open="${s}">${t}</button>`:`<span>${t}</span>`}).join("");
 }
 function priceBox(o){
-  const pct = o.was ? Math.round((1-o.price/o.was)*100) : 0;
+  const pct = o.was ? Math.floor((1-o.price/o.was)*100) : 0;
   return `<div class="pbox num">${o.was?`<span class="was">${fmt(o.was)}</span>`:""}<span class="now">${fmt(o.price)}</span>${o.was?`<span class="save">${fmt(o.was-o.price)} хэмнэнэ${pct?` · −${pct}%`:""}</span>`:""}</div>`;
 }
 function bundleCard(o){
-  const pct = o.was ? Math.round((1-o.price/o.was)*100) : 0;
+  const pct = o.was ? Math.floor((1-o.price/o.was)*100) : 0;
   return `<article class="deal${o.wide?" wide":""}">
     <button class="shot" type="button" data-bundle="${o.id}" data-scene="${o.id}" aria-label="${esc(o.n)} дэлгэрэнгүй">${o.flag?`<span class="flag">${o.flag}</span>`:""}</button>
     <div class="body">
@@ -754,7 +755,7 @@ function openProduct(slug, push=true){
 }
 function openBundle(id, push=true){
   const o=BUNDLES[id]; if(!o) return;
-  const pct=o.was?Math.round((1-o.price/o.was)*100):0;
+  const pct=o.was?Math.floor((1-o.price/o.was)*100):0;
   const html=`
     <div class="gal"><figure data-scene="${o.id}"></figure></div>
     <div class="dhead"><span class="meta">${o.flag?"1 + 1 урамшуулал":"Багц · "+o.items.reduce((a,[,q])=>a+q,0)+" сав"}</span><h2 id="dTitle">${esc(o.n)}</h2><p>${esc(o.d)}</p></div>

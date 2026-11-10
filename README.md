@@ -7,9 +7,10 @@ Marine Health бүтээгдэхүүний танилцуулга, 11-р сар�
 
 ## Бүтэц
 - `index.html` — сайт (бүтээгдэхүүний дэлгэрэнгүй, багц, reel тоглуулагч, гэрчилгээ)
-- `data/reels.json` — reel скрипт (дуу хоолойгоор уншигдах текст `say`, дэлгэцийн том бичиг `cap`, зураг `img`)
+- `data/reels.json` — reel скрипт (дэлгэцэн дээрх текст `say`, том бичиг `cap`, зураг `img`, үргэлжлэх хэмжээ `bars` — 1 bar = 2 сек, ая `music`)
 - `data/assets.json` — татах зураг, гэрчилгээний жагсаалт
-- `tools/build.py` + `.github/workflows/build-assets.yml` — `data/` өөрчлөгдөхөд GitHub Actions зураг, гэрчилгээ татаж, монгол дуу хоолой (mn-MN-YesuiNeural) үүсгээд `assets/` руу хадгална
+- `scene.js` — бүтээгдэхүүний шинэ фон, капсул унах/өнхрөх, нунтаг, бөмбөлгийн хөдөлгөөн
+- `tools/build.py` + `.github/workflows/build-assets.yml` — `data/` өөрчлөгдөхөд GitHub Actions зураг, гэрчилгээ татаж, зургийн фоныг арилгаж (`assets/cut`), reel бүрт өөрийн зохиосон ая (`assets/music`) үүсгэнэ
 
 ## Шууд холбоос (Messenger, пост-д)
 - Бүтээгдэхүүн: `#ashitaba`, `#cardio`, `#squalen`, `#iodium`, `#artro`, `#collagen`, `#toothpaste`
@@ -17,7 +18,7 @@ Marine Health бүтээгдэхүүний танилцуулга, 11-р сар�
 - Reel: `#reel-promo`, `#reel-ashitaba`, `#reel-cardio`, …
 
 ## Засах
-- Reel-ийн текстийг `data/reels.json`-д засаад push хийхэд дуу хоолой автоматаар шинэчлэгдэнэ.
+- Reel-ийн текстийг `data/reels.json`-д засаад push хийхэд ая шинэ урттай автоматаар үүснэ.
 - Үнэ, урамшуулал: `index.html` доторх `P`, `DEALS`, `GIFTS`, `SETS`, `SALE_END`.
 
 Энэ нь Marine Health-ийн албан ёсны вэб сайт биш. Бүтээгдэхүүний зураг, гэрчилгээ: Marine Health.

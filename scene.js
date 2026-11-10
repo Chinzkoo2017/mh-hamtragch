@@ -29,7 +29,8 @@
     const sc = 0.72 + 0.5 * z;
     this.z = z; this.style = style;
     this.gel = !!style.gel;
-    this.L = s.H * (this.gel ? 0.085 : 0.12) * sc;
+    const ref = Math.min(s.H, s.W * 0.8);
+    this.L = ref * (this.gel ? 0.085 : 0.12) * sc;
     this.R = this.gel ? this.L * 0.3 : this.L * 0.19;
     this.floor = s.floorY + s.H * 0.13 * z;
     const side = Math.random() < 0.5 ? -1 : 1;
@@ -133,7 +134,7 @@
   function Grain(s, burst) {
     this.x = s.W * rnd(0.12, 0.3) + (burst ? rnd(-10, 10) : 0); this.y = -rnd(0, s.H * 0.15);
     this.vx = rnd(-0.05, 0.12) * s.W; this.vy = rnd(0.1, 0.4) * s.H;
-    this.r = rnd(0.6, 2.2) * (s.H / 300); this.a = rnd(0.55, 0.95);
+    this.r = rnd(0.6, 2.2) * (Math.min(s.H, s.W * 0.8) / 300); this.a = rnd(0.55, 0.95);
     this.delay = rnd(0, 1.8); this.landed = false;
   }
   function Bubble(s) {
@@ -141,7 +142,7 @@
   }
   Bubble.prototype.reset = function (s, first) {
     this.x = s.W * rnd(0.05, 0.95); this.y = first ? s.H * rnd(0.3, 1.1) : s.H + rnd(5, 40);
-    this.r = rnd(2, 9) * (s.H / 300); this.v = rnd(0.08, 0.2) * s.H; this.ph = rnd(0, 6); this.w = rnd(0.6, 1.6);
+    this.r = rnd(2, 9) * (Math.min(s.H, s.W * 0.8) / 300); this.v = rnd(0.08, 0.2) * s.H; this.ph = rnd(0, 6); this.w = rnd(0.6, 1.6);
   };
 
   /* ---------- scene ---------- */

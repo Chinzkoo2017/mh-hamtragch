@@ -1,0 +1,29 @@
+{
+  "base": "https://my.marinehealth.asia/files/products/",
+  "main": {
+    "154": "154.webp?v6", "121": "121.webp?v14", "214": "214.webp?v4", "104": "104.webp?v9",
+    "106": "106.webp?v9", "282": "282.webp?v3", "2028": "2028.webp?v1",
+    "2301": "2301.webp?v2", "2302": "2302.webp?v1", "2303": "2303.webp?v1", "2304": "2304.webp?v1",
+    "2305": "2305.webp?v1", "2306": "2306.webp?v1", "2279": "2279.webp?v1", "2275": "2275.webp?v1",
+    "2127": "2127.webp?v2", "2102": "2102.webp?v1"
+  },
+  "media": {
+    "154": ["2059/media/4084ab187f424829b6100ad1bf4b1334.webp","2059/media/7291774c47044ce290826098b773aa2d.webp","2059/media/e64fc3bfe3274634ad97d62c9da2a5cf.webp","2059/media/c8d96e28a08e43d1b3417089b43b21e9.webp","2059/media/f63bc6095c2e42c7a0790a091cb06ebe.webp"],
+    "121": ["121/media/7e0037b2704d4b55b040341c1a294b98.webp","121/media/e212ab8b8e7046e1bad51f6fc1d0450a.webp","121/media/3070779941214a4a829b5424624dd9cc.webp","121/media/8f096623b1194addb8c325d1de494382.webp","121/media/5dde9804df64416e8ade905d042ee7cd.webp","121/media/00f377565c58468b8f447c9b856174f3.webp","121/media/a3879e3e04d14aef8852eb9a267a71c4.webp"],
+    "214": ["214/media/7630dfbbdd4a49a69690780e488dfd7e.webp","214/media/739e4b392afc487aa288aac4ace20198.webp","214/media/7a988cbeda364f6e95f2a082738ea921.webp","214/media/4bc9d436a50d473f8e6f68327ca557ad.webp","214/media/c9c73b4f06144e339b334975f40de80c.webp"],
+    "104": ["104/media/cad0d6b55eeb4b5a855e822d78318655.webp","104/media/c29fe180c69549938ac5f699b443e9ea.webp","104/media/04b41e9adfc34b1288ea1398d35cc774.webp","104/media/e2c54111e6094ded9ef9187fbed56549.webp","104/media/3f4a87cd36f54e4b96d6497b9d356762.webp","104/media/320d4515c4574ef1ba11e992a209bab4.webp"],
+    "106": ["106/media/a86812d35eb045bc92c77c1d2a81cdd9.webp","106/media/6fc0325c4ac044bab38e0cc29c74b214.webp","106/media/257c509f446248d2950b0090c6deb943.webp","106/media/3c912d002ab046b3b38c16f852db5721.webp","106/media/892a35b9e2aa4085858d601f1812ff76.webp","106/media/bf05d82bfc894c43b779d237d974a3d7.webp"],
+    "282": ["282/media/47c704fd9bb14551816a1cf7c77f42c9.webp","282/media/2e9cedc551b84fbfbaca975ff3f69bb9.webp","282/media/2f638ed6624c471b9808126fdaf6577a.webp","282/media/2a098c3cc0384481bb9fff7dcf3dafb5.webp","282/media/60037ef26f134baa9974f0f22ddd594c.webp","282/media/76c7c50507f44d41853252d669b4dd2e.webp"],
+    "2028": ["2028/media/cd835b49246f4eaeac5236817fa981e3.webp","2028/media/a5e0a213dcdd40ebba3f43d5a4732861.webp","2028/media/b16f6a600159483e9e26f7804eea3722.webp","2028/media/df2bbeb1a60d457083893301c335286a.webp","2028/media/7b300d11192544d2875c4dce872b25e7.webp","2028/media/3e00e3e626b2414083983ea482976ad1.webp"]
+  },
+  "certs": [
+    {"key": "ashitaba-sgr", "pid": "154", "title": "СГР — ASHITABA", "path": "2059/certificates_34e606d82c09406bb79dda42c5dcd146.pdf"},
+    {"key": "cardio-sgr", "pid": "121", "title": "СГР — Cardio Marine", "path": "121/certificates_36db9df017ec419c8c3dfc866546379c.PDF"},
+    {"key": "squalen-sgr", "pid": "214", "title": "СГР — Squalen Premium", "path": "214/certificates_cb23cea80bec4d54acdbad46dee40774.PDF"},
+    {"key": "iodium-sgr", "pid": "104", "title": "СГР — Iodium Kelp", "path": "104/certificates_9be5e97a9aff4abb9b44246a9dafa0ce.pdf"},
+    {"key": "artro-sgr", "pid": "106", "title": "СГР — ArtroMarine + MSM", "path": "106/certificates_81daed948c404848991df37edfa3294e.pdf"},
+    {"key": "collagen-sgr", "pid": "282", "title": "СГР — MH Collagen", "path": "282/certificates_5bcec3bb26944e8f8bba0c95844d35cf.pdf"},
+    {"key": "collagen-halal", "pid": "282", "title": "HALAL гэрчилгээ — MH Collagen", "path": "282/certificates_647250ce34c64724964597727d4d54b4.pdf"},
+    {"key": "toothpaste-ds", "pid": "2028", "title": "Тохирлын тунхаглал — ASHITABA шүдний оо", "path": "2028/certificates_ede3f46182bf4c8cae1a1c2d92cbd249.pdf"}
+  ]
+}

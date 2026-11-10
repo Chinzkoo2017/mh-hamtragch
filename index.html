@@ -7,14 +7,17 @@
 <meta name="description" content="Marine Health бүтээгдэхүүн, 11-р сарын урамшуулал — бизнес хамтрагчийн танилцуулга сайт.">
 <meta property="og:title" content="Эрүүл амьдралын хөтөч — Marine Health урамшуулал">
 <meta property="og:description" content="6 багц 800,000₮ (−47%), Collagen ба шүдний оо 1+1. 11-р сарын 30 хүртэл.">
-<meta property="og:image" content="https://my.marinehealth.asia/files/products/2301.webp?v2">
+<meta property="og:image" content="https://chinzkoo2017.github.io/mh-hamtragch/assets/img/2301.webp">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#06121f">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@400;500;700;800&family=JetBrains+Mono:wght@500&display=swap">
 <style>
-/* Layout: deep-sea night — sale ticker, oversized type hero with live end-of-sale countdown, promo bundle wall, product shelf, sticky order bar on phones */
+/* Layout: deep-sea night — sale ticker, oversized type hero, story-style reel rail, promo bundle wall, product shelf with detail sheets, certificate wall, sticky order bar on phones */
 :root{
   --abyss:#06121f; --deep:#0b2035; --tide:#173a57; --line:#24506f;
-  --foam:#eaf2f5; --mist:#9fb6c4; --paper:#f4f7f8;
+  --foam:#eaf2f5; --mist:#9fb6c4; --paper:#f4f7f8; --ink:#0d1b26;
   --tag:#ffb547; --coral:#ff6b57; --sea:#4fd1c5;
   --f-display:"Unbounded","Arial Black",system-ui,sans-serif;
   --f-body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -22,12 +25,15 @@
   color-scheme:dark;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 body{margin:0;background:var(--abyss);color:var(--foam);font-family:var(--f-body);font-size:16px;line-height:1.55;overflow-x:hidden}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--abyss)}
+body.locked{overflow:hidden}
+img{max-width:100%}
+[hidden]{display:none!important}
 a{color:inherit}
+button{font:inherit;color:inherit}
 .wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.08}
+h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.08}
 .eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--tag)}
 :focus-visible{outline:2px solid var(--tag);outline-offset:3px;border-radius:6px}
 .num{font-variant-numeric:tabular-nums}
@@ -37,7 +43,7 @@ h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.0
 .ticker span::after{content:"✦";margin-left:28px}
 @keyframes run{to{transform:translateX(-50%)}}
 
-header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--abyss) 84%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+header.top{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--abyss) 86%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
 .brand{display:flex;flex-direction:column;text-decoration:none;min-width:0}
 .brand b{font-family:var(--f-display);font-size:15px;font-weight:700}
@@ -45,14 +51,15 @@ header.top .wrap{display:flex;align-items:center;justify-content:space-between;g
 nav.links{display:flex;gap:22px;font-weight:700;font-size:14px}
 nav.links a{text-decoration:none;color:var(--mist)}
 nav.links a:hover{color:var(--foam)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:800;font-size:14.5px;text-decoration:none;border-radius:999px;padding:12px 20px;border:1px solid transparent;transition:transform .2s;cursor:pointer;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:800;font-size:14.5px;text-decoration:none;border-radius:999px;padding:12px 20px;border:1px solid transparent;transition:transform .2s;cursor:pointer;white-space:nowrap;background:none}
 .btn:hover{transform:translateY(-2px)}
 .btn-tag{background:var(--tag);color:var(--abyss)}
 .btn-ghost{border-color:var(--line);color:var(--foam)}
 .btn-ghost:hover{border-color:var(--mist)}
-@media (max-width:860px){nav.links{display:none}}
+.btn-play::before{content:"";width:0;height:0;border-left:9px solid currentColor;border-top:6px solid transparent;border-bottom:6px solid transparent}
+@media (max-width:900px){nav.links{display:none}}
 
-.hero{position:relative;overflow:hidden;padding-block:52px 44px}
+.hero{position:relative;overflow:hidden;padding-block:48px 40px}
 .hero canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.55;pointer-events:none}
 .hero .wrap{position:relative;display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center}
 .bf{font-family:var(--f-display);font-weight:900;font-size:clamp(52px,10.5vw,142px);line-height:.86;letter-spacing:-.03em;margin:14px 0 20px}
@@ -67,64 +74,89 @@ nav.links a:hover{color:var(--foam)}
 .countdown{display:flex;gap:6px;justify-content:center;margin-top:12px;font-family:var(--f-mono)}
 .countdown span{background:var(--abyss);color:var(--foam);border-radius:8px;padding:6px 7px;font-size:15px;min-width:44px}
 .countdown em{display:block;font-style:normal;font-size:9px;color:var(--mist);letter-spacing:.08em}
-@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.stamp{justify-self:center;width:260px}}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}.stamp{justify-self:center;width:250px}}
 
-section{padding-block:60px}
-.sec-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:28px}
+section{padding-block:56px}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:26px}
 .sec-head h2{font-size:clamp(28px,4.6vw,48px);margin-top:8px}
 .sec-head p{color:var(--mist);max-width:48ch;margin:0}
 
-/* promo wall */
+/* reel rail */
+#reels{padding-block:8px 40px}
+.rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;scrollbar-width:thin}
+.rcard{flex:0 0 auto;width:156px;aspect-ratio:9/16;border-radius:20px;position:relative;overflow:hidden;scroll-snap-align:start;cursor:pointer;border:0;padding:0;background:var(--deep);text-align:left;isolation:isolate}
+.rcard::before{content:"";position:absolute;inset:0;border-radius:20px;padding:2px;background:conic-gradient(from 200deg,var(--tag),var(--coral),var(--sea),var(--tag));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;z-index:3;pointer-events:none}
+.rcard .bg{position:absolute;inset:0;background:var(--paper)}
+.rcard img{position:absolute;inset:8% 6% 30%;width:88%;height:62%;object-fit:contain;transition:transform .5s}
+.rcard:hover img{transform:scale(1.06)}
+.rcard .shade{position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(6,18,31,.92) 82%);z-index:1}
+.rcard .lbl{position:absolute;left:12px;right:12px;bottom:12px;z-index:2;color:#fff}
+.rcard .lbl b{display:block;font-family:var(--f-display);font-size:14px;line-height:1.15}
+.rcard .lbl small{font-family:var(--f-mono);font-size:11px;color:var(--tag)}
+.rcard .pl{position:absolute;top:10px;right:10px;z-index:2;width:30px;height:30px;border-radius:50%;background:rgba(6,18,31,.75);display:grid;place-items:center;color:#fff}
+.rcard .pl::before{content:"";border-left:9px solid currentColor;border-top:6px solid transparent;border-bottom:6px solid transparent;margin-left:2px}
+
+/* cards */
 .deals{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.deal{background:var(--deep);border:1px solid var(--line);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;min-width:0;transition:transform .25s,border-color .25s}
+.deal,.prod{background:var(--deep);border:1px solid var(--line);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;min-width:0;transition:transform .25s,border-color .25s}
 .deal:hover{transform:translateY(-4px);border-color:var(--tag)}
-.shot{background:var(--paper);display:grid;place-items:center;padding:18px 14px;height:220px;position:relative}
-.shot img{max-width:100%;max-height:184px;width:auto;object-fit:contain}
+.prod:hover{transform:translateY(-4px);border-color:var(--mist)}
+.shot{background:var(--paper);display:grid;place-items:center;padding:18px 14px;height:220px;position:relative;cursor:pointer;border:0;width:100%}
+.shot img{max-height:184px;max-width:100%;width:auto;object-fit:contain}
 .flag{position:absolute;top:12px;right:12px;font-family:var(--f-display);font-weight:900;font-size:15px;background:var(--coral);color:var(--abyss);border-radius:999px;padding:6px 12px}
-.deal .body,.prod .body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:10px;flex:1}
+.badge{position:absolute;top:12px;left:12px;font-family:var(--f-mono);font-size:11px;padding:4px 9px;border-radius:999px;background:var(--abyss);color:var(--tag)}
+.body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:10px;flex:1}
 .deal h3,.prod h3{font-size:18px}
+.ttl{background:none;border:0;padding:0;text-align:left;cursor:pointer}
+.ttl:hover h3{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:2px}
 .contents{display:flex;flex-wrap:wrap;gap:6px}
-.contents span{font-family:var(--f-mono);font-size:12px;padding:4px 9px;border-radius:999px;border:1px solid var(--line);color:var(--sea)}
+.contents span,.contents button{font-family:var(--f-mono);font-size:12px;padding:4px 9px;border-radius:999px;border:1px solid var(--line);color:var(--sea);background:none}
+.contents button{cursor:pointer}
+.contents button:hover{border-color:var(--sea)}
 .deal p,.prod p{margin:0;color:var(--mist);font-size:14.5px}
+.meta{font-family:var(--f-mono);font-size:12px;color:var(--sea)}
 .foot{margin-top:auto;padding-top:10px;display:flex;justify-content:space-between;align-items:end;gap:10px;flex-wrap:wrap}
 .price{font-family:var(--f-display);font-size:22px;line-height:1.1}
 .was{display:block;font-family:var(--f-body);font-size:13px;color:var(--mist);text-decoration:line-through}
 .save{display:block;font-family:var(--f-mono);font-size:12px;color:var(--tag);margin-top:2px}
-.deal .btn,.prod .btn{padding:10px 16px;font-size:13.5px}
+.acts{display:flex;gap:8px;flex-wrap:wrap}
+.acts .btn{padding:10px 14px;font-size:13.5px}
+.more{font-weight:800;font-size:13.5px;color:var(--foam);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px;align-self:flex-start}
 .deal.wide{grid-column:span 3;flex-direction:row}
 .deal.wide .shot{width:44%;height:auto;min-height:240px}
 @media (max-width:980px){.deals{grid-template-columns:repeat(2,1fr)}.deal.wide{grid-column:span 2}}
 @media (max-width:620px){.deals{grid-template-columns:1fr}.deal.wide{grid-column:auto;flex-direction:column}.deal.wide .shot{width:auto;min-height:0;height:220px}}
-details.warn{font-size:13px;color:var(--mist)}
-details.warn summary{cursor:pointer;color:var(--coral);font-weight:700}
-
 .subhead{display:flex;align-items:center;gap:12px;margin:34px 0 16px;font-family:var(--f-display);font-size:18px}
 .subhead::after{content:"";flex:1;height:1px;background:var(--line)}
-
-/* product shelf */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
-.prod{background:var(--deep);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;min-width:0;transition:transform .25s,border-color .25s}
-.prod:hover{transform:translateY(-4px);border-color:var(--mist)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
 .prod .shot{height:230px}
-.prod .meta{font-family:var(--f-mono);font-size:12px;color:var(--sea)}
-.badge{position:absolute;top:12px;left:12px;font-family:var(--f-mono);font-size:11px;padding:4px 9px;border-radius:999px;background:var(--abyss);color:var(--tag)}
 
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;counter-reset:s}
 .step{border-top:2px solid var(--tag);padding-top:16px}
 .step::before{counter-increment:s;content:counter(s,decimal-leading-zero);font-family:var(--f-mono);color:var(--tag);font-size:13px}
 .step h3{font-size:17px;margin:6px 0}
 .step p{margin:0;color:var(--mist);font-size:14.5px}
-@media (max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:900px){.steps{grid-template-columns:1fr 1fr}}
 @media (max-width:440px){.steps{grid-template-columns:1fr}}
 
-.trust{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+/* certificates */
+.certs{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
+.cert{background:var(--deep);border:1px solid var(--line);border-radius:16px;padding:10px;cursor:pointer;text-align:left;display:flex;flex-direction:column;gap:8px;transition:border-color .2s}
+.cert:hover{border-color:var(--tag)}
+.cert .pg{aspect-ratio:1/1.414;background:var(--paper);border-radius:8px;overflow:hidden;display:grid;place-items:center}
+.cert .pg img{width:100%;height:100%;object-fit:cover;object-position:top}
+.cert .pg span{font-family:var(--f-mono);font-size:12px;color:var(--ink)}
+.cert b{font-size:13px;line-height:1.3}
+.cert small{font-family:var(--f-mono);font-size:11px;color:var(--sea)}
+
+.trust{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
 .box{border:1px solid var(--line);border-radius:22px;padding:24px;background:var(--deep)}
 .box h3{font-size:19px;margin:6px 0 10px}
 .box ul{margin:0;padding-left:18px;color:var(--mist)}
 .box li+li{margin-top:6px}
 .box.alert{border-color:var(--coral)}
 .box.alert h3,.box.alert .eyebrow{color:var(--coral)}
-@media (max-width:860px){.trust{grid-template-columns:1fr}}
+@media (max-width:900px){.trust{grid-template-columns:1fr}}
 
 footer{border-top:1px solid var(--line);padding-block:36px 110px;color:var(--mist);font-size:13.5px}
 footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
@@ -133,12 +165,91 @@ footer p{margin:6px 0 0;max-width:62ch}
 .socials{display:flex;gap:10px;flex-wrap:wrap}
 .dock{position:fixed;left:0;right:0;bottom:0;z-index:55;display:none;gap:10px;background:color-mix(in srgb,var(--abyss) 92%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line);padding-top:10px;padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .dock .btn{flex:1}
-@media (max-width:860px){.dock{display:flex}}
-@media (prefers-reduced-motion:reduce){.ticker .run{animation:none}.btn,.deal,.prod{transition:none}html{scroll-behavior:auto}}
+@media (max-width:900px){.dock{display:flex}}
+
+/* detail sheet */
+.sheet{position:fixed;inset:0;z-index:80;display:flex;justify-content:flex-end;background:rgba(3,9,16,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.sheet .panel{width:min(760px,100%);height:100%;overflow-y:auto;background:var(--abyss);border-left:1px solid var(--line);animation:slide .35s cubic-bezier(.2,.8,.2,1);overscroll-behavior:contain}
+@keyframes slide{from{transform:translateX(40px);opacity:.4}}
+.sheet .bar{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px max(16px,env(safe-area-inset-right,0px)) 12px 20px;padding-top:calc(12px + env(safe-area-inset-top,0px));background:color-mix(in srgb,var(--abyss) 90%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.x{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--deep);cursor:pointer;font-size:22px;line-height:1;display:grid;place-items:center;color:var(--foam)}
+.dbody{padding:20px 20px calc(110px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:22px}
+.gal{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-20px;padding-inline:20px;scrollbar-width:none}
+.gal::-webkit-scrollbar{display:none}
+.gal figure{margin:0;flex:0 0 auto;width:min(78%,420px);aspect-ratio:1;border-radius:20px;overflow:hidden;background:var(--paper);scroll-snap-align:center;display:grid;place-items:center}
+.gal img{width:100%;height:100%;object-fit:contain}
+.dhead h2{font-size:clamp(26px,5vw,38px);margin:8px 0 10px}
+.dhead p{margin:0;color:var(--mist);font-size:16.5px;max-width:62ch}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.facts div{border:1px solid var(--line);border-radius:14px;padding:10px 12px;font-family:var(--f-mono);font-size:12.5px;color:var(--sea);background:var(--deep)}
+@media (max-width:560px){.facts{grid-template-columns:1fr 1fr}}
+.dsec{border-top:1px solid var(--line);padding-top:16px}
+.dsec h4{font-size:16px;margin-bottom:10px;color:var(--foam)}
+.dsec p{margin:0 0 8px;color:var(--mist);max-width:66ch}
+.dsec ul{margin:0;padding-left:20px;color:var(--mist);max-width:66ch}
+.dsec li+li{margin-top:5px}
+.dsec.warn{border:1px solid var(--coral);border-radius:16px;padding:16px;background:color-mix(in srgb,var(--coral) 8%,var(--abyss))}
+.dsec.warn h4{color:var(--coral)}
+.dbuy{position:sticky;bottom:0;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:14px 20px;padding-bottom:calc(14px + env(safe-area-inset-bottom,0px));background:color-mix(in srgb,var(--deep) 94%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+.dbuy .acts{flex:1;justify-content:flex-end}
+.inci{font-family:var(--f-mono);font-size:12px;color:var(--mist);line-height:1.7}
+
+/* certificate viewer */
+.viewer{position:fixed;inset:0;z-index:95;background:rgba(3,9,16,.94);display:flex;flex-direction:column}
+.viewer .bar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px max(16px,env(safe-area-inset-right,0px)) 12px max(16px,env(safe-area-inset-left,0px));padding-top:calc(12px + env(safe-area-inset-top,0px));border-bottom:1px solid var(--line)}
+.viewer .bar b{font-size:15px}
+.viewer .pages{flex:1;overflow:auto;padding:20px max(16px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;align-items:center;gap:16px}
+.viewer .pages img{width:min(900px,100%);height:auto;background:#fff;border-radius:6px;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+.viewer .note{color:var(--mist);text-align:center;max-width:46ch}
+
+/* reel player */
+.reel{position:fixed;inset:0;z-index:100;background:#000;display:grid;place-items:center}
+.stage{position:relative;height:100%;max-height:100dvh;aspect-ratio:9/16;max-width:100vw;overflow:hidden;background:var(--ink);user-select:none;-webkit-user-select:none;container-type:size}
+@media (min-width:700px){.stage{height:min(92vh,880px);border-radius:22px}}
+.stage .blur{position:absolute;inset:-10%;background-size:cover;background-position:center;filter:blur(38px) saturate(1.3) brightness(.55);transform:scale(1.1)}
+.stage .tint{position:absolute;inset:0;background:radial-gradient(120% 70% at 50% 40%,transparent,rgba(6,18,31,.85))}
+.stage .hero-img{position:absolute;left:8%;right:8%;top:20%;height:44%;display:grid;place-items:center}
+.stage .hero-img .card{width:100%;height:100%;border-radius:6cqw;background:var(--paper);display:grid;place-items:center;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.45)}
+.stage .hero-img img{width:100%;height:100%;object-fit:contain;transform-origin:center}
+.stage .hero-img.full{inset:0;height:auto}
+.stage .hero-img.full .card{border-radius:0;box-shadow:none;background:var(--ink)}
+.stage .hero-img.full img{object-fit:cover}
+.stage .hero-img.full::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,18,31,.55) 0%,transparent 30%,transparent 55%,rgba(6,18,31,.8) 100%)}
+.stage .top{position:absolute;left:0;right:0;top:0;padding:max(12px,env(safe-area-inset-top,0px)) 4cqw 0;z-index:5}
+.segs{display:flex;gap:4px}
+.segs i{flex:1;height:3px;border-radius:3px;background:rgba(255,255,255,.3);overflow:hidden;position:relative}
+.segs i b{position:absolute;inset:0;background:#fff;transform-origin:left;transform:scaleX(0)}
+.who{display:flex;align-items:center;gap:10px;margin-top:12px;color:#fff}
+.who .av{width:34px;height:34px;border-radius:50%;background:var(--tag);color:var(--abyss);display:grid;place-items:center;font-family:var(--f-display);font-size:12px;font-weight:900}
+.who b{font-size:13.5px;display:block;line-height:1.1}
+.who small{font-size:11.5px;opacity:.75}
+.who .sp{flex:1}
+.rbtn{width:38px;height:38px;border-radius:50%;border:0;background:rgba(0,0,0,.4);color:#fff;cursor:pointer;display:grid;place-items:center;font-size:18px}
+.cap{position:absolute;left:6cqw;right:6cqw;top:12.5%;z-index:4;text-align:center;font-family:var(--f-display);font-weight:900;font-size:7.4cqw;line-height:1.05;color:#fff;text-shadow:0 3px 18px rgba(0,0,0,.55);letter-spacing:-.01em}
+.cap span{display:inline-block;background:var(--tag);color:var(--abyss);padding:.12em .32em;border-radius:.22em;box-decoration-break:clone;-webkit-box-decoration-break:clone;transform:rotate(-2deg)}
+.cap.warn span{background:var(--coral);font-size:.62em;line-height:1.25}
+.cap.pop{animation:pop .45s cubic-bezier(.2,1.6,.4,1)}
+@keyframes pop{from{transform:scale(.6) translateY(10px);opacity:0}}
+.subs{position:absolute;left:5cqw;right:5cqw;top:68%;z-index:4;text-align:center;font-family:var(--f-display);font-weight:900;font-size:6.6cqw;line-height:1.18;color:#fff;text-transform:uppercase;text-shadow:0 0 1px #000,0 3px 0 rgba(0,0,0,.6),0 0 24px rgba(0,0,0,.6);min-height:2.5em}
+.subs em{font-style:normal;display:inline-block;margin:0 .12em;transition:transform .12s}
+.subs em.on{color:var(--abyss);background:var(--tag);border-radius:.18em;padding:0 .14em;transform:scale(1.08) rotate(-1.5deg)}
+.subs em.done{color:#fff}
+.legal{position:absolute;left:5cqw;right:5cqw;bottom:max(10px,env(safe-area-inset-bottom,0px));z-index:4;text-align:center;font-size:2.7cqw;color:rgba(255,255,255,.78);line-height:1.35}
+.rcta{position:absolute;left:8cqw;right:8cqw;bottom:13%;z-index:6;display:flex;flex-direction:column;align-items:center;gap:2cqw;animation:pop .5s cubic-bezier(.2,1.6,.4,1)}
+.rcta .btn{font-size:4.2cqw;padding:3.2cqw 6cqw;box-shadow:0 10px 30px rgba(255,181,71,.35)}
+.rcta small{color:#fff;font-family:var(--f-mono);font-size:3cqw;text-shadow:0 1px 6px #000}
+.tapzones{position:absolute;inset:18% 0 22% 0;z-index:3;display:grid;grid-template-columns:1fr 1.2fr 1fr}
+.tapzones button{background:none;border:0;cursor:pointer}
+.paused{position:absolute;inset:0;z-index:7;display:grid;place-items:center;pointer-events:none}
+.paused div{width:22cqw;height:22cqw;border-radius:50%;background:rgba(0,0,0,.5);display:grid;place-items:center}
+.paused div::before{content:"";border-left:7cqw solid #fff;border-top:4.4cqw solid transparent;border-bottom:4.4cqw solid transparent;margin-left:1.6cqw}
+.reel .close{position:absolute;top:max(14px,env(safe-area-inset-top,0px));right:max(14px,env(safe-area-inset-right,0px));z-index:110}
+@media (max-width:699px){.reel .close{display:none}}
+
+@media (prefers-reduced-motion:reduce){.ticker .run{animation:none}.btn,.deal,.prod{transition:none}html{scroll-behavior:auto}.cap.pop,.rcta,.sheet .panel{animation:none}}
 </style>
 </head>
 <body>
-
 
 <div class="ticker" aria-hidden="true"><div class="run" id="tick"></div></div>
 
@@ -146,7 +257,7 @@ footer p{margin:6px 0 0;max-width:62ch}
   <div class="wrap">
     <a class="brand" href="#top"><b>Эрүүл амьдралын хөтөч</b><small>Marine Health-ийн бизнес хамтрагч</small></a>
     <nav class="links" aria-label="Хэсгүүд">
-      <a href="#promo">Урамшуулал</a><a href="#products">Бүтээгдэхүүн</a><a href="#how">Хэрхэн авах</a><a href="#safe">Анхааруулга</a>
+      <a href="#reels">Reels</a><a href="#promo">Урамшуулал</a><a href="#products">Бүтээгдэхүүн</a><a href="#certs">Гэрчилгээ</a><a href="#how">Хэрхэн авах</a>
     </nav>
     <a class="btn btn-tag" data-order href="#">Захиалах ↗</a>
   </div>
@@ -161,8 +272,8 @@ footer p{margin:6px 0 0;max-width:62ch}
         <h1 class="bf"><span class="out">BLACK</span><br><span class="hot">FRIDAY</span></h1>
         <p class="lead"><strong>11-р сарын урамшуулал эхэллээ.</strong> 4 савтай 6 багц тус бүр 800,000₮, Collagen болон ASHITABA шүдний оо 1+1. Урамшуулал 11-р сарын 30 хүртэл.</p>
         <div class="cta-row">
-          <a class="btn btn-tag" href="#promo">Урамшууллыг харах</a>
-          <a class="btn btn-ghost" data-order href="#">Дэлгүүр рүү ↗</a>
+          <button class="btn btn-tag btn-play" type="button" data-reel="promo">Урамшууллын reel</button>
+          <a class="btn btn-ghost" href="#promo">Багцуудыг харах</a>
         </div>
       </div>
       <div class="stamp" role="img" aria-label="Багц 47% хямд, урамшуулал дуусах хүртэлх хугацаа">
@@ -175,11 +286,21 @@ footer p{margin:6px 0 0;max-width:62ch}
     </div>
   </section>
 
+  <section id="reels">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="eyebrow">Reels · дуу хоолойтой</span><h2>30 секундэд танилц</h2></div>
+        <p>Бүтээгдэхүүн бүрийн тухай богино видео. Дарж үзээрэй, дуутай.</p>
+      </div>
+      <div class="rail" id="rail"></div>
+    </div>
+  </section>
+
   <section id="promo">
     <div class="wrap">
       <div class="sec-head">
         <div><span class="eyebrow">Урамшуулал · 11.09 – 11.30</span><h2>Энэ сарын багцууд</h2></div>
-        <p>Багц бүр 4 сав. Тус тусад нь авахтай харьцуулсан хэмнэлтийг доор харуулав. Үнийг захиалахдаа апп дээрээс баталгаажуулна уу.</p>
+        <p>Багц бүр 4 сав. Тус тусад нь авахтай харьцуулсан хэмнэлтийг доор харуулав. Бүтээгдэхүүний нэр дээр дарж дэлгэрэнгүйг уншина уу.</p>
       </div>
       <div class="deals" id="deals"></div>
       <div class="subhead">1 + 1 бэлэг</div>
@@ -191,11 +312,44 @@ footer p{margin:6px 0 0;max-width:62ch}
     <div class="wrap">
       <div class="sec-head">
         <div><span class="eyebrow">Каталог · Монгол</span><h2>Бүтээгдэхүүнүүд</h2></div>
-        <p>Эм биш, өдөр тутмын эрүүл мэндийн нэмэлт. Монгол руу хүргэлттэй каталогт байгаа бүтээгдэхүүнүүд.</p>
+        <p>Эм биш, өдөр тутмын эрүүл мэндийн нэмэлт. Карт дээр дарж найрлага, хэрэглэх заавар, гэрчилгээг харна.</p>
       </div>
       <div class="grid" id="grid"></div>
       <div class="subhead">Цогц багц</div>
       <div class="deals" id="sets"></div>
+    </div>
+  </section>
+
+  <section id="certs">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="eyebrow">Баталгаа</span><h2>Гэрчилгээнүүд</h2></div>
+        <p>ЕАЭЗХ-ны улсын бүртгэлийн гэрчилгээ (СГР), HALAL гэрчилгээ, тохирлын тунхаглал. Дарж томруулж харна.</p>
+      </div>
+      <div class="certs" id="certList"></div>
+      <div class="trust">
+        <div class="box">
+          <span class="eyebrow">Баталгаа</span>
+          <h3>Үйлдвэрлэгч, гэрчилгээ</h3>
+          <ul>
+            <li>Үйлдвэрлэгч: Akyldy Food Supplements (Казахстан).</li>
+            <li>ЕАЭЗХ-ны улсын бүртгэлийн гэрчилгээ (СГР).</li>
+            <li>Бүтээгдэхүүн бүр эм биш, өдөр тутмын эрүүл мэндийн нэмэлт.</li>
+            <li>Захиалга, төлбөр, и-баримт Marine Health-ийн албан ёсны системээр.</li>
+          </ul>
+        </div>
+        <div class="box alert">
+          <span class="eyebrow">Анхааруулга</span>
+          <h3>Хэрэглэхгүй байх хүмүүс</h3>
+          <ul>
+            <li>18-аас доош насны хүүхэд</li>
+            <li>Жирэмсэн, хөхүүл эхчүүд</li>
+            <li>Цус шингэлэх эм (антикоагулянт) хэрэглэдэг хүмүүс</li>
+            <li>Найрлагад нь харшилтай, мэдрэг хүмүүс</li>
+          </ul>
+          <p style="color:var(--mist);margin:12px 0 0">Эмчийн хяналтад байгаа бол эмчдээ зөвлөөрэй. Бүтээгдэхүүний найрлагыг илгээж өгнө.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -210,39 +364,13 @@ footer p{margin:6px 0 0;max-width:62ch}
       </div>
     </div>
   </section>
-
-  <section id="safe">
-    <div class="wrap trust">
-      <div class="box">
-        <span class="eyebrow">Баталгаа</span>
-        <h3>Үйлдвэрлэгч, гэрчилгээ</h3>
-        <ul>
-          <li>Үйлдвэрлэгч: Akyldy Food Supplements (Казахстан).</li>
-          <li>ЕАЭЗХ-ны улсын бүртгэлийн гэрчилгээ (СГР).</li>
-          <li>Бүтээгдэхүүн бүр эм биш, өдөр тутмын эрүүл мэндийн нэмэлт.</li>
-          <li>Захиалга, төлбөр, и-баримт Marine Health-ийн албан ёсны системээр.</li>
-        </ul>
-      </div>
-      <div class="box alert">
-        <span class="eyebrow">Анхааруулга</span>
-        <h3>Хэрэглэхгүй байх хүмүүс</h3>
-        <ul>
-          <li>18-аас доош насны хүүхэд</li>
-          <li>Жирэмсэн, хөхүүл эхчүүд</li>
-          <li>Цус шингэлэх эм (антикоагулянт) хэрэглэдэг хүмүүс</li>
-          <li>Найрлагад нь харшилтай, мэдрэг хүмүүс</li>
-        </ul>
-        <p style="color:var(--mist);margin:12px 0 0">Эмчийн хяналтад байгаа бол эмчдээ зөвлөөрэй. Бүтээгдэхүүний найрлагыг илгээж өгнө.</p>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer>
   <div class="wrap">
     <div>
       <b>Эрүүл амьдралын хөтөч</b>
-      <p>Marine Health-ийн бизнес хамтрагчийн танилцуулга сайт. Энэ нь компанийн албан ёсны вэб сайт биш. Худалдан авалт marinehealth.asia болон MH GO апп дээр хийгдэнэ. Бүтээгдэхүүний зураг: Marine Health.</p>
+      <p>Marine Health-ийн бизнес хамтрагчийн танилцуулга сайт. Энэ нь компанийн албан ёсны вэб сайт биш. Худалдан авалт marinehealth.asia болон MH GO апп дээр хийгдэнэ. Бүтээгдэхүүний зураг, гэрчилгээ: Marine Health.</p>
     </div>
     <div class="socials">
       <a class="btn btn-ghost" href="https://www.facebook.com/profile.php?id=100063525612074" target="_blank" rel="noopener">Facebook / Messenger</a>
@@ -256,78 +384,481 @@ footer p{margin:6px 0 0;max-width:62ch}
   <a class="btn btn-tag" data-order href="#">Захиалах ↗</a>
 </div>
 
-<script>
-/* ===== Тохиргоо ===== */
-const ORDER_URL = "https://marinehealth.asia/mn/products?ref=Dinnak";
-const SALE_END = "2026-11-30T23:59:59+08:00";   // компанийн сайтад: 11/9/2026 – 11/30/2026
-const IMG = {"154":"https://my.marinehealth.asia/files/products/154.webp?v6","121":"https://my.marinehealth.asia/files/products/121.webp?v14","214":"https://my.marinehealth.asia/files/products/214.webp?v4","104":"https://my.marinehealth.asia/files/products/104.webp?v9","106":"https://my.marinehealth.asia/files/products/106.webp?v9","282":"https://my.marinehealth.asia/files/products/282.webp?v3","2028":"https://my.marinehealth.asia/files/products/2028.webp?v1","2301":"https://my.marinehealth.asia/files/products/2301.webp?v2","2302":"https://my.marinehealth.asia/files/products/2302.webp?v1","2303":"https://my.marinehealth.asia/files/products/2303.webp?v1","2304":"https://my.marinehealth.asia/files/products/2304.webp?v1","2305":"https://my.marinehealth.asia/files/products/2305.webp?v1","2306":"https://my.marinehealth.asia/files/products/2306.webp?v1","2279":"https://my.marinehealth.asia/files/products/2279.webp?v1","2275":"https://my.marinehealth.asia/files/products/2275.webp?v1","2127":"https://my.marinehealth.asia/files/products/2127.webp?v2","2102":"https://my.marinehealth.asia/files/products/2102.webp?v1"};
-const fmt = n => n.toLocaleString("en-US").replace(/,/g, ",") + "₮";
-const UNIT = 382360;
-const WARN = "18-аас доош, жирэмсэн, хөхүүл, цус шингэлэх эм хэрэглэдэг, найрлагад мэдрэг хүмүүс хэрэглэхгүй.";
+<!-- detail sheet -->
+<div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="dTitle">
+  <div class="panel" id="panel">
+    <div class="bar"><span class="eyebrow" id="dEyebrow">Бүтээгдэхүүн</span><button class="x" type="button" id="dClose" aria-label="Хаах">×</button></div>
+    <div class="dbody" id="dBody"></div>
+    <div class="dbuy" id="dBuy"></div>
+  </div>
+</div>
 
+<!-- certificate viewer -->
+<div class="viewer" id="viewer" hidden role="dialog" aria-modal="true" aria-labelledby="vTitle">
+  <div class="bar"><b id="vTitle"></b><div class="acts"><a class="btn btn-ghost" id="vPdf" href="#" target="_blank" rel="noopener">PDF нээх ↗</a><button class="x" type="button" id="vClose" aria-label="Хаах">×</button></div></div>
+  <div class="pages" id="vPages"></div>
+</div>
+
+<!-- reel player -->
+<div class="reel" id="reel" hidden role="dialog" aria-modal="true" aria-label="Reel">
+  <button class="x close" type="button" id="rClose" aria-label="Хаах">×</button>
+  <div class="stage" id="stage">
+    <div class="blur" id="rBlur"></div>
+    <div class="tint"></div>
+    <div class="hero-img" id="rHero"><div class="card"><img id="rImg" alt=""></div></div>
+    <div class="cap" id="rCap"></div>
+    <div class="subs" id="rSubs" aria-live="off"></div>
+    <div class="tapzones"><button type="button" id="rPrev" aria-label="Өмнөх"></button><button type="button" id="rToggle" aria-label="Түр зогсоох / тоглуулах"></button><button type="button" id="rNext" aria-label="Дараах"></button></div>
+    <div class="top">
+      <div class="segs" id="rSegs"></div>
+      <div class="who"><div class="av">ЭА</div><div><b>eruul.amidral.hutuch</b><small id="rTitle"></small></div><span class="sp"></span><button class="rbtn" type="button" id="rMute" aria-label="Дуу хаах">🔊</button><button class="rbtn" type="button" id="rX" aria-label="Хаах">×</button></div>
+    </div>
+    <div class="rcta" id="rCta" hidden></div>
+    <div class="legal" id="rLegal"></div>
+    <div class="paused" id="rPaused" hidden><div></div></div>
+  </div>
+  <audio id="rAudio" preload="auto" playsinline></audio>
+</div>
+
+<script>
+/* ======================= ТОХИРГОО ======================= */
+const ORDER_URL = "https://marinehealth.asia/mn/products?ref=Dinnak";
+const SALE_END = "2026-11-30T23:59:59+08:00";
+const MH = "https://my.marinehealth.asia/files/products/";
+const MAIN_V = {"154":"v6","121":"v14","214":"v4","104":"v9","106":"v9","282":"v3","2028":"v1","2301":"v2","2302":"v1","2303":"v1","2304":"v1","2305":"v1","2306":"v1","2279":"v1","2275":"v1","2127":"v2","2102":"v1"};
+const UNIT = 382360;
+const fmt = n => n.toLocaleString("en-US") + "₮";
+const WARN_STD = "18 нас хүрээгүй, жирэмсэн, хөхүүл, цус шингэлэх эм (антикоагулянт) хэрэглэдэг, найрлагад мэдрэг хүмүүс хэрэглэхгүй.";
+
+/* ---------- Бүтээгдэхүүн (дэлгэрэнгүй) ---------- */
+const P = {
+  ashitaba:{id:"154",name:"ASHITABA",price:UNIT,reel:"ashitaba",top:"Хамгийн эрэлттэй",gal:5,
+    meta:"180 капсул · ~60 хоног",
+    short:"Ашитаба ургамлын 100% нунтаг. Хоол боловсруулалт, эрч хүчийг дэмжинэ.",
+    lead:"Японы уламжлалт ургамал ашитабагийн (Angelica keiskei) 100% нунтагтай капсул. Хоол боловсруулалт, бодисын солилцоо, өдөр тутмын эрч хүчийг дэмжих эрүүл мэндийн нэмэлт.",
+    facts:["180 капсул","3 капсул/өдөр","~60 хоног","100% ашитаба"],
+    secs:[
+      ["Ашитаба гэж юу вэ",["Японд «маргаашийн навч» (ashita-ba) гэж нэрлэдэг олон наст ургамал. Навчийг нь тасалбал маргааш нь шинэ навч ургадаг тул ийм нэртэй болжээ. Хатиджо арлынхан үүнийг өдөр тутмын хоолондоо олон үеэр хэрэглэж ирсэн.","Ашитаба витамин, эрдэс бодис, амин хүчил, полифенолоор баялаг. Ургамлын шар шүүс нь халькон агуулдаг."]],
+      ["Юуг дэмжих вэ",{ul:["Ходоод гэдэсний хэвийн үйл ажиллагаа, хоол боловсруулалт","Гэдэсний ашигтай бактерийн тэнцвэр","Бодисын солилцоо","Эсийн эрүүл байдал (полифенолын антиоксидант нөлөө)","Яс, шүд (кальци), арьсны чийгшил (Е витамин)","Өдөр тутмын эрч хүч"]}],
+      ["Хэнд тохирох вэ",{ul:["Хоолны дараа хүндэрдэг, хоол боловсруулалт тогтворгүй хүмүүст","Стресс, ядаргаа хуримтлагдаж, эрч хүч буурсан үед","Байгалийн ургамлын гаралтай өдөр тутмын нэмэлт хайж буй хүмүүст"]}],
+      ["Хэрхэн хэрэглэх",["Өдөрт 3 капсул, усаар даруулж, хоолтой хамт эсвэл хоолны дараа ууна. Өдөр бүр тогтмол хэрэглэнэ.","1 сав (180 капсул) ≈ 60 хоног."]],
+      ["Найрлага",["Ашитабагийн нунтаг (Angelica keiskei Koidzumi) — 100%."]]],
+    warn:WARN_STD, certs:["ashitaba-sgr"]},
+  cardio:{id:"121",name:"Cardio Marine",price:UNIT,reel:"cardio",top:"Нөхөр, аавдаа",gal:7,
+    meta:"90 капсул · 1 сарын курс",
+    short:"Наттокиназа + L-аргинин. Зүрх судас, цусны эргэлтийг дэмжинэ.",
+    lead:"Натто хоолноос гаргаж авсан наттокиназа фермент ба L-аргинин амин хүчлийн хослол. Зүрх судас, цусны эргэлтийг дэмжих эрүүл мэндийн нэмэлт.",
+    facts:["90 капсул","3 капсул/өдөр","1 сав = 30 хоног","Наттокиназа + L-аргинин"],
+    secs:[
+      ["Хоёр гол найрлага",["Наттокиназа бол исгэсэн шар буурцгаар хийдэг Японы уламжлалт натто хоолноос гаргаж авдаг фермент. Наттог Японд олон зуун жил хэрэглэж ирсэн.","L-аргинин бол биед хэрэгтэй амин хүчил. Азотын ислийн нийлэгжилтэд оролцдог бөгөөд судасны хэвийн үйл ажиллагаанд чухал үүрэгтэй."]],
+      ["Юуг дэмжих вэ",{ul:["Зүрх судасны тогтолцооны хэвийн үйл ажиллагаа","Цусны эргэлт, бичил эргэлт (гар хөлний цусан хангамж)","Судасны ханын эрүүл байдал","Тархины цусан хангамж"]}],
+      ["Хэнд тохирох вэ",{ul:["40-өөс дээш насандаа зүрх судсандаа анхаарч эхэлсэн хүмүүст","Хөдөлгөөн багатай, суурин ажилтай хүмүүст","Байнгын стресс, өндөр ачаалалтай ажилладаг хүмүүст","Нөхөр, аавдаа эрүүл мэндийн бэлэг хайж буй хүмүүст"]}],
+      ["Хэрхэн хэрэглэх",["Өдөрт 3 капсул, оройн хоолны дараа усаар даруулж ууна.","1 сав (90 капсул) = 1 сарын курс."]],
+      ["Найрлага",["Наттокиназа фермент, L-аргинин амин хүчил."]]],
+    warn:WARN_STD+" Даралт, зүрхний эм уудаг бол эхлээд эмчдээ зөвлөөрэй.", certs:["cardio-sgr"]},
+  squalen:{id:"214",name:"Squalen Premium",price:UNIT,reel:"squalen",gal:5,
+    meta:"90 капсул · 30 хоног",
+    short:"Акулын элэгний 100% сквален. Антиоксидант, дархлаа, арьсыг дэмжинэ.",
+    lead:"Далайн гүний акулын элэгнээс гаргаж авсан 100% сквален. Антиоксидант хамгаалалт, дархлаа, арьсны гоо сайхныг дэмжих эрүүл мэндийн нэмэлт.",
+    facts:["90 капсул","3 капсул/өдөр","1 сав = 30 хоног","100% сквален"],
+    secs:[
+      ["Сквален гэж юу вэ",["Далайн гүний акулын элэг биеийнх нь бараг гуравны нэгийг эзэлдэг бөгөөд их хэмжээний сквален агуулдаг. Скваленыг 1916 онд Японы эрдэмтэн Мицумару Цуджимото акулын элэгнээс анх илрүүлсэн.","Хүний биед ч сквален байдаг ч нас ахих тусам хэмжээ нь багасдаг."]],
+      ["Юуг дэмжих вэ",{ul:["Антиоксидант хамгаалалт, эсийн хүчилтөрөгчийн хангамж","Дархлааны тогтолцоо","Арьсны чийгшил, уян хатан байдал; үс, хумс","Үе мөчний хэвийн үйл ажиллагаа","Эрч хүч, нөхөн сэргэлт"]}],
+      ["Хэнд тохирох вэ",{ul:["35-аас дээш насандаа арьс, гоо сайхандаа анхаарч буй хүмүүст","Дархлаагаа дэмжихийг хүссэн хүмүүст","Ядаргаа мэдэрдэг, эрч хүч хэрэгтэй хүмүүст"]}],
+      ["Хэрхэн хэрэглэх",["Өдөрт 1 удаа 3 капсул, хоолны үеэр усаар даруулж ууна.","Зөвлөмжит курс 3 сар, жилд 1–2 удаа давтаж болно."]],
+      ["Найрлага",["100% сквален (далайн гүний акулын элэгний ханд)."]]],
+    warn:"Найрлагад харшилтай, мэдрэг хүмүүс хэрэглэхгүй. Жирэмсэн, хөхүүл, эмчийн хяналтад байгаа бол эмчдээ зөвлөөрэй.", certs:["squalen-sgr"]},
+  iodium:{id:"104",name:"Iodium Kelp",price:UNIT,reel:"iodium",gal:6,
+    meta:"120 капсул · 30 хоног",
+    short:"Бор замгийн органик иод. Бамбай булчирхай, бодисын солилцоог дэмжинэ.",
+    lead:"Далайн бор замгаас (ламинари) гаргаж авсан органик иод. Бамбай булчирхай, тархи, бодисын солилцоог дэмжих эрүүл мэндийн нэмэлт.",
+    facts:["120 капсул","2 × 2 капсул/өдөр","1 сав = 30 хоног","Органик иод"],
+    secs:[
+      ["Яагаад иод",["Иод бол бамбай булчирхай, тархи (ой санамж, төвлөрөл), дархлаа, бодисын солилцоонд оролцдог чухал бичил элемент.","ДЭМБ-ын мэдээллээр дэлхийд 2 тэрбум гаруй хүн иодын дутагдалтай амьдардаг бөгөөд ихэнх нь үүнийгээ мэддэггүй."]],
+      ["Бор замгийн давуу тал",{ul:["Иод байгалийн идэвхтэй хэлбэрээр агуулагддаг","Фукоидан, ламинарин, альгинат зэрэг замгийн бодисууд","Бичил ба макро элементүүд"]}],
+      ["Юуг дэмжих вэ",{ul:["Бамбай булчирхайн хэвийн үйл ажиллагаа","Ой санамж, анхаарал төвлөрөл, оюуны ачааллын үе","Бодисын солилцоо, эрч хүч","Дархлаа","Эмэгтэйчүүдийн дааврын тэнцвэр"]}],
+      ["Хэнд тохирох вэ",{ul:["Байнга ядарч, эрч хүч дутдаг хүмүүст","Далайн хоол бага иддэг, иодын нэмэлт эх үүсвэр хайж буй хүмүүст","Оюуны их ачаалалтай ажилладаг хүмүүст"]}],
+      ["Хэрхэн хэрэглэх",["Өдөрт 2 удаа, 2 капсулаар, хоолны үеэр усаар даруулж ууна. Өдөр тутам тогтмол.","1 сав (120 капсул) = 30 хоног."]],
+      ["Найрлага",["Хатаасан ламинари (далайн бор замаг), витамины премикс."]]],
+    warn:"Найрлагад харшилтай хүмүүс хэрэглэхгүй. Бамбай булчирхайн эм уудаг, жирэмсэн, хөхүүл, эмчийн хяналтад байгаа бол эхлээд эмчдээ зөвлөөрэй.", certs:["iodium-sgr"]},
+  artro:{id:"106",name:"ArtroMarine + MSM",price:UNIT,reel:"artro",gal:6,
+    meta:"120 капсул · 30 хоног",
+    short:"Глюкозамин, хондроитин, MSM. Үе мөчний хөдөлгөөнийг дэмжинэ.",
+    lead:"Глюкозамин, хондроитин, MSM-ийн хослол. Үе мөч, мөгөөрс, шөрмөсний эрүүл байдал, хөдөлгөөний уян хатан байдлыг дэмжих эрүүл мэндийн нэмэлт.",
+    facts:["120 капсул","2 × 2 капсул/өдөр","1 сав = 30 хоног","1200 · 900 · 600 мг"],
+    secs:[
+      ["Гурван гол найрлага",["Глюкозамин сульфат ба хондроитин сульфат бол мөгөөрс, шөрмөс, холбоос, үеийн шингэний бүтцийн «барилгын материал».","MSM (метилсульфонилметан) бол органик хүхрийн эх үүсвэр; холбогч эдийг дэмжинэ."]],
+      ["Юуг дэмжих вэ",{ul:["Мөгөөрсний эдийн хэвийн бүтэц","Үе мөчний хөдөлгөөний уян хатан байдал, далайц","Шөрмөс, холбоос","Яс","Арьсны уян хатан байдал, үс, хумс"]}],
+      ["Хэнд тохирох вэ",{ul:["Шатаар өгсөхөд, хөдлөхөд үе мөч нь дуугардаг хүмүүст","Спортоор хичээллэдэг, ачаалал ихтэй хүмүүст","Өдөржин зогсож ажилладаг хүмүүст","45-аас дээш насандаа үе мөчиндөө анхаарч буй хүмүүст"]}],
+      ["Хэрхэн хэрэглэх",["Өдөрт 2 удаа, 2 капсулаар, хоолны үеэр усаар даруулж ууна.","Зөвлөмжит курс 3 сар, жилд 1–2 удаа давтаж болно."]],
+      ["Найрлага (өдрийн тун — 4 капсул)",{ul:["Глюкозамин сульфат — 1200 мг","Хондроитин сульфат — 900 мг","Метилсульфонилметан (MSM) — 600 мг"]}]],
+    warn:"Найрлагад харшилтай, мэдрэг хүмүүс хэрэглэхгүй. Жирэмсэн, хөхүүл, эмчийн хяналтад байгаа бол эмчдээ зөвлөөрэй.", certs:["artro-sgr"]},
+  collagen:{id:"282",name:"Collagen",price:270000,reel:"collagen",gal:6,
+    meta:"Нунтаг · 1 сав = 1 сар",
+    short:"Peptan® (Франц) пептидийн коллаген. Арьс, яс шөрмөсийг дэмжинэ.",
+    lead:"Францын Peptan® түүхий эдээр хийсэн гидролизжуулсан пептидийн коллаген, витамин, эрдэсийн хамт. Арьс, судас, яс шөрмөсийг дэмжих эрүүл мэндийн нэмэлт.",
+    facts:["Нунтаг","5 г/өдөр","1 сав = 1 сар","Peptan® · Франц"],
+    secs:[
+      ["Онцлог",["Загас ба үхрийн гаралтай коллагены хослол. Ферментийн гидролизээр жижиг пептид болгосон тул сайн шингэнэ.","Олон шатлалт боловсруулалтын ачаар амт, үнэр мэдрэгддэггүй. HALAL гэрчилгээтэй."]],
+      ["Юуг дэмжих вэ",{ul:["Арьсны чийгшил, уян хатан байдал, гэрэлтэлт","Судасны ханын бат бөх байдал","Яс, шөрмөс, үе мөч","Уургийн нөөц, эрч хүч"]}],
+      ["Хэнд тохирох вэ",{ul:["Арьс уян чанараа алдаж, ядарсан харагдаж байна гэж санаа зовдог хүмүүст","Залуу, эрүүл төрхөө удаан хадгалахыг хүсэгчдэд","Яс, үе мөчиндөө анхаарч буй хүмүүст"]}],
+      ["Хэрхэн хэрэглэх",["Өдөрт 1 удаа 1 халбага (5 г). Усанд уусгаж, эсвэл тараг, ундаанд хольж ууна.","Хамгийн тохиромжтой нь өглөө цайнаас 20 минутын өмнө өлөн элгэн дээр, эсвэл орой унтахын өмнө.","Завсарлагагүй 1 сараас доошгүй. 1 сав = 1 сар."]],
+      ["Найрлага",["Загасны болон үхрийн гаралтай гидролизжуулсан пептид, аскорбины хүчил (C витамин), гиалуроны хүчил, цайрын пиколинат, ургамлын пептидийн ханд, биотин."]]],
+    warn:"Найрлагад харшилтай, жирэмсэн, хөхүүл хүмүүс хэрэглэхгүй.", certs:["collagen-sgr","collagen-halal"]},
+  toothpaste:{id:"2028",name:"ASHITABA шүдний оо",price:35000,reel:"toothpaste",gal:6,
+    meta:"Фторгүй · 14+ нас",
+    short:"Мэдрэмтгий шүд, буйлд зориулсан ашитабатай шүдний оо.",
+    lead:"Мэдрэмтгий шүд, буйлд зориулсан ашитабатай шүдний оо. Шүдийг зөөлөн цэвэрлэж, паалан ба буйлыг өдөр бүр арчилна.",
+    facts:["Фторгүй","14+ нас","1–2 удаа/өдөр","6-д-1 арчилгаа"],
+    secs:[
+      ["Идэвхтэй найрлага",{ul:["Нано-гидроксиапатит + далайн давсны эрдэс: пааланг арчилж, мэдрэмтгий байдлыг багасгахад тусална","Папаин: пааланг гэмтээлгүй зөөлөн цайруулна","Ашитаба + ногоон цайны ханд: буйл, амны хөндийн салстыг арчилна","Ксилит: шүдийг кариесаас хамгаалахад тусална","Гаа, хумсан цэцгийн тос: амьсгалыг сэргээнэ"]}],
+      ["6-д-1 арчилгаа",["Цэвэрлэгээ · Зөөлөн цайруулалт · Амьсгал сэргээх · Буйлны арчилгаа · Паалангийн арчилгаа · Кариесаас хамгаалалт"]],
+      ["Давуу тал",{ul:["Фтор, хатуу антисептик агуулаагүй","Мэдрэмтгий буйл, салстад тохиромжтой","Амны хөндийн байгалийн бичил орчныг алдагдуулахгүй"]}],
+      ["Хэнд тохирох вэ",{ul:["Хүйтэн, халуун, чихэрлэгт шүд нь мэдрэмтгий хүмүүст","Буйл нь амархан цочирдог хүмүүст","Кофе уудаг, шүдний өнгөө хадгалахыг хүсэгчдэд","Гэр бүлээрээ (14-өөс дээш) нэг оо хэрэглэхийг хүсэгчдэд"]}],
+      ["Хэрхэн хэрэглэх",["Өдөрт 1–2 удаа, хоолны дараа шүдээ угаана. 14-өөс дээш насныханд."]],
+      ["Найрлага (INCI)",{inci:"Sorbitol, Water, Hydrated Silica, Sodium Lauroyl Sarcosinate, Peppermint Oil, Clove Oil, Cellulose Gum, Xanthan Gum, 1,2-Hexanediol, Sucralose, Sea Salt, Nano-Hydroxyapatite, Phenoxyethanol, Chouji Yu, Angelica Sinensis Extract, Butylene Glycol, Ashitaba (Angelica Keiskei), Xylitol, Papain, Propylene Glycol, Green Tea Extract, Hydroxyacetophenone"}]],
+    warn:"Найрлагад харшилтай бол хэрэглэхгүй. 14 нас хүрээгүй хүүхдэд зориулаагүй.", certs:["toothpaste-ds"]}
+};
+const SLUG_BY_ID = Object.fromEntries(Object.entries(P).map(([s,p])=>[p.id,s]));
+const NAME2SLUG = {"ASHITABA":"ashitaba","Cardio Marine":"cardio","Iodium Kelp":"iodium","ArtroMarine":"artro","Squalen Premium":"squalen","Collagen":"collagen","Шүдний оо":"toothpaste"};
+
+/* ---------- Багц, урамшуулал ---------- */
 const DEALS = [
-  {id:"2301",n:"Зүрхний багц",items:["ASHITABA ×2","Cardio Marine ×2"],d:"Зүрх судас, хоол боловсруулалтыг дэмжих хослол.",wide:true},
-  {id:"2302",n:"Бамбай булчирхайн дэмжлэг",items:["ASHITABA ×2","Iodium Kelp ×2"],d:"Органик иод болон ашитабаг хослуулсан багц."},
-  {id:"2303",n:"Давхар дархлаа",items:["ASHITABA ×4"],d:"Хамгийн эрэлттэй ASHITABA — 4 сав, урт хугацааны хэрэглээнд."},
-  {id:"2304",n:"Хөдөлгөөний эрх чөлөө",items:["ASHITABA ×2","ArtroMarine ×2"],d:"Үе мөчний хөдөлгөөнийг дэмжих хослол."},
-  {id:"2305",n:"Эрэгтэй багц",items:["Iodium Kelp ×2","Cardio Marine ×2"],d:"Нөхөр, аавдаа — зүрх судас, бодисын солилцоог дэмжинэ."},
-  {id:"2306",n:"Спортын багц",items:["Cardio Marine ×2","ArtroMarine ×2"],d:"Идэвхтэй хөдөлгөөнтэй хүмүүст зүрх судас, үе мөчийг дэмжинэ."}
-];
+  {id:"2301",n:"Зүрхний багц",items:[["ASHITABA",2],["Cardio Marine",2]],d:"Зүрх судас, хоол боловсруулалтыг дэмжих хослол.",wide:true},
+  {id:"2302",n:"Бамбай булчирхайн дэмжлэг",items:[["ASHITABA",2],["Iodium Kelp",2]],d:"Органик иод болон ашитабаг хослуулсан багц."},
+  {id:"2303",n:"Давхар дархлаа",items:[["ASHITABA",4]],d:"Хамгийн эрэлттэй ASHITABA 4 сав, урт хугацааны хэрэглээнд."},
+  {id:"2304",n:"Хөдөлгөөний эрх чөлөө",items:[["ASHITABA",2],["ArtroMarine",2]],d:"Үе мөчний хөдөлгөөнийг дэмжих хослол."},
+  {id:"2305",n:"Эрэгтэй багц",items:[["Iodium Kelp",2],["Cardio Marine",2]],d:"Нөхөр, аавдаа: зүрх судас, бодисын солилцоог дэмжинэ."},
+  {id:"2306",n:"Спортын багц",items:[["Cardio Marine",2],["ArtroMarine",2]],d:"Идэвхтэй хөдөлгөөнтэй хүмүүст зүрх судас, үе мөчийг дэмжинэ."}
+].map(o=>({...o,price:800000,was:UNIT*4}));
 const GIFTS = [
-  {id:"2279",n:"Collagen 1+1",items:["Collagen ×2"],d:"Нэгийг авахад хоёр дахь нь бэлэг. Peptan® (Франц) пептидийн коллаген — арьс, яс шөрмөсийг дэмжинэ.",price:270001,was:540000},
-  {id:"2275",n:"ASHITABA шүдний оо 1+1",items:["Шүдний оо ×2"],d:"Нэгийг авахад хоёр дахь нь бэлэг. Мэдрэмтгий шүд, буйлны өдөр тутмын арчилгаа.",price:35001,was:70000}
-];
-const PRODUCTS = [
-  {id:"154",n:"ASHITABA",meta:"180 капсул · ~60 хоног",d:"Ашитаба ургамалд суурилсан өдөр тутмын нэмэлт. Хоол боловсруулалт, эрч хүчийг дэмжинэ.",top:"Хамгийн эрэлттэй",warn:true},
-  {id:"121",n:"Cardio Marine",meta:"90 капсул · курс 1 сар",d:"Наттокиназа, L-аргинин агуулсан. Зүрх судас, цусны эргэлтийг дэмжинэ.",top:"Нөхөр, аавдаа",warn:true},
-  {id:"214",n:"Squalen Premium",meta:"90 капсул",d:"Акулын элэгний тосны сквален. Антиоксидант, дархлаа, арьсыг дэмжинэ."},
-  {id:"104",n:"Iodium Kelp",meta:"120 капсул",d:"Бор замгийн органик иод. Бамбай булчирхай, бодисын солилцоог дэмжинэ."},
-  {id:"106",n:"ArtroMarine + MSM",meta:"120 капсул",d:"Глюкозамин, хондроитин, MSM. Үе мөчний хөдөлгөөнийг дэмжинэ."}
+  {id:"2279",n:"Collagen 1+1",items:[["Collagen",2]],d:"Нэгийг авахад хоёр дахь нь бэлэг. Peptan® (Франц) пептидийн коллаген, арьс, яс шөрмөсийг дэмжинэ.",price:270001,was:540000,flag:"1+1",reel:"collagen"},
+  {id:"2275",n:"ASHITABA шүдний оо 1+1",items:[["Шүдний оо",2]],d:"Нэгийг авахад хоёр дахь нь бэлэг. Мэдрэмтгий шүд, буйлны өдөр тутмын арчилгаа.",price:35001,was:70000,flag:"1+1",reel:"toothpaste"}
 ];
 const SETS = [
-  {id:"2127",n:"Урт наслалтын нууц",items:["ASHITABA","Squalen Premium","Cardio Marine","Iodium Kelp"],d:"Дөрвөн гол бүтээгдэхүүнийг нэг дор: зүрх судас, бамбай булчирхай, дархлаа, бодисын солилцоог дэмжинэ.",price:1147081,was:UNIT*4,wide:true},
-  {id:"2102",n:"Залуу насны эрч хүч",items:["ASHITABA","Cardio Marine","Squalen Premium","Collagen"],d:"Арьс, судас, эсийн эрч хүчийг дэмжих дөрвөн бүтээгдэхүүн.",price:1147081,was:UNIT*3+270000}
+  {id:"2127",n:"Урт наслалтын нууц",items:[["ASHITABA",1],["Squalen Premium",1],["Cardio Marine",1],["Iodium Kelp",1]],d:"Дөрвөн гол бүтээгдэхүүн нэг дор: зүрх судас, бамбай булчирхай, дархлаа, бодисын солилцоог дэмжинэ.",price:1147081,was:UNIT*4,wide:true},
+  {id:"2102",n:"Залуу насны эрч хүч",items:[["ASHITABA",1],["Cardio Marine",1],["Squalen Premium",1],["Collagen",1]],d:"Арьс, судас, эсийн эрч хүчийг дэмжих дөрвөн бүтээгдэхүүн.",price:1147081,was:UNIT*3+270000}
+];
+const BUNDLES = Object.fromEntries([...DEALS,...GIFTS,...SETS].map(b=>[b.id,b]));
+
+/* ---------- Reels ---------- */
+const REELS = [
+  {id:"promo",title:"11 сарын урамшуулал",img:"2301",open:"#promo"},
+  {id:"ashitaba",title:"ASHITABA",img:"154",slug:"ashitaba"},
+  {id:"cardio",title:"Cardio Marine",img:"121",slug:"cardio"},
+  {id:"collagen",title:"Collagen 1+1",img:"2279",slug:"collagen"},
+  {id:"artro",title:"ArtroMarine",img:"106",slug:"artro"},
+  {id:"squalen",title:"Squalen Premium",img:"214",slug:"squalen"},
+  {id:"iodium",title:"Iodium Kelp",img:"104",slug:"iodium"},
+  {id:"toothpaste",title:"Шүдний оо 1+1",img:"2275",slug:"toothpaste"}
 ];
 
-/* ===== render ===== */
-const esc=s=>String(s).replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+/* ---------- Гэрчилгээ ---------- */
+const CERTS = [
+  {key:"ashitaba-sgr",pid:"154",title:"СГР — ASHITABA",path:"2059/certificates_34e606d82c09406bb79dda42c5dcd146.pdf"},
+  {key:"cardio-sgr",pid:"121",title:"СГР — Cardio Marine",path:"121/certificates_36db9df017ec419c8c3dfc866546379c.PDF"},
+  {key:"squalen-sgr",pid:"214",title:"СГР — Squalen Premium",path:"214/certificates_cb23cea80bec4d54acdbad46dee40774.PDF"},
+  {key:"iodium-sgr",pid:"104",title:"СГР — Iodium Kelp",path:"104/certificates_9be5e97a9aff4abb9b44246a9dafa0ce.pdf"},
+  {key:"artro-sgr",pid:"106",title:"СГР — ArtroMarine + MSM",path:"106/certificates_81daed948c404848991df37edfa3294e.pdf"},
+  {key:"collagen-sgr",pid:"282",title:"СГР — MH Collagen",path:"282/certificates_5bcec3bb26944e8f8bba0c95844d35cf.pdf"},
+  {key:"collagen-halal",pid:"282",title:"HALAL гэрчилгээ — Collagen",path:"282/certificates_647250ce34c64724964597727d4d54b4.pdf"},
+  {key:"toothpaste-ds",pid:"2028",title:"Тохирлын тунхаглал — шүдний оо",path:"2028/certificates_ede3f46182bf4c8cae1a1c2d92cbd249.pdf"}
+];
+let CERT_PAGES = {};
+
+/* ======================= HELPERS ======================= */
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+function imgTag(key, alt, cls=""){
+  const base = String(key).split("-")[0];
+  const alts = [`assets/img/${key}.webp`];
+  if (MAIN_V[base]) alts.push(`${MH}${base}.webp?${MAIN_V[base]}`);
+  return `<img ${cls?`class="${cls}"`:""} src="${alts[0]}" data-alt="${alts.slice(1).join("|")}" alt="${esc(alt)}" loading="lazy" onerror="imgFallback(this)">`;
+}
+function imgFallback(el){
+  const list = (el.dataset.alt||"").split("|").filter(Boolean);
+  if (!list.length){ el.onerror=null; el.style.visibility="hidden"; return; }
+  el.src = list.shift(); el.dataset.alt = list.join("|");
+}
+const orderLink = (label="Авах ↗",cls="btn btn-tag") => `<a class="${cls}" href="${ORDER_URL}" target="_blank" rel="noopener">${label}</a>`;
+const reelBtn = id => id ? `<button class="btn btn-ghost btn-play" type="button" data-reel="${id}">Reel</button>` : "";
+const hasWarn = items => items.some(([n])=>/ASHITABA|Cardio/.test(n));
+
+/* ======================= RENDER ======================= */
 document.querySelectorAll("[data-order]").forEach(a=>{a.href=ORDER_URL;a.target="_blank";a.rel="noopener"});
-const hasWarn=items=>items.some(i=>/ASHITABA|Cardio/.test(i));
-const warnHtml=`<details class="warn"><summary>Хэрэглэхгүй байх хүмүүс</summary>${WARN}</details>`;
-function card(o,{price,was,flag}){
-  const pct = was ? Math.round((1-price/was)*100) : 0;
+
+const tickWords=["11-Р САРЫН УРАМШУУЛАЛ","6 БАГЦ — 800,000₮","COLLAGEN 1+1","ШҮДНИЙ ОО 1+1","11.30 ХҮРТЭЛ","ЭМ БИШ — ЭРҮҮЛ МЭНДИЙН НЭМЭЛТ"];
+$("#tick").innerHTML=[...tickWords,...tickWords].map(w=>`<span>${w}</span>`).join("");
+
+$("#rail").innerHTML = REELS.map(r=>`<button class="rcard" type="button" data-reel="${r.id}" aria-label="${esc(r.title)} reel үзэх"><span class="bg"></span>${imgTag(r.img,r.title)}<span class="shade"></span><span class="pl"></span><span class="lbl"><b>${esc(r.title)}</b><small data-dur="${r.id}">▶ үзэх</small></span></button>`).join("");
+
+function chips(items){
+  return items.map(([n,q])=>{const s=NAME2SLUG[n];const t=`${esc(n)}${q>1?` ×${q}`:""}`;return s?`<button type="button" data-open="${s}">${t}</button>`:`<span>${t}</span>`}).join("");
+}
+function bundleCard(o){
+  const pct = o.was ? Math.round((1-o.price/o.was)*100) : 0;
   return `<article class="deal${o.wide?" wide":""}">
-    <div class="shot">${flag?`<span class="flag">${flag}</span>`:""}<img src="${IMG[o.id]}" onerror="this.onerror=null;this.src='images/${o.id}.webp'" alt="${esc(o.n)} — бүтээгдэхүүний зураг" loading="lazy"></div>
+    <button class="shot" type="button" data-bundle="${o.id}" aria-label="${esc(o.n)} дэлгэрэнгүй">${o.flag?`<span class="flag">${o.flag}</span>`:""}${imgTag(o.id,o.n+" — бүтээгдэхүүний зураг")}</button>
     <div class="body">
-      <h3>${esc(o.n)}</h3>
-      <div class="contents">${o.items.map(i=>`<span>${esc(i)}</span>`).join("")}</div>
+      <button class="ttl" type="button" data-bundle="${o.id}"><h3>${esc(o.n)}</h3></button>
+      <div class="contents">${chips(o.items)}</div>
       <p>${esc(o.d)}</p>
-      ${hasWarn(o.items)?warnHtml:""}
+      ${hasWarn(o.items)?`<p style="font-size:13px;color:var(--coral)">Хэрэглэхгүй: 18-аас доош, жирэмсэн, хөхүүл, цус шингэлэх эм уудаг, мэдрэг хүмүүс.</p>`:""}
       <div class="foot">
-        <div class="num"><span class="price">${fmt(price)}</span>${was?`<span class="was">${fmt(was)}</span><span class="save">${fmt(was-price)} хэмнэнэ${pct?` · −${pct}%`:""}</span>`:""}</div>
-        <a class="btn btn-tag" href="${ORDER_URL}" target="_blank" rel="noopener">Авах ↗</a>
+        <div class="num"><span class="price">${fmt(o.price)}</span>${o.was?`<span class="was">${fmt(o.was)}</span><span class="save">${fmt(o.was-o.price)} хэмнэнэ${pct?` · −${pct}%`:""}</span>`:""}</div>
+        <div class="acts">${reelBtn(o.reel||(o.flag?null:"promo"))}${orderLink()}</div>
       </div>
     </div></article>`;
 }
-document.getElementById("deals").innerHTML=DEALS.map(o=>card(o,{price:800000,was:UNIT*4})).join("");
-document.getElementById("gifts").innerHTML=GIFTS.map(o=>card(o,{price:o.price,was:o.was,flag:"1+1"})).join("");
-document.getElementById("sets").innerHTML=SETS.map(o=>card(o,{price:o.price,was:o.was})).join("");
-document.getElementById("grid").innerHTML=PRODUCTS.map(p=>`
+$("#deals").innerHTML = DEALS.map(bundleCard).join("");
+$("#gifts").innerHTML = GIFTS.map(bundleCard).join("");
+$("#sets").innerHTML = SETS.map(bundleCard).join("");
+$("#grid").innerHTML = Object.entries(P).map(([s,p])=>`
   <article class="prod">
-    <div class="shot">${p.top?`<span class="badge">${esc(p.top)}</span>`:""}<img src="${IMG[p.id]}" onerror="this.onerror=null;this.src='images/${p.id}.webp'" alt="${esc(p.n)}" loading="lazy"></div>
+    <button class="shot" type="button" data-open="${s}" aria-label="${esc(p.name)} дэлгэрэнгүй">${p.top?`<span class="badge">${esc(p.top)}</span>`:""}${imgTag(p.id,p.name)}</button>
     <div class="body">
       <span class="meta">${esc(p.meta)}</span>
-      <h3>${esc(p.n)}</h3>
-      <p>${esc(p.d)}</p>
-      ${p.warn?warnHtml:""}
-      <div class="foot"><span class="price num">${fmt(UNIT)}</span><a class="btn btn-tag" href="${ORDER_URL}" target="_blank" rel="noopener">Авах ↗</a></div>
+      <button class="ttl" type="button" data-open="${s}"><h3>${esc(p.name)}</h3></button>
+      <p>${esc(p.short)}</p>
+      <button class="more" type="button" data-open="${s}">Дэлгэрэнгүй, гэрчилгээ →</button>
+      <div class="foot"><span class="price num">${fmt(p.price)}</span><div class="acts">${reelBtn(p.reel)}${orderLink()}</div></div>
     </div>
   </article>`).join("");
 
-const tickWords=["11-Р САРЫН УРАМШУУЛАЛ","6 БАГЦ — 800,000₮","COLLAGEN 1+1","ШҮДНИЙ ОО 1+1","11.30 ХҮРТЭЛ","ЭМ БИШ — ЭРҮҮЛ МЭНДИЙН НЭМЭЛТ"];
-document.getElementById("tick").innerHTML=[...tickWords,...tickWords].map(w=>`<span>${w}</span>`).join("");
+function certThumb(c){
+  const pg = (CERT_PAGES[c.key]||[])[0];
+  return `<button class="cert" type="button" data-cert="${c.key}"><span class="pg">${pg?`<img src="assets/certs/${pg}" alt="" loading="lazy">`:`<span>PDF</span>`}</span><b>${esc(c.title)}</b><small>Дарж харах</small></button>`;
+}
+function renderCerts(){ $("#certList").innerHTML = CERTS.map(certThumb).join(""); }
+renderCerts();
+fetch("assets/certs/index.json").then(r=>r.ok?r.json():[]).then(list=>{
+  for (const c of list) CERT_PAGES[c.key]=c.pages||[];
+  renderCerts();
+}).catch(()=>{});
 
-const target=new Date(SALE_END).getTime(),cd=document.getElementById("cd");
+/* ======================= DETAIL SHEET ======================= */
+const sheet=$("#sheet"), dBody=$("#dBody"), dBuy=$("#dBuy");
+let lastFocus=null;
+function secHTML([title,c]){
+  let inner="";
+  if (Array.isArray(c)) inner=c.map(t=>`<p>${esc(t)}</p>`).join("");
+  else if (c.ul) inner=`<ul>${c.ul.map(t=>`<li>${esc(t)}</li>`).join("")}</ul>`;
+  else if (c.inci) inner=`<p class="inci">${esc(c.inci)}</p>`;
+  return `<div class="dsec"><h4>${esc(title)}</h4>${inner}</div>`;
+}
+function openSheet(html, buy, eyebrow){
+  lastFocus=document.activeElement;
+  $("#dEyebrow").textContent=eyebrow;
+  dBody.innerHTML=html; dBuy.innerHTML=buy;
+  sheet.hidden=false; document.body.classList.add("locked");
+  $("#panel").scrollTop=0; $("#dClose").focus();
+}
+function openProduct(slug, push=true){
+  const p=P[slug]; if(!p) return;
+  const gal=[p.id,...Array.from({length:p.gal},(_,i)=>`${p.id}-m${i+1}`)];
+  const html=`
+    <div class="gal">${gal.map(k=>`<figure>${imgTag(k,p.name)}</figure>`).join("")}</div>
+    <div class="dhead"><span class="meta">${esc(p.meta)}</span><h2 id="dTitle">${esc(p.name)}</h2><p>${esc(p.lead)}</p></div>
+    <div class="facts">${p.facts.map(f=>`<div>${esc(f)}</div>`).join("")}</div>
+    ${p.reel?`<div><button class="btn btn-tag btn-play" type="button" data-reel="${p.reel}">Reel үзэх · дуутай</button></div>`:""}
+    ${p.secs.map(secHTML).join("")}
+    <div class="dsec warn"><h4>Анхааруулга</h4><p>${esc(p.warn)}</p><p>Эм биш, өдөр тутмын эрүүл мэндийн нэмэлт. Өвчтэй, эмчийн хяналтад байгаа бол эмчдээ зөвлөөрэй.</p></div>
+    <div class="dsec"><h4>Гэрчилгээ</h4><div class="certs">${p.certs.map(k=>certThumb(CERTS.find(c=>c.key===k))).join("")}</div></div>`;
+  const buy=`<div class="num"><span class="price">${fmt(p.price)}</span></div><div class="acts">${orderLink("Захиалах ↗")}</div>`;
+  openSheet(html,buy,"Бүтээгдэхүүн");
+  if(push) history.replaceState(null,"","#"+slug);
+}
+function openBundle(id, push=true){
+  const o=BUNDLES[id]; if(!o) return;
+  const pct=o.was?Math.round((1-o.price/o.was)*100):0;
+  const html=`
+    <div class="gal"><figure>${imgTag(o.id,o.n)}</figure></div>
+    <div class="dhead"><span class="meta">${o.flag?"1 + 1 урамшуулал":"Багц · "+o.items.reduce((a,[,q])=>a+q,0)+" сав"}</span><h2 id="dTitle">${esc(o.n)}</h2><p>${esc(o.d)}</p></div>
+    <div class="facts"><div>${fmt(o.price)}</div>${o.was?`<div>Тусдаа: ${fmt(o.was)}</div><div>Хэмнэлт: ${fmt(o.was-o.price)}</div><div>−${pct}%</div>`:""}</div>
+    <div class="dsec"><h4>Багцад юу орох вэ</h4><p>Бүтээгдэхүүн дээр дарж дэлгэрэнгүйг уншина уу.</p><div class="contents" style="margin-top:8px">${chips(o.items)}</div></div>
+    <div class="dsec"><h4>Хугацаа</h4><p>Урамшуулал 2026.11.09 – 11.30. Үнийг захиалахдаа апп дээрээс баталгаажуулна уу.</p></div>
+    ${hasWarn(o.items)?`<div class="dsec warn"><h4>Анхааруулга</h4><p>${esc(WARN_STD)}</p><p>Эм биш, өдөр тутмын эрүүл мэндийн нэмэлт.</p></div>`:`<div class="dsec warn"><h4>Анхааруулга</h4><p>Найрлагад харшилтай бол хэрэглэхгүй. Эм биш, эрүүл мэндийн нэмэлт.</p></div>`}`;
+  const buy=`<div class="num"><span class="price">${fmt(o.price)}</span>${o.was?` <span class="was" style="display:inline">${fmt(o.was)}</span>`:""}</div><div class="acts">${reelBtn(o.reel||(o.flag?null:"promo"))}${orderLink("Захиалах ↗")}</div>`;
+  openSheet(html,buy,o.flag?"Урамшуулал":"Багц");
+  if(push) history.replaceState(null,"","#b"+id);
+}
+function closeSheet(){
+  sheet.hidden=true; document.body.classList.remove("locked");
+  if (/^#(b\d+|[a-z]+)$/.test(location.hash) && !document.getElementById(location.hash.slice(1))) history.replaceState(null,"",location.pathname);
+  lastFocus&&lastFocus.focus&&lastFocus.focus();
+}
+$("#dClose").onclick=closeSheet;
+sheet.addEventListener("click",e=>{if(e.target===sheet)closeSheet()});
+
+/* ======================= CERT VIEWER ======================= */
+const viewer=$("#viewer");
+function openCert(key){
+  const c=CERTS.find(x=>x.key===key); if(!c) return;
+  const pages=CERT_PAGES[key]||[];
+  const pdf = pages.length ? `assets/certs/${key}.pdf` : MH + c.path;
+  $("#vTitle").textContent=c.title; $("#vPdf").href=pdf;
+  $("#vPages").innerHTML = pages.length ? pages.map((p,i)=>`<img src="assets/certs/${p}" alt="${esc(c.title)} — ${i+1}-р хуудас">`).join("") + `<p class="note">PDF-ийг бүтнээр нь «PDF нээх» товчоор харна.</p>`
+    : `<p class="note">Гэрчилгээг PDF-ээр нээж харна уу.</p><a class="btn btn-tag" href="${pdf}" target="_blank" rel="noopener">PDF нээх ↗</a>`;
+  viewer.hidden=false; document.body.classList.add("locked"); $("#vClose").focus();
+}
+function closeViewer(){ viewer.hidden=true; if(sheet.hidden&&reel.hidden) document.body.classList.remove("locked"); }
+$("#vClose").onclick=closeViewer;
+
+/* ======================= REEL PLAYER ======================= */
+const reel=$("#reel"), audio=$("#rAudio");
+let SPEC=null, R=null, raf=0, playing=false, muted=false, silentT=0, silentStart=0, curBeat=-1;
+let reelOpener=null;
+const SPEC_P = fetch("data/reels.json").then(r=>r.json()).then(j=>SPEC=j).catch(()=>null);
+
+function splitWords(s){ return s.split(/\s+/).filter(Boolean); }
+function buildTimeline(spec, meta){
+  // returns {dur, beats:[{t0,t1,cap,img,cta,warn,words:[{t,w}]}]}
+  const beats=[]; let t=0;
+  spec.beats.forEach((b,i)=>{
+    const say=splitWords(b.say);
+    let t0,t1,ws;
+    const mb = meta && meta.beats && meta.beats[i];
+    if (mb){
+      t0=mb.t0; t1=mb.t1;
+      const tw=mb.words||[];
+      if (tw.length===say.length) ws=say.map((w,j)=>({t:t0+tw[j].t,w}));
+      else if (tw.length){ // align proportionally by index
+        ws=say.map((w,j)=>({t:t0+tw[Math.min(tw.length-1,Math.floor(j*tw.length/say.length))].t,w}));
+      }
+    } else {
+      const d=Math.max(2.2, b.say.length*0.062); t0=t; t1=t+d;
+    }
+    if(!ws){ const total=say.reduce((a,w)=>a+w.length+1,0); let acc=0; const span=(t1-t0)*0.92;
+      ws=say.map(w=>{const o={t:t0+0.08+span*acc/total,w}; acc+=w.length+1; return o;}); }
+    beats.push({...b,t0,t1,words:ws}); t=t1;
+  });
+  return {dur:t, beats};
+}
+function chunks(words){ // up to 3 words / ~18 chars per caption chunk
+  const out=[]; let cur=[];
+  for(const w of words){ cur.push(w); const len=cur.reduce((a,x)=>a+x.w.length,0);
+    if(cur.length>=3||len>16||/[.,?!]$/.test(w.w)){ out.push(cur); cur=[]; } }
+  if(cur.length) out.push(cur); return out;
+}
+async function openReel(id){
+  await SPEC_P; if(!SPEC){ alertBox("Reel ачаалж чадсангүй."); return; }
+  const spec=SPEC.reels.find(r=>r.id===id); if(!spec) return;
+  let meta=null;
+  try{ const r=await fetch(`assets/reels/${id}.json`); if(r.ok) meta=await r.json(); }catch(e){}
+  R={id,spec,tl:buildTimeline(spec,meta),hasAudio:!!meta};
+  R.tl.beats.forEach(b=>b.chunks=chunks(b.words));
+  const prod = P[SLUG_BY_ID[spec.pid]];
+  $("#rTitle").textContent=spec.title+(R.hasAudio?"":" · дуугүй");
+  $("#rLegal").textContent = "Эм биш, эрүүл мэндийн нэмэлт. " + (prod? prod.warn : "Хориглох заалттай: "+WARN_STD.replace(" хэрэглэхгүй.","")+" хэрэглэхгүй.");
+  $("#rSegs").innerHTML=R.tl.beats.map(()=>`<i><b></b></i>`).join("");
+  curBeat=-1; reelOpener=document.activeElement;
+  reel.hidden=false; document.body.classList.add("locked");
+  history.replaceState(null,"","#reel-"+id);
+  if(R.hasAudio){ audio.src=`assets/reels/${id}.mp3`; audio.currentTime=0; audio.muted=muted; }
+  else { audio.removeAttribute("src"); }
+  silentT=0; play();
+}
+function now(){ return R.hasAudio ? audio.currentTime : silentT + (playing ? (performance.now()-silentStart)/1000 : 0); }
+function play(){
+  playing=true; $("#rPaused").hidden=true;
+  if(R.hasAudio){ const p=audio.play(); if(p&&p.catch) p.catch(()=>{ playing=false; $("#rPaused").hidden=false; }); }
+  else silentStart=performance.now();
+  cancelAnimationFrame(raf); raf=requestAnimationFrame(tick);
+}
+function pause(){
+  if(!R) return;
+  if(!R.hasAudio) silentT=now();
+  playing=false; audio.pause(); $("#rPaused").hidden=false;
+}
+function seekBeat(i){
+  if(!R) return; i=Math.max(0,Math.min(R.tl.beats.length-1,i));
+  const t=R.tl.beats[i].t0+0.01;
+  if(R.hasAudio) audio.currentTime=t; else { silentT=t; silentStart=performance.now(); }
+  curBeat=-1; if(!playing) play();
+}
+function setBeat(i){
+  const b=R.tl.beats[i]; curBeat=i;
+  const src=`assets/img/${b.img}.webp`;
+  const img=$("#rImg"); img.dataset.alt=""; img.onerror=null;
+  const base=String(b.img).split("-")[0];
+  img.dataset.alt=[MAIN_V[base]?`${MH}${base}.webp?${MAIN_V[base]}`:""].filter(Boolean).join("|");
+  img.onerror=()=>imgFallback(img);
+  img.src=src; img.alt=b.cap;
+  $("#rHero").classList.toggle("full", String(b.img).includes("-m"));
+  $("#rBlur").style.backgroundImage=`url("${src}")`;
+  const cap=$("#rCap"); cap.className="cap"+(b.warn?" warn":""); void cap.offsetWidth; cap.classList.add("pop");
+  cap.innerHTML=`<span>${esc(b.cap)}</span>`;
+  const cta=$("#rCta");
+  if(b.cta){
+    const prod=P[SLUG_BY_ID[R.spec.pid]], bun=BUNDLES[R.spec.pid];
+    const pr = prod? fmt(prod.price) : bun? fmt(bun.price) : "";
+    cta.innerHTML=`<a class="btn btn-tag" href="${ORDER_URL}" target="_blank" rel="noopener">Захиалах ↗</a><small>${pr?pr+" · ":""}11/30 хүртэл</small>`;
+    cta.hidden=false;
+  } else cta.hidden=true;
+}
+function tick(){
+  if(!R) return;
+  const t=now(), beats=R.tl.beats;
+  let i=beats.findIndex(b=>t<b.t1); if(i<0) i=beats.length-1;
+  if(i!==curBeat) setBeat(i);
+  const b=beats[i];
+  // Ken Burns
+  const k=Math.min(1,Math.max(0,(t-b.t0)/(b.t1-b.t0)));
+  $("#rImg").style.transform=`scale(${1+0.08*k}) translateY(${-2*k}%)`;
+  // progress
+  [...$("#rSegs").children].forEach((s,j)=>{ s.firstChild.style.transform=`scaleX(${j<i?1:j>i?0:k})`; });
+  // subtitles
+  let ci=b.chunks.findIndex(c=>t < (c[c.length-1].t + 0.35)); if(ci<0) ci=b.chunks.length-1;
+  if(t<b.t0+0.02) ci=0;
+  const ch=b.chunks[ci];
+  $("#rSubs").innerHTML=ch.map(w=>`<em class="${t>=w.t?(ch.filter(x=>t>=x.t).pop()===w?"on":"done"):""}">${esc(w.w.replace(/[.,]$/,""))}</em>`).join(" ");
+  const end = R.hasAudio ? (audio.ended || t>=R.tl.dur-0.02) : t>=R.tl.dur;
+  if(end){ playing=false; $("#rPaused").hidden=false; [...$("#rSegs").children].forEach(s=>s.firstChild.style.transform="scaleX(1)"); return; }
+  if(playing) raf=requestAnimationFrame(tick);
+}
+function closeReel(){
+  playing=false; cancelAnimationFrame(raf); audio.pause(); R=null; reel.hidden=true;
+  if(sheet.hidden&&viewer.hidden) document.body.classList.remove("locked");
+  if(location.hash.startsWith("#reel-")) history.replaceState(null,"",location.pathname);
+  reelOpener&&reelOpener.focus&&reelOpener.focus();
+}
+$("#rToggle").onclick=()=>{ if(!R) return; if(playing) pause(); else { if(now()>=R.tl.dur-0.05) seekBeat(0); else play(); } };
+$("#rPrev").onclick=()=>seekBeat((curBeat<0?0:curBeat)-1);
+$("#rNext").onclick=()=>{ if(curBeat>=R.tl.beats.length-1) closeReel(); else seekBeat(curBeat+1); };
+$("#rMute").onclick=()=>{ muted=!muted; audio.muted=muted; $("#rMute").textContent=muted?"🔇":"🔊"; };
+$("#rX").onclick=closeReel; $("#rClose").onclick=closeReel;
+reel.addEventListener("click",e=>{ if(e.target===reel) closeReel(); });
+audio.addEventListener("ended",()=>{ if(R){ playing=false; $("#rPaused").hidden=false; } });
+function alertBox(msg){ const d=document.createElement("div"); d.textContent=msg; d.style.cssText="position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--coral);color:var(--abyss);padding:10px 16px;border-radius:999px;font-weight:800;z-index:200"; document.body.appendChild(d); setTimeout(()=>d.remove(),2600); }
+
+/* reel durations on rail */
+Promise.all(REELS.map(r=>fetch(`assets/reels/${r.id}.json`).then(x=>x.ok?x.json():null).catch(()=>null))).then(list=>{
+  list.forEach((m,i)=>{ if(!m) return; const el=document.querySelector(`[data-dur="${REELS[i].id}"]`); if(el) el.textContent=`▶ 0:${String(Math.round(m.dur)).padStart(2,"0")}`; });
+});
+
+/* ======================= EVENTS / ROUTING ======================= */
+document.addEventListener("click",e=>{
+  const t=e.target.closest("[data-open],[data-bundle],[data-reel],[data-cert]"); if(!t) return;
+  if(t.dataset.reel) openReel(t.dataset.reel);
+  else if(t.dataset.cert) openCert(t.dataset.cert);
+  else if(t.dataset.open) openProduct(t.dataset.open);
+  else if(t.dataset.bundle) openBundle(t.dataset.bundle);
+});
+document.addEventListener("keydown",e=>{
+  if(e.key!=="Escape") return;
+  if(!reel.hidden) closeReel(); else if(!viewer.hidden) closeViewer(); else if(!sheet.hidden) closeSheet();
+});
+function route(){
+  const h=location.hash.slice(1);
+  if(!h) return;
+  if(h.startsWith("reel-")) openReel(h.slice(5));
+  else if(P[h]) openProduct(h,false);
+  else if(/^b\d+$/.test(h)&&BUNDLES[h.slice(1)]) openBundle(h.slice(1),false);
+}
+route();
+
+/* countdown */
+const target=new Date(SALE_END).getTime(),cd=$("#cd");
 function tickCd(){
   const ms=Math.max(0,target-Date.now());
   const d=Math.floor(ms/864e5),h=Math.floor(ms/36e5)%24,m=Math.floor(ms/6e4)%60;
@@ -335,8 +866,9 @@ function tickCd(){
 }
 tickCd();setInterval(tickCd,30000);
 
+/* ambient sea particles */
 (function(){
-  const c=document.getElementById("sea"),x=c.getContext("2d");
+  const c=$("#sea"),x=c.getContext("2d");
   const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
   let w,h,pts=[];
   function size(){const r=c.getBoundingClientRect(),dpr=Math.min(2,devicePixelRatio||1);w=r.width;h=r.height;c.width=w*dpr;c.height=h*dpr;x.setTransform(dpr,0,0,dpr,0,0);
@@ -347,6 +879,5 @@ tickCd();setInterval(tickCd,30000);
   size();draw();addEventListener("resize",()=>{size();if(reduce)draw()});
 })();
 </script>
-
 </body>
 </html>

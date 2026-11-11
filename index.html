@@ -3,11 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Эрүүл амьдралын хөтөч</title>
+<title>Эрүүл амьдралын хөтөч — Marine Health урамшуулал</title>
 <meta name="description" content="Marine Health бүтээгдэхүүн, 11-р сарын урамшуулал — бизнес хамтрагчийн танилцуулга сайт.">
 <meta property="og:title" content="Эрүүл амьдралын хөтөч — Marine Health урамшуулал">
 <meta property="og:description" content="6 багц 800,000₮ (−47%), Collagen ба шүдний оо 1+1. 11-р сарын 30 хүртэл.">
-<meta property="og:image" content="https://chinzkoo2017.github.io/mh-hamtragch/assets/img/2301.webp">
+<meta property="og:image" content="https://chinzkoo2017.github.io/mh-hamtragch/assets/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://chinzkoo2017.github.io/mh-hamtragch/">
+<meta property="og:locale" content="mn_MN">
+<meta property="og:site_name" content="Эрүүл амьдралын хөтөч">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://chinzkoo2017.github.io/mh-hamtragch/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2306121f'/%3E%3Cpath d='M32 50c0-16 4-26 16-34-1 16-5 27-16 34z' fill='%23ffb547'/%3E%3Cpath d='M30 50c-1-12-5-19-14-24 0 12 4 20 14 24z' fill='%234fd1c5'/%3E%3C/svg%3E">
+<link rel="preload" as="image" href="assets/cut/2301.webp" fetchpriority="high">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#06121f">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,24 +68,103 @@ nav.links a:hover{color:var(--foam)}
 .btn-play::before{content:"";width:0;height:0;border-left:9px solid currentColor;border-top:6px solid transparent;border-bottom:6px solid transparent}
 @media (max-width:900px){nav.links{display:none}}
 
-.hero{position:relative;overflow:hidden;padding-block:48px 40px}
-.hero canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.55;pointer-events:none}
-.hero .wrap{position:relative;display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center}
-.bf{font-family:var(--f-display);font-weight:900;font-size:clamp(52px,10.5vw,142px);line-height:.86;letter-spacing:-.03em;margin:14px 0 20px}
+.hero{position:relative;overflow:hidden;padding-block:28px 34px}
+.hero canvas#sea{position:absolute;inset:0;width:100%;height:100%;opacity:.5;pointer-events:none}
+.hero .wrap{position:relative}
+.hero .hgrid{display:grid;grid-template-columns:1.05fr .95fr;grid-template-areas:"head scene" "offer scene";column-gap:44px;row-gap:22px;align-items:start}
+.hhead{grid-area:head;align-self:end}
+.hoffer{grid-area:offer;display:flex;flex-direction:column;gap:16px}
+.bf{font-family:var(--f-display);font-weight:900;font-size:clamp(44px,8.2vw,112px);line-height:.88;letter-spacing:-.03em;margin:12px 0 14px}
 .bf .out{color:transparent;-webkit-text-stroke:2px var(--foam)}
 .bf .hot{color:var(--tag)}
-.hero p.lead{font-size:clamp(16px,1.9vw,19px);max-width:52ch;color:var(--mist);margin:0 0 24px}
+.hero p.lead{font-size:clamp(15.5px,1.7vw,19px);max-width:46ch;color:var(--mist);margin:0}
 .hero p.lead strong{color:var(--foam)}
+.hscene{grid-area:scene;position:relative;border-radius:28px;min-height:440px;height:100%;border:0;padding:0;cursor:pointer;display:block;width:100%;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.hscene .sc-prod{max-width:92%;max-height:56%;bottom:21%}
+.stamp{position:absolute;top:14px;right:14px;z-index:3;width:108px;height:108px;border-radius:50%;background:var(--coral);color:var(--abyss);display:grid;place-items:center;text-align:center;transform:rotate(9deg);box-shadow:0 0 0 5px rgba(6,18,31,.9),0 0 0 6px var(--coral);animation:stamp .7s .5s cubic-bezier(.2,1.7,.4,1) both}
+.stamp b{font-family:var(--f-display);font-weight:900;font-size:30px;line-height:1;letter-spacing:-.03em;display:block}
+.stamp small{font-weight:800;font-size:10.5px;display:block;margin-top:2px}
+@keyframes stamp{from{transform:rotate(-30deg) scale(2.2);opacity:0}}
+.hscene .tapnote{position:absolute;left:14px;bottom:12px;z-index:3;font-family:var(--f-mono);font-size:12px;color:#fff;background:rgba(6,18,31,.6);padding:5px 10px;border-radius:999px}
+.hprice{display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.hprice .pbox .was{font-size:18px}
+.hprice .pbox .now{font-size:clamp(38px,5.2vw,58px)}
+.hprice .pbox .save{font-size:13px}
+.hprice .per{font-size:13.5px;color:var(--mist);padding-bottom:6px}
+.timer{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:13.5px;color:var(--mist)}
+.countdown{display:flex;gap:6px;font-family:var(--f-mono)}
+.countdown span{background:var(--deep);border:1px solid var(--line);color:var(--foam);border-radius:10px;padding:6px 8px;font-size:17px;min-width:48px;text-align:center}
+.countdown em{display:block;font-style:normal;font-size:10px;color:var(--mist);letter-spacing:.08em}
+.countdown .sec{color:var(--tag)}
 .cta-row{display:flex;flex-wrap:wrap;gap:12px}
-.stamp{justify-self:end;width:min(320px,100%);aspect-ratio:1;border-radius:50%;background:var(--coral);color:var(--abyss);display:grid;place-items:center;text-align:center;padding:28px;transform:rotate(-7deg);box-shadow:0 0 0 10px var(--abyss),0 0 0 11px var(--coral)}
-.stamp .pct{font-family:var(--f-display);font-weight:900;font-size:clamp(54px,7vw,76px);line-height:.9;display:block;letter-spacing:-.03em}
-.stamp small{font-weight:800;font-size:13px;display:block;margin-top:6px}
-.countdown{display:flex;gap:6px;justify-content:center;margin-top:12px;font-family:var(--f-mono)}
-.countdown span{background:var(--abyss);color:var(--foam);border-radius:8px;padding:6px 7px;font-size:15px;min-width:44px}
-.countdown em{display:block;font-style:normal;font-size:9px;color:var(--mist);letter-spacing:.08em}
-@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}.stamp{justify-self:center;width:250px}}
+.cta-row .btn-tag{padding:15px 26px;font-size:16px;box-shadow:0 10px 30px rgba(255,181,71,.28)}
+.trustbar{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:26px;position:relative}
+.trustbar div{border:1px solid var(--line);border-radius:14px;padding:11px 14px;background:color-mix(in srgb,var(--deep) 80%,transparent);font-size:13.5px;color:var(--mist);line-height:1.35}
+.trustbar b{display:block;color:var(--foam);font-size:14px}
+@media (max-width:900px){
+  .hero{padding-block:18px 26px}
+  .hero .hgrid{grid-template-columns:1fr;grid-template-areas:"head" "scene" "offer";row-gap:12px}
+  .bf{font-size:clamp(40px,12.6vw,72px);margin:8px 0 8px}
+  .bf br{display:none}
+  .hscene{min-height:0;height:min(64vw,300px);border-radius:22px}
+  .stamp{width:84px;height:84px;top:10px;right:10px}.stamp b{font-size:23px}.stamp small{font-size:9.5px}
+  .trustbar{grid-template-columns:1fr 1fr}
+  .cta-row .btn{flex:1}
+}
 
-section{padding-block:56px}
+/* picker */
+.pick{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.pick button{font:700 14.5px var(--f-body);color:var(--foam);background:var(--deep);border:1px solid var(--line);border-radius:999px;padding:11px 16px;cursor:pointer;min-height:44px;transition:background .2s,color .2s,border-color .2s}
+.pick button:hover{border-color:var(--mist)}
+.pick button[aria-pressed="true"]{background:var(--tag);color:var(--abyss);border-color:var(--tag)}
+.picknote{font-size:13px;color:var(--mist);margin:12px 0 0}
+#pickOut .deal{animation:rise .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes rise{from{transform:translateY(14px);opacity:.3}}
+
+/* carousels on phones */
+.dots{display:none;justify-content:center;gap:6px;margin-top:12px}
+.dots i{width:6px;height:6px;border-radius:50%;background:var(--line);transition:width .2s,background .2s}
+.dots i.on{width:18px;border-radius:3px;background:var(--tag)}
+@media (max-width:620px){
+  .swipe{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-inline:-16px;padding-inline:16px;scroll-padding-inline:16px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .swipe::-webkit-scrollbar{display:none}
+  .swipe>.deal{flex:0 0 84%;scroll-snap-align:start}
+  .swipe>.prod{flex:0 0 76%;scroll-snap-align:start}
+  .swipe>.deal:hover,.swipe>.prod:hover{transform:none}
+  .dots{display:flex}
+  .certs{display:flex!important;overflow-x:auto;scroll-snap-type:x proximity;margin-inline:-16px;padding-inline:16px;scrollbar-width:none}
+  .certs::-webkit-scrollbar{display:none}
+  .certs>.cert{flex:0 0 136px;width:136px;min-width:0;overflow:hidden;scroll-snap-align:start}
+  .pick{flex-wrap:nowrap;overflow-x:auto;margin-inline:-16px;padding-inline:16px;scrollbar-width:none}
+  .pick::-webkit-scrollbar{display:none}
+  .pick button{flex:none;white-space:nowrap}
+  header.top .wrap{padding-block:8px;gap:10px}
+  .brand b{font-size:12.5px;white-space:nowrap}
+  .brand small{font-size:11px}
+  header.top .btn{padding:10px 14px;font-size:13.5px}
+  .hero p.lead{font-size:14.5px}
+  .timer{font-size:13px}
+  .countdown span{font-size:15px;min-width:42px;padding:5px 6px}
+  .dsec .certs{margin-inline:0;padding-inline:0}
+  section{padding-block:40px}
+}
+
+/* FAQ */
+.faq{display:grid;gap:10px;max-width:860px}
+.faq details{border:1px solid var(--line);border-radius:16px;background:var(--deep);overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;padding:16px 48px 16px 18px;font-weight:800;font-size:16px;position:relative;min-height:52px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);font-family:var(--f-display);font-size:20px;color:var(--tag);transition:transform .2s}
+.faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.faq details p{margin:0;padding:0 18px 16px;color:var(--mist);max-width:68ch}
+.cardwarn{font-size:12.5px!important;color:var(--mist)!important;display:flex;gap:6px;align-items:baseline}
+.cardwarn::before{content:"";flex:0 0 7px;height:7px;border-radius:50%;background:var(--coral);transform:translateY(-1px)}
+.toast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--foam);color:var(--abyss);padding:10px 18px;border-radius:999px;font-weight:800;font-size:14px;z-index:200;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.sharebtn{font-weight:800;font-size:13.5px;border:1px solid var(--line);background:var(--deep);border-radius:999px;padding:0 16px;height:42px;cursor:pointer}
+.dline{font-family:var(--f-mono);font-size:12px;color:var(--mist);text-align:center;flex-basis:100%}
+.dline b{color:var(--tag);font-weight:500}
+
+section{padding-block:56px}section{padding-block:56px}
 .sec-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:26px}
 .sec-head h2{font-size:clamp(28px,4.6vw,48px);margin-top:8px}
 .sec-head p{color:var(--mist);max-width:48ch;margin:0}
@@ -94,7 +182,7 @@ section{padding-block:56px}
 .rcard .shade{position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(6,18,31,.92) 82%);z-index:1}
 .rcard .lbl{position:absolute;left:12px;right:12px;bottom:12px;z-index:2;color:#fff}
 .rcard .lbl b{display:block;font-family:var(--f-display);font-size:14px;line-height:1.15}
-.rcard .lbl small{font-family:var(--f-mono);font-size:11px;color:var(--tag)}
+.rcard .lbl small{font-family:var(--f-mono);font-size:12px;color:var(--tag)}
 .rcard .pl{position:absolute;top:10px;right:10px;z-index:2;width:30px;height:30px;border-radius:50%;background:rgba(6,18,31,.75);display:grid;place-items:center;color:#fff}
 .rcard .pl::before{content:"";border-left:9px solid currentColor;border-top:6px solid transparent;border-bottom:6px solid transparent;margin-left:2px}
 
@@ -109,10 +197,10 @@ section{padding-block:56px}
 .badge{position:absolute;top:12px;left:12px;font-family:var(--f-mono);font-size:11px;padding:4px 9px;border-radius:999px;background:var(--abyss);color:var(--tag)}
 .body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:10px;flex:1}
 .deal h3,.prod h3{font-size:18px}
-.ttl{background:none;border:0;padding:0;text-align:left;cursor:pointer}
+.ttl{background:none;border:0;padding:6px 0;margin-block:-6px;text-align:left;cursor:pointer}
 .ttl:hover h3{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:2px}
 .contents{display:flex;flex-wrap:wrap;gap:6px}
-.contents span,.contents button{font-family:var(--f-mono);font-size:12px;padding:4px 9px;border-radius:999px;border:1px solid var(--line);color:var(--sea);background:none}
+.contents span,.contents button{font-family:var(--f-mono);font-size:12.5px;padding:8px 12px;min-height:36px;border-radius:999px;border:1px solid var(--line);color:var(--sea);background:none}
 .contents button{cursor:pointer}
 .contents button:hover{border-color:var(--sea)}
 .deal p,.prod p{margin:0;color:var(--mist);font-size:14.5px}
@@ -145,7 +233,7 @@ section{padding-block:56px}
 .certs{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
 .cert{background:var(--deep);border:1px solid var(--line);border-radius:16px;padding:10px;cursor:pointer;text-align:left;display:flex;flex-direction:column;gap:8px;transition:border-color .2s}
 .cert:hover{border-color:var(--tag)}
-.cert .pg{aspect-ratio:1/1.414;background:var(--paper);border-radius:8px;overflow:hidden;display:grid;place-items:center}
+.cert .pg{width:100%;aspect-ratio:1/1.414;background:var(--paper);border-radius:8px;overflow:hidden;display:grid;place-items:center}
 .cert .pg img{width:100%;height:100%;object-fit:cover;object-position:top}
 .cert .pg span{font-family:var(--f-mono);font-size:12px;color:var(--ink)}
 .cert b{font-size:13px;line-height:1.3}
@@ -160,13 +248,13 @@ section{padding-block:56px}
 .box.alert h3,.box.alert .eyebrow{color:var(--coral)}
 @media (max-width:900px){.trust{grid-template-columns:1fr}}
 
-footer{border-top:1px solid var(--line);padding-block:36px 110px;color:var(--mist);font-size:13.5px}
+footer{border-top:1px solid var(--line);padding-block:36px 130px;color:var(--mist);font-size:13.5px}
 footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
 footer b{color:var(--foam);font-family:var(--f-display);font-size:15px}
 footer p{margin:6px 0 0;max-width:62ch}
 .socials{display:flex;gap:10px;flex-wrap:wrap}
-.dock{position:fixed;left:0;right:0;bottom:0;z-index:55;display:none;gap:10px;background:color-mix(in srgb,var(--abyss) 92%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line);padding-top:10px;padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-.dock .btn{flex:1}
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:55;display:none;flex-wrap:wrap;gap:6px 10px;background:color-mix(in srgb,var(--abyss) 92%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line);padding-top:7px;padding-bottom:calc(9px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.dock .btn{flex:1;padding-block:11px}
 @media (max-width:900px){.dock{display:flex}}
 
 /* detail sheet */
@@ -291,6 +379,7 @@ footer p{margin:6px 0 0;max-width:62ch}
 @media (prefers-reduced-motion:reduce){.pbox .was,.pbox .now,.pbox .save,.pbox .was::after{transition:none}.lit .pbox .now,.lit .pbox .now::after{animation:none}}
 @media (prefers-reduced-motion:reduce){.ticker .run{animation:none}.btn,.deal,.prod{transition:none}html{scroll-behavior:auto}.cap.pop,.rcta,.sheet .panel{animation:none}}
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "name": "Эрүүл амьдралын хөтөч", "url": "https://chinzkoo2017.github.io/mh-hamtragch/", "inLanguage": "mn"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Энэ эм үү?", "acceptedAnswer": {"@type": "Answer", "text": "Үгүй. Marine Health-ийн бүтээгдэхүүнүүд эм биш, өдөр тутмын эрүүл мэндийн нэмэлт. Өвчтэй, эм уудаг, эмчийн хяналтад байгаа бол хэрэглэхээсээ өмнө эмчдээ зөвлөөрэй. Найрлагыг нь Messenger-ээр илгээж өгнө."}}, {"@type": "Question", "name": "Хэн хэрэглэж болохгүй вэ?", "acceptedAnswer": {"@type": "Answer", "text": "18 нас хүрээгүй хүүхэд, жирэмсэн болон хөхүүл эхчүүд, цус шингэлэх эм (антикоагулянт) хэрэглэдэг хүмүүс, найрлагад нь харшилтай, мэдрэг хүмүүс хэрэглэхгүй."}}, {"@type": "Question", "name": "Хэрхэн захиалах вэ?", "acceptedAnswer": {"@type": "Answer", "text": "«Захиалах» товчийг дарахад Marine Health-ийн албан ёсны дэлгүүр нээгдэнэ. Тэнд нэг удаа бүртгүүлээд багц, бүтээгдэхүүнээ сонгоно. Энэ сайт дээр төлбөр хийгдэхгүй."}}, {"@type": "Question", "name": "Төлбөрөө яаж төлөх вэ?", "acceptedAnswer": {"@type": "Answer", "text": "QPay-ээр төлнө. И-баримт Marine Health-ийн апп дээр гарна."}}, {"@type": "Question", "name": "Хүргэлт ямар вэ?", "acceptedAnswer": {"@type": "Answer", "text": "Хүргэлтийн төлбөр бүтээгдэхүүний үнэ дээр тусдаа нэмэгдэнэ. Дүн нь захиалга хийх үед харагдана."}}, {"@type": "Question", "name": "Буцаалт, солилт байдаг уу?", "acceptedAnswer": {"@type": "Answer", "text": "Буцаалт, солилт хийгддэггүй. Тиймээс захиалахаасаа өмнө асуух зүйлээ Messenger-ээр лавлаарай."}}, {"@type": "Question", "name": "Урамшуулал хэзээ дуусах вэ?", "acceptedAnswer": {"@type": "Answer", "text": "6 багцын 800,000₮-ийн үнэ болон Collagen, ASHITABA шүдний оогийн 1+1 урамшуулал 2026 оны 11-р сарын 30-нд дуусна."}}, {"@type": "Question", "name": "Апп ашиглаж чадахгүй бол яах вэ?", "acceptedAnswer": {"@type": "Answer", "text": "Апп ашиглахад хүндрэлтэй ахмад настны захиалгыг хийж өгнө. Facebook хуудас руу Messenger-ээр бичээрэй."}}, {"@type": "Question", "name": "Бүтээгдэхүүн гэрчилгээтэй юу?", "acceptedAnswer": {"@type": "Answer", "text": "Тийм. Бүтээгдэхүүн бүр ЕАЭЗХ-ны улсын бүртгэлийн гэрчилгээтэй (СГР). Collagen HALAL гэрчилгээтэй. Гэрчилгээг дээрх «Гэрчилгээнүүд» хэсгээс томруулж харна. Үйлдвэрлэгч: Akyldy Food Supplements (Казахстан)."}}]}]}</script>
 </head>
 <body>
 
@@ -300,7 +389,7 @@ footer p{margin:6px 0 0;max-width:62ch}
   <div class="wrap">
     <a class="brand" href="#top"><b>Эрүүл амьдралын хөтөч</b><small>Marine Health-ийн бизнес хамтрагч</small></a>
     <nav class="links" aria-label="Хэсгүүд">
-      <a href="#reels">Reels</a><a href="#promo">Урамшуулал</a><a href="#products">Бүтээгдэхүүн</a><a href="#certs">Гэрчилгээ</a><a href="#how">Хэрхэн авах</a>
+      <a href="#promo">Урамшуулал</a><a href="#products">Бүтээгдэхүүн</a><a href="#reels">Reels</a><a href="#certs">Гэрчилгээ</a><a href="#faq">Асуулт</a>
     </nav>
     <a class="btn btn-tag" data-order href="#">Захиалах ↗</a>
   </div>
@@ -309,25 +398,49 @@ footer p{margin:6px 0 0;max-width:62ch}
 <main id="top">
   <section class="hero">
     <canvas id="sea" aria-hidden="true"></canvas>
-    <div class="wrap">
-      <div>
+    <div class="wrap hgrid">
+      <div class="hhead">
         <span class="eyebrow">Marine Health · 11.09 – 11.30</span>
-        <h1 class="bf"><span class="out">BLACK</span><br><span class="hot">FRIDAY</span></h1>
-        <p class="lead"><strong>11-р сарын урамшуулал эхэллээ.</strong> 4 савтай 6 багц тус бүр 800,000₮, Collagen болон ASHITABA шүдний оо 1+1. Урамшуулал 11-р сарын 30 хүртэл.</p>
-        <div class="cta-row">
-          <button class="btn btn-tag btn-play" type="button" data-reel="promo">Урамшууллын reel</button>
-          <a class="btn btn-ghost" href="#promo">Багцуудыг харах</a>
-        </div>
+        <h1 class="bf"><span class="out">BLACK</span><br> <span class="hot">FRIDAY</span></h1>
+        <p class="lead"><strong>4 савтай багц 800,000₮.</strong> Collagen болон ASHITABA шүдний оо 1+1. Урамшуулал 11-р сарын 30 хүртэл.</p>
       </div>
-      <div class="stamp" role="img" aria-label="Багц 47% хямд, урамшуулал дуусах хүртэлх хугацаа">
-        <div>
-          <span class="pct">−47%</span>
-          <small>4 савтай багцууд</small>
-          <div class="countdown num" id="cd"></div>
+      <button class="hscene" type="button" data-bundle="2301" data-scene="2301" data-count="18" aria-label="Зүрхний багц — дэлгэрэнгүй">
+        <span class="stamp"><span><b>−47%</b><small>6 багц</small></span></span>
+        <span class="tapnote">Зүрхний багц · ASHITABA ×2 + Cardio ×2</span>
+      </button>
+      <div class="hoffer">
+        <div class="hprice" id="hprice">
+          <div class="pbox num"><span class="was">1,529,440₮</span><span class="now">800,000₮</span><span class="save">729,440₮ хэмнэнэ · 4 сав</span></div>
+        </div>
+        <div class="timer"><span>Дуусахад</span><div class="countdown num" id="cd" role="timer" aria-label="Урамшуулал дуусах хүртэл"></div></div>
+        <div class="cta-row">
+          <a class="btn btn-tag" href="#promo">Багцаа сонгох ↓</a>
+          <button class="btn btn-ghost btn-play" type="button" data-reel="promo">30 сек reel</button>
         </div>
       </div>
     </div>
+    <div class="wrap">
+      <div class="trustbar">
+        <div><b>СГР гэрчилгээтэй</b>ЕАЭЗХ-ны улсын бүртгэл</div>
+        <div><b>Албан ёсны дэлгүүр</b>Захиалга MH апп, вэбээр</div>
+        <div><b>QPay төлбөр</b>И-баримт апп дээр гарна</div>
+        <div><b>Эм биш</b>Өдөр тутмын нэмэлт</div>
+      </div>
+    </div>
   </section>
+
+  <section id="pick">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="eyebrow">10 секундэд сонго</span><h2>Юунд анхаарч байна вэ?</h2></div>
+        <p>Нэгийг дарахад тохирох урамшууллын багцыг харуулна.</p>
+      </div>
+      <div class="pick" id="pickBtns" role="group" aria-label="Сонирхол"></div>
+      <div class="deals" id="pickOut"></div>
+      <p class="picknote">Энэ бол бүтээгдэхүүний зөвлөмж, онош биш. Эм биш, эрүүл мэндийн нэмэлт. Эмчийн хяналтад байгаа бол эмчдээ зөвлөөрэй.</p>
+    </div>
+  </section>
+
 
   <section id="reels">
     <div class="wrap">
@@ -345,9 +458,9 @@ footer p{margin:6px 0 0;max-width:62ch}
         <div><span class="eyebrow">Урамшуулал · 11.09 – 11.30</span><h2>Энэ сарын багцууд</h2></div>
         <p>Багц бүр 4 сав. Тус тусад нь авахтай харьцуулсан хэмнэлтийг доор харуулав. Бүтээгдэхүүний нэр дээр дарж дэлгэрэнгүйг уншина уу.</p>
       </div>
-      <div class="deals" id="deals"></div>
+      <div class="deals swipe" id="deals"></div><div class="dots" data-for="deals"></div>
       <div class="subhead">1 + 1 бэлэг</div>
-      <div class="deals" id="gifts"></div>
+      <div class="deals swipe" id="gifts"></div><div class="dots" data-for="gifts"></div>
     </div>
   </section>
 
@@ -357,9 +470,21 @@ footer p{margin:6px 0 0;max-width:62ch}
         <div><span class="eyebrow">Каталог · Монгол</span><h2>Бүтээгдэхүүнүүд</h2></div>
         <p>Эм биш, өдөр тутмын эрүүл мэндийн нэмэлт. Карт дээр дарж найрлага, хэрэглэх заавар, гэрчилгээг харна.</p>
       </div>
-      <div class="grid" id="grid"></div>
+      <div class="grid swipe" id="grid"></div><div class="dots" data-for="grid"></div>
       <div class="subhead">Цогц багц</div>
-      <div class="deals" id="sets"></div>
+      <div class="deals swipe" id="sets"></div><div class="dots" data-for="sets"></div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="sec-head"><div><span class="eyebrow">Захиалга</span><h2>Хэрхэн авах вэ</h2></div></div>
+      <div class="steps">
+        <div class="step"><h3>Холбоосоор нэвтрэх</h3><p>«Захиалах» товчоор Marine Health-ийн албан ёсны дэлгүүр рүү орно.</p></div>
+        <div class="step"><h3>Бүртгүүлэх</h3><p>MH GO апп эсвэл вэб дээр бүртгүүлнэ. Нэг удаа бүртгүүлэхэд хангалттай.</p></div>
+        <div class="step"><h3>QPay-ээр төлөх</h3><p>Багц, бүтээгдэхүүнээ сонгоод QPay-ээр төлнө. Хүргэлтийн төлбөр тусдаа.</p></div>
+        <div class="step"><h3>Тусламж хэрэгтэй юу?</h3><p>Апп ашиглахад хүндрэлтэй ахмад настанд захиалгыг нь хийж өгнө. Messenger-ээр бичээрэй.</p></div>
+      </div>
     </div>
   </section>
 
@@ -396,15 +521,21 @@ footer p{margin:6px 0 0;max-width:62ch}
     </div>
   </section>
 
-  <section id="how">
+  <section id="faq">
     <div class="wrap">
-      <div class="sec-head"><div><span class="eyebrow">Захиалга</span><h2>Хэрхэн авах вэ</h2></div></div>
-      <div class="steps">
-        <div class="step"><h3>Холбоосоор нэвтрэх</h3><p>«Захиалах» товчоор Marine Health-ийн албан ёсны дэлгүүр рүү орно.</p></div>
-        <div class="step"><h3>Бүртгүүлэх</h3><p>MH GO апп эсвэл вэб дээр бүртгүүлнэ. Нэг удаа бүртгүүлэхэд хангалттай.</p></div>
-        <div class="step"><h3>QPay-ээр төлөх</h3><p>Багц, бүтээгдэхүүнээ сонгоод QPay-ээр төлнө. Хүргэлтийн төлбөр тусдаа.</p></div>
-        <div class="step"><h3>Тусламж хэрэгтэй юу?</h3><p>Апп ашиглахад хүндрэлтэй ахмад настанд захиалгыг нь хийж өгнө. Messenger-ээр бичээрэй.</p></div>
+      <div class="sec-head"><div><span class="eyebrow">Асуулт, хариулт</span><h2>Түгээмэл асуултууд</h2></div></div>
+      <div class="faq">
+        <details><summary>Энэ эм үү?</summary><p>Үгүй. Marine Health-ийн бүтээгдэхүүнүүд эм биш, өдөр тутмын эрүүл мэндийн нэмэлт. Өвчтэй, эм уудаг, эмчийн хяналтад байгаа бол хэрэглэхээсээ өмнө эмчдээ зөвлөөрэй. Найрлагыг нь Messenger-ээр илгээж өгнө.</p></details>
+        <details><summary>Хэн хэрэглэж болохгүй вэ?</summary><p>18 нас хүрээгүй хүүхэд, жирэмсэн болон хөхүүл эхчүүд, цус шингэлэх эм (антикоагулянт) хэрэглэдэг хүмүүс, найрлагад нь харшилтай, мэдрэг хүмүүс хэрэглэхгүй.</p></details>
+        <details><summary>Хэрхэн захиалах вэ?</summary><p>«Захиалах» товчийг дарахад Marine Health-ийн албан ёсны дэлгүүр нээгдэнэ. Тэнд нэг удаа бүртгүүлээд багц, бүтээгдэхүүнээ сонгоно. Энэ сайт дээр төлбөр хийгдэхгүй.</p></details>
+        <details><summary>Төлбөрөө яаж төлөх вэ?</summary><p>QPay-ээр төлнө. И-баримт Marine Health-ийн апп дээр гарна.</p></details>
+        <details><summary>Хүргэлт ямар вэ?</summary><p>Хүргэлтийн төлбөр бүтээгдэхүүний үнэ дээр тусдаа нэмэгдэнэ. Дүн нь захиалга хийх үед харагдана.</p></details>
+        <details><summary>Буцаалт, солилт байдаг уу?</summary><p>Буцаалт, солилт хийгддэггүй. Тиймээс захиалахаасаа өмнө асуух зүйлээ Messenger-ээр лавлаарай.</p></details>
+        <details><summary>Урамшуулал хэзээ дуусах вэ?</summary><p>6 багцын 800,000₮-ийн үнэ болон Collagen, ASHITABA шүдний оогийн 1+1 урамшуулал 2026 оны 11-р сарын 30-нд дуусна.</p></details>
+        <details><summary>Апп ашиглаж чадахгүй бол яах вэ?</summary><p>Апп ашиглахад хүндрэлтэй ахмад настны захиалгыг хийж өгнө. Facebook хуудас руу Messenger-ээр бичээрэй.</p></details>
+        <details><summary>Бүтээгдэхүүн гэрчилгээтэй юу?</summary><p>Тийм. Бүтээгдэхүүн бүр ЕАЭЗХ-ны улсын бүртгэлийн гэрчилгээтэй (СГР). Collagen HALAL гэрчилгээтэй. Гэрчилгээг дээрх «Гэрчилгээнүүд» хэсгээс томруулж харна. Үйлдвэрлэгч: Akyldy Food Supplements (Казахстан).</p></details>
       </div>
+      <div class="cta-row" style="margin-top:22px"><a class="btn btn-ghost" href="https://www.facebook.com/profile.php?id=100063525612074" target="_blank" rel="noopener">Өөр асуулт байна уу? Messenger ↗</a><a class="btn btn-tag" data-order href="#">Захиалах ↗</a></div>
     </div>
   </section>
 </main>
@@ -423,6 +554,7 @@ footer p{margin:6px 0 0;max-width:62ch}
 </footer>
 
 <div class="dock">
+  <span class="dline">−47% багц · дуусахад <b id="cd2"></b></span>
   <a class="btn btn-ghost" href="https://www.facebook.com/profile.php?id=100063525612074" target="_blank" rel="noopener">Асуух</a>
   <a class="btn btn-tag" data-order href="#">Захиалах ↗</a>
 </div>
@@ -430,7 +562,7 @@ footer p{margin:6px 0 0;max-width:62ch}
 <!-- detail sheet -->
 <div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="dTitle">
   <div class="panel" id="panel">
-    <div class="bar"><span class="eyebrow" id="dEyebrow">Бүтээгдэхүүн</span><button class="x" type="button" id="dClose" aria-label="Хаах">×</button></div>
+    <div class="bar"><span class="eyebrow" id="dEyebrow">Бүтээгдэхүүн</span><span style="flex:1"></span><button class="sharebtn" type="button" id="dShare">Хуваалцах</button><button class="x" type="button" id="dClose" aria-label="Хаах">×</button></div>
     <div class="dbody" id="dBody"></div>
     <div class="dbuy" id="dBuy"></div>
   </div>
@@ -455,7 +587,7 @@ footer p{margin:6px 0 0;max-width:62ch}
     <div class="tapzones"><button type="button" id="rPrev" aria-label="Өмнөх"></button><button type="button" id="rToggle" aria-label="Түр зогсоох / тоглуулах"></button><button type="button" id="rNext" aria-label="Дараах"></button></div>
     <div class="top">
       <div class="segs" id="rSegs"></div>
-      <div class="who"><div class="av">ЭА</div><div><b>eruul.amidral.hutuch</b><small id="rTitle"></small></div><span class="sp"></span><button class="rbtn" type="button" id="rMute" aria-label="Дуу хаах">🔊</button><button class="rbtn" type="button" id="rX" aria-label="Хаах">×</button></div>
+      <div class="who"><div class="av">ЭА</div><div><b>eruul.amidral.hutuch</b><small id="rTitle"></small></div><span class="sp"></span><button class="rbtn" type="button" id="rShare" aria-label="Хуваалцах">↗</button><button class="rbtn" type="button" id="rMute" aria-label="Дуу хаах">🔊</button><button class="rbtn" type="button" id="rX" aria-label="Хаах">×</button></div>
     </div>
     <div class="rcta" id="rCta" hidden></div>
     <div class="audio-tag"><i>♫</i><span>Эрүүл амьдралын хөтөч · Original audio</span></div>
@@ -621,11 +753,15 @@ const SC = {
 };
 function sceneCfg(id, extra={}){
   const b = SC[id]; if(!b) return null;
-  return {...b, ...extra, cut:`assets/cut/${b.cut}.webp`,
+  const nm = (BUNDLES[id]&&BUNDLES[id].n) || (P[SLUG_BY_ID[id]]&&P[SLUG_BY_ID[id]].name) || "";
+  return {...b, ...extra, alt: nm ? nm+" — бүтээгдэхүүний зураг" : "", cut:`assets/cut/${b.cut}.webp`,
     fallback:[b.cut!==id?`assets/cut/${id}.webp`:null,`assets/img/${id}.webp`, MAIN_V[id]?`${MH}${id}.webp?${MAIN_V[id]}`:null].filter(Boolean)};
 }
 function mountScenes(root=document){
-  root.querySelectorAll("[data-scene]:not(.scene)").forEach(el=>{ const c=sceneCfg(el.dataset.scene); if(c) new Scene(el,c); });
+  root.querySelectorAll("[data-scene]:not(.scene)").forEach(el=>{
+    const extra = el.dataset.count ? {count:+el.dataset.count} : {};
+    if(!el.classList.contains("hscene")) extra.lazy = true;
+    const c=sceneCfg(el.dataset.scene, extra); if(c) new Scene(el,c); });
 }
 document.addEventListener("pointerenter",e=>{ const h=e.target.closest&&e.target.closest(".deal,.prod"); if(h){ const sc=h.querySelector(".scene"); if(sc) Scene.replay(sc); } },true);
 
@@ -683,7 +819,7 @@ function bundleCard(o){
       <button class="ttl" type="button" data-bundle="${o.id}"><h3>${esc(o.n)}</h3></button>
       <div class="contents">${chips(o.items)}</div>
       <p>${esc(o.d)}</p>
-      ${hasWarn(o.items)?`<p style="font-size:13px;color:var(--coral)">Хэрэглэхгүй: 18-аас доош, жирэмсэн, хөхүүл, цус шингэлэх эм уудаг, мэдрэг хүмүүс.</p>`:""}
+      ${hasWarn(o.items)?`<p class="cardwarn">Хэрэглэхгүй: 18-аас доош, жирэмсэн, хөхүүл, цус шингэлэх эм уудаг, найрлагад мэдрэг хүмүүс.</p>`:""}
       <div class="foot">
         ${priceBox(o)}
         <div class="acts">${reelBtn(o.reel||(o.flag?null:"promo"))}${orderLink()}</div>
@@ -708,6 +844,41 @@ $("#grid").innerHTML = Object.entries(P).map(([s,p])=>`
 mountScenes();
 const litIO = new IntersectionObserver(es=>{ for(const e of es){ if(e.isIntersecting) e.target.classList.add("lit"); else if(e.intersectionRatio===0) e.target.classList.remove("lit"); } },{threshold:[0,0.6]});
 document.querySelectorAll(".deal").forEach(d=>litIO.observe(d));
+setTimeout(()=>$("#hprice").classList.add("lit"),500);
+
+/* ---------- Сонголтын туслах ---------- */
+const PICKS = [
+  ["Зүрх судас","2301"],["Хоол боловсруулалт, эрч хүч","2303"],["Үе мөч, хөдөлгөөн","2304"],["Бамбай булчирхай, иод","2302"],
+  ["Арьс, гоо сайхан","2279"],["Нөхөр, аавдаа бэлэг","2305"],["Спорт, идэвхтэй амьдрал","2306"],["Шүд, буйл","2275"]
+];
+let pickSel = 0;
+try{ const v=+localStorage.getItem("eah-pick"); if(v>=0&&v<PICKS.length) pickSel=v; }catch(e){}
+function renderPick(user){
+  $("#pickBtns").innerHTML = PICKS.map(([t],i)=>`<button type="button" id="pick-${i}" aria-pressed="${i===pickSel}" data-pick="${i}">${t}</button>`).join("");
+  const out=$("#pickOut"); out.querySelectorAll(".deal").forEach(d=>litIO.unobserve(d)); Scene.forget(out);
+  out.innerHTML = bundleCard({...BUNDLES[PICKS[pickSel][1]], wide:true});
+  mountScenes(out); out.querySelectorAll(".deal").forEach(d=>litIO.observe(d));
+  if(user){ try{ localStorage.setItem("eah-pick",pickSel); }catch(e){} }
+}
+renderPick(false);
+$("#pickBtns").addEventListener("click",e=>{ const b=e.target.closest("[data-pick]"); if(!b) return; pickSel=+b.dataset.pick; renderPick(true); const f=document.getElementById("pick-"+pickSel); f&&f.focus(); });
+
+/* ---------- Гүйлгэх мөрийн цэгүүд ---------- */
+document.querySelectorAll(".dots").forEach(d=>{
+  const row=document.getElementById(d.dataset.for), n=row.children.length; if(n<2) return;
+  d.innerHTML="<i></i>".repeat(n);
+  const upd=()=>{ const max=row.scrollWidth-row.clientWidth; const i=max>0?Math.round(row.scrollLeft/max*(n-1)):0; [...d.children].forEach((x,j)=>x.classList.toggle("on",j===i)); };
+  row.addEventListener("scroll",upd,{passive:true}); upd();
+});
+
+/* ---------- Хуваалцах ---------- */
+function toast(msg){ const d=document.createElement("div"); d.className="toast"; d.setAttribute("role","status"); d.textContent=msg; document.body.appendChild(d); setTimeout(()=>d.remove(),2400); }
+async function shareLink(title){
+  const url = location.origin + location.pathname + location.hash;
+  if(navigator.share){ try{ await navigator.share({title, url}); return; }catch(e){ if(e&&e.name==="AbortError") return; } }
+  try{ await navigator.clipboard.writeText(url); toast("Холбоос хуулагдлаа"); }
+  catch(e){ toast(url); }
+}
 
 function certThumb(c){
   const pg = (CERT_PAGES[c.key]||[])[0];
@@ -774,6 +945,7 @@ function closeSheet(){
   lastFocus&&lastFocus.focus&&lastFocus.focus();
 }
 $("#dClose").onclick=closeSheet;
+$("#dShare").onclick=()=>shareLink(($("#dTitle")||{}).textContent||document.title);
 sheet.addEventListener("click",e=>{if(e.target===sheet)closeSheet()});
 
 /* ======================= CERT VIEWER ======================= */
@@ -792,6 +964,7 @@ $("#vClose").onclick=closeViewer;
 
 /* ======================= REEL PLAYER ======================= */
 const reel=$("#reel"), audio=$("#rAudio");
+let advT=0;
 let SPEC=null, R=null, raf=0, playing=false, muted=false, silentT=0, silentStart=0, curBeat=-1, reelOpener=null, rScene=null, rSceneId=null;
 const SPEC_P = fetch("data/reels.json").then(r=>r.json()).then(j=>SPEC=j).catch(()=>null);
 const words = s => s.split(/\s+/).filter(Boolean);
@@ -823,7 +996,7 @@ async function openReel(id){
   $("#rTitle").textContent=spec.title;
   $("#rLegal").textContent = "Эм биш, эрүүл мэндийн нэмэлт. " + (prod? prod.warn : "Хориглох заалттай: "+WARN_STD);
   $("#rSegs").innerHTML=R.tl.beats.map(()=>`<i><b></b></i>`).join("");
-  curBeat=-1; reelOpener=document.activeElement; rSceneId=null;
+  curBeat=-1; if(reel.hidden) reelOpener=document.activeElement; rSceneId=null;
   reel.hidden=false; document.body.classList.add("locked");
   history.replaceState(null,"","#reel-"+id);
   if(R.hasAudio){ audio.src=`assets/music/${id}.mp3`; audio.currentTime=0; audio.muted=muted; }
@@ -838,7 +1011,7 @@ function play(){
   cancelAnimationFrame(raf); raf=requestAnimationFrame(tick);
 }
 function pause(){
-  if(!R) return;
+  if(!R) return; clearTimeout(advT);
   if(!R.hasAudio) silentT=now();
   playing=false; audio.pause(); $("#rPaused").hidden=false;
 }
@@ -895,11 +1068,17 @@ function tick(){
   const ch=b.chunks[ci], shown=ch.filter(x=>t>=x.t);
   $("#rSubs").innerHTML=ch.map(w=>`<em class="${t>=w.t?(shown[shown.length-1]===w?"on":"done"):""}" style="${t>=w.t?"":"opacity:0"}">${esc(w.w.replace(/[.,]$/,""))}</em>`).join(" ");
   const end = R.hasAudio ? (audio.ended || t>=R.tl.dur-0.02) : t>=R.tl.dur;
-  if(end){ playing=false; audio.pause(); $("#rPaused").hidden=false; [...$("#rSegs").children].forEach(s=>s.firstChild.style.transform="scaleX(1)"); return; }
+  if(end){
+    playing=false; audio.pause(); [...$("#rSegs").children].forEach(s=>s.firstChild.style.transform="scaleX(1)");
+    const cur=R.id, ix=REELS.findIndex(r=>r.id===cur), nx=REELS[ix+1];
+    if(nx){ clearTimeout(advT); advT=setTimeout(()=>{ if(R&&R.id===cur&&!playing&&!reel.hidden) openReel(nx.id); },1600); }
+    else $("#rPaused").hidden=false;
+    return;
+  }
   if(playing) raf=requestAnimationFrame(tick);
 }
 function closeReel(){
-  playing=false; cancelAnimationFrame(raf); audio.pause(); R=null; reel.hidden=true;
+  clearTimeout(advT); playing=false; cancelAnimationFrame(raf); audio.pause(); R=null; reel.hidden=true;
   Scene.forget($("#rScene")); $("#rScene").innerHTML=""; rSceneId=null;
   if(sheet.hidden&&viewer.hidden) document.body.classList.remove("locked");
   if(location.hash.startsWith("#reel-")) history.replaceState(null,"",location.pathname);
@@ -910,6 +1089,7 @@ $("#rPrev").onclick=()=>seekBeat((curBeat<0?0:curBeat)-1);
 $("#rNext").onclick=()=>{ if(curBeat>=R.tl.beats.length-1) closeReel(); else seekBeat(curBeat+1); };
 $("#rMute").onclick=()=>{ muted=!muted; audio.muted=muted; $("#rMute").textContent=muted?"🔇":"🔊"; };
 $("#rX").onclick=closeReel; $("#rClose").onclick=closeReel;
+$("#rShare").onclick=()=>{ if(R){ pause(); shareLink(R.spec.title+" — Эрүүл амьдралын хөтөч"); } };
 reel.addEventListener("click",e=>{ if(e.target===reel) closeReel(); });
 function alertBox(msg){ const d=document.createElement("div"); d.textContent=msg; d.style.cssText="position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--coral);color:var(--abyss);padding:10px 16px;border-radius:999px;font-weight:800;z-index:200"; document.body.appendChild(d); setTimeout(()=>d.remove(),2600); }
 
@@ -938,13 +1118,16 @@ function route(){
 route();
 
 /* countdown */
-const target=new Date(SALE_END).getTime(),cd=$("#cd");
+const target=new Date(SALE_END).getTime(),cd=$("#cd"),cd2=$("#cd2");
+const p2=v=>String(v).padStart(2,"0");
 function tickCd(){
   const ms=Math.max(0,target-Date.now());
-  const d=Math.floor(ms/864e5),h=Math.floor(ms/36e5)%24,m=Math.floor(ms/6e4)%60;
-  cd.innerHTML=ms?[[d,"ӨДӨР"],[h,"ЦАГ"],[m,"МИН"]].map(([v,l])=>`<span>${String(v).padStart(2,"0")}<em>${l}</em></span>`).join(""):`<span>Урамшуулал дууссан</span>`;
+  const d=Math.floor(ms/864e5),h=Math.floor(ms/36e5)%24,m=Math.floor(ms/6e4)%60,sx=Math.floor(ms/1e3)%60;
+  if(!ms){ cd.innerHTML=`<span>Урамшуулал дууссан</span>`; cd2.textContent="дууссан"; return; }
+  cd.innerHTML=[[d,"ӨДӨР",""],[h,"ЦАГ",""],[m,"МИН",""],[sx,"СЕК","sec"]].map(([v,l,c])=>`<span class="${c}">${p2(v)}<em>${l}</em></span>`).join("");
+  cd2.textContent=`${d} өдөр ${p2(h)}:${p2(m)}:${p2(sx)}`;
 }
-tickCd();setInterval(tickCd,30000);
+tickCd();setInterval(tickCd,1000);
 
 /* ambient sea particles */
 (function(){

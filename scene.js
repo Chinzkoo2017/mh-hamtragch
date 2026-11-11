@@ -157,6 +157,8 @@
     const img = host.querySelector(".sc-prod");
     const alts = cfg.fallback || [];
     img.onerror = () => { const n = alts.shift(); if (n) { img.src = n; img.classList.add("flat"); } else img.onerror = null; };
+    if (cfg.lazy) img.loading = "lazy";
+    img.decoding = "async";
     img.src = cfg.cut;
     this.cv = host.querySelector(".sc-fx"); this.c = this.cv.getContext("2d");
     this.running = false; this.t = 0;

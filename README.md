@@ -12,6 +12,8 @@ Marine Health бүтээгдэхүүний танилцуулга, 11-р сар�
 - `scene.js` — бүтээгдэхүүний шинэ фон, капсул унах/өнхрөх, нунтаг, бөмбөлгийн хөдөлгөөн
 - `tools/build.py` + `.github/workflows/build-assets.yml` — `data/` өөрчлөгдөхөд GitHub Actions зураг, гэрчилгээ татаж, зургийн фоныг арилгаж (`assets/cut`), reel бүрт өөрийн зохиосон ая (`assets/music`) үүсгэнэ
 
+- `assets/share.jpg` — Facebook/Messenger-т холбоос хуваалцахад гарах зураг (`tools/share-card.html`-ээс үүсгэсэн)
+
 ## Шууд холбоос (Messenger, пост-д)
 - Бүтээгдэхүүн: `#ashitaba`, `#cardio`, `#squalen`, `#iodium`, `#artro`, `#collagen`, `#toothpaste`
 - Багц: `#b2301` … `#b2306`, `#b2279`, `#b2275`, `#b2127`, `#b2102`

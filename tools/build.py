@@ -114,6 +114,7 @@ def music():
     import music as M
     spec = json.loads((ROOT / "data" / "reels.json").read_text(encoding="utf-8"))
     bpm = spec.get("bpm", 120); bar = 240 / bpm
+    speed = float(spec.get("voice_speed", 1.0))  # read-speed of the voice (pitch kept), e.g. 1.2
     d = A / "music"; d.mkdir(parents=True, exist_ok=True)
     for i, r in enumerate(spec["reels"]):
         mu = r["music"]; n = len(r["beats"])
@@ -128,7 +129,7 @@ def music():
                 stamp.write_text(sig)
         vf = voice_files(r["id"], n)
         vsig = [[f.name, f.stat().st_size] for f in vf] if vf else None
-        h = hashlib.sha1(json.dumps([[b["bars"] for b in r["beats"]], mu, bpm, vsig, 5]).encode()).hexdigest()[:12]
+        h = hashlib.sha1(json.dumps([[b["bars"] for b in r["beats"]], mu, bpm, vsig, 5, speed]).encode()).hexdigest()[:12]
         meta = d / f"{r['id']}.json"
         if meta.exists() and json.loads(meta.read_text())["hash"] == h: continue
         if not vf:
@@ -142,7 +143,7 @@ def music():
         lead, gap = 0.35, 0.45
         beats, t = [], 0.0
         for k, f in enumerate(vf):
-            dv = dur(f)
+            dv = dur(f) / speed
             v0 = t + (lead if k == 0 else 0.15)
             t1 = max(v0 + dv + gap, t + 1.6)
             beats.append({"t0": round(t, 3), "t1": round(t1, 3), "v0": round(v0, 3), "v1": round(v0 + dv, 3)})
@@ -157,7 +158,7 @@ def music():
             for k, (f, b) in enumerate(zip(vf, beats), 1):
                 ins += ["-i", str(f)]
                 ms = int(b["v0"] * 1000)
-                fl.append(f"[{k}]aresample=44100,aformat=channel_layouts=stereo,adelay={ms}|{ms}[v{k}]")
+                fl.append(f"[{k}]aresample=44100,aformat=channel_layouts=stereo,atempo={speed},adelay={ms}|{ms}[v{k}]")
             fl.append("".join(f"[v{k}]" for k in range(1, len(vf) + 1)) + f"amix=inputs={len(vf)}:normalize=0,apad=whole_dur={total + 0.4:.2f}[vo]")
             fl.append("[vo]asplit=2[vk][vm]")
             fl.append("[0]aresample=44100,aformat=channel_layouts=stereo,volume=0.55[bg]")

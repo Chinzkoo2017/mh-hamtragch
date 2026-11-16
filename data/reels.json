@@ -1,4 +1,5 @@
 {
+ "voice_speed": 1.2,
  "bpm": 120,
  "voices": {
   "Zorigoo": "эрэгтэй",

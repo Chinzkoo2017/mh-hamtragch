@@ -149,12 +149,12 @@ def music():
                 ins += ["-i", str(f)]
                 ms = int(b["v0"] * 1000)
                 fl.append(f"[{k}]aresample=44100,aformat=channel_layouts=stereo,adelay={ms}|{ms}[v{k}]")
-            fl.append("".join(f"[v{k}]" for k in range(1, len(vf) + 1)) + f"amix=inputs={len(vf)}:normalize=0,volume=1.0[vo]")
+            fl.append("".join(f"[v{k}]" for k in range(1, len(vf) + 1)) + f"amix=inputs={len(vf)}:normalize=0,apad=whole_dur={total + 0.4:.2f}[vo]")
             fl.append("[vo]asplit=2[vk][vm]")
-            fl.append("[0]volume=0.55[bg]")
+            fl.append("[0]aresample=44100,aformat=channel_layouts=stereo,volume=0.55[bg]")
             fl.append("[bg][vk]sidechaincompress=threshold=0.02:ratio=10:attack=15:release=350:makeup=1[duck]")
             fl.append("[duck][vm]amix=inputs=2:normalize=0,loudnorm=I=-15:TP=-1.5:LRA=9[out]")
-            subprocess.run(["ffmpeg", "-y", "-v", "error", *ins, "-filter_complex", ";".join(fl), "-map", "[out]",
+            subprocess.run(["ffmpeg", "-y", "-v", "error", *ins, "-filter_complex", ";".join(fl), "-map", "[out]", "-t", f"{total + 0.4:.2f}",
                             "-ar", "44100", "-ac", "2", "-c:a", "libmp3lame", "-b:a", "128k", str(d / f"{r['id']}.mp3")], check=True)
         meta.write_text(json.dumps({"id": r["id"], "hash": h, "bpm": bpm, "dur": round(total + 0.4, 2), "voice": True, "beats": beats}))
         print("voice+music", r["id"], round(total, 1), "s")

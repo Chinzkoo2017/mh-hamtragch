@@ -7,14 +7,14 @@
 <meta name="description" content="Marine Health бүтээгдэхүүн, 11-р сарын урамшуулал — бизнес хамтрагчийн танилцуулга сайт.">
 <meta property="og:title" content="Эрүүл амьдралын хөтөч — Marine Health урамшуулал">
 <meta property="og:description" content="6 багц 800,000₮ (−47%), Collagen ба шүдний оо 1+1. 11-р сарын 30 хүртэл.">
-<meta property="og:image" content="https://chinzkoo2017.github.io/mh-hamtragch/assets/share.jpg">
+<meta property="og:image" content="https://eruul-amidral.com/assets/share.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://chinzkoo2017.github.io/mh-hamtragch/">
+<meta property="og:url" content="https://eruul-amidral.com/">
 <meta property="og:locale" content="mn_MN">
 <meta property="og:site_name" content="Эрүүл амьдралын хөтөч">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://chinzkoo2017.github.io/mh-hamtragch/">
+<link rel="canonical" href="https://eruul-amidral.com/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2306121f'/%3E%3Cpath d='M32 50c0-16 4-26 16-34-1 16-5 27-16 34z' fill='%23ffb547'/%3E%3Cpath d='M30 50c-1-12-5-19-14-24 0 12 4 20 14 24z' fill='%234fd1c5'/%3E%3C/svg%3E">
 <link rel="preload" as="image" href="assets/cut/2301.webp" fetchpriority="high">
 <meta property="og:type" content="website">
@@ -345,6 +345,72 @@ footer p{margin:6px 0 0;max-width:62ch}
 .reel .close{position:absolute;top:max(14px,env(safe-area-inset-top,0px));right:max(14px,env(safe-area-inset-right,0px));z-index:110}
 @media (max-width:699px){.reel .close{display:none}}
 
+/* brand */
+.brand .bp{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--mist)}
+.mhlogo{height:15px;width:auto;display:inline-block;opacity:.92}
+.mhlogo.big{height:34px}
+.notice{display:flex;gap:12px;align-items:flex-start;margin-top:14px;border:1px solid color-mix(in srgb,var(--coral) 55%,var(--line));background:color-mix(in srgb,var(--coral) 7%,var(--abyss));border-radius:14px;padding:12px 16px;font-size:13.5px;color:var(--mist);line-height:1.45}
+.notice b{color:var(--foam)}
+.notice .ic{flex:none;width:22px;height:22px;border-radius:50%;background:var(--coral);color:var(--abyss);display:grid;place-items:center;font-weight:900;font-size:13px;margin-top:1px}
+.notice a{color:var(--tag)}
+
+/* order guide */
+.og{position:fixed;inset:0;z-index:90;background:rgba(3,9,16,.78);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:grid;place-items:center;padding:max(12px,env(safe-area-inset-top,0px)) max(12px,env(safe-area-inset-right,0px)) max(12px,env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px))}
+.og .box{width:min(760px,100%);max-height:100%;overflow-y:auto;background:var(--abyss);border:1px solid var(--line);border-radius:24px;animation:rise .35s cubic-bezier(.2,.8,.2,1);overscroll-behavior:contain}
+.og .ohead{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 18px;background:color-mix(in srgb,var(--abyss) 92%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.og .ohead h3{font-size:18px}
+.og .obody{padding:18px;display:flex;flex-direction:column;gap:16px}
+.og .item{font-family:var(--f-mono);font-size:12.5px;color:var(--sea)}
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.path{border:1px solid var(--line);border-radius:18px;padding:16px;background:var(--deep);display:flex;flex-direction:column;gap:10px}
+.path.easy{border-color:var(--tag);background:linear-gradient(160deg,color-mix(in srgb,var(--tag) 12%,var(--deep)),var(--deep) 60%)}
+.path h4{font-size:16px}
+.path p{margin:0;color:var(--mist);font-size:14px}
+.path .tag{font-family:var(--f-mono);font-size:11.5px;color:var(--abyss);background:var(--tag);border-radius:999px;padding:3px 9px;align-self:flex-start}
+.path .who{display:flex;align-items:center;gap:10px}
+.path .who img{width:52px;height:52px;border-radius:50%;object-fit:cover;background:var(--paper)}
+.path .who small{font-size:12px;color:var(--mist);line-height:1.35}
+.path .btn{align-self:stretch}
+.tabs{display:flex;gap:6px;background:var(--deep);border:1px solid var(--line);border-radius:999px;padding:4px;align-self:flex-start}
+.tabs button{border:0;background:none;color:var(--mist);font:800 14px var(--f-body);padding:9px 16px;border-radius:999px;cursor:pointer;min-height:40px}
+.tabs button[aria-selected="true"]{background:var(--foam);color:var(--abyss)}
+.osteps{list-style:none;margin:0;padding:0;counter-reset:o;display:flex;flex-direction:column;gap:10px}
+.osteps li{counter-increment:o;display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;font-size:14.5px;color:var(--mist)}
+.osteps li::before{content:counter(o);width:28px;height:28px;border-radius:50%;background:var(--tide);color:var(--foam);display:grid;place-items:center;font-weight:800;font-size:13px}
+.osteps b{color:var(--foam)}
+.osteps .hint{display:block;font-size:12.5px;color:var(--sea);margin-top:3px}
+.sponsor{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border:1px dashed var(--line);border-radius:14px;padding:10px 14px;font-size:13.5px;color:var(--mist)}
+.sponsor code{font-family:var(--f-mono);font-size:15px;color:var(--tag);background:var(--deep);border-radius:8px;padding:4px 10px}
+.sponsor button{border:1px solid var(--line);background:none;color:var(--foam);border-radius:999px;padding:7px 12px;font:700 13px var(--f-body);cursor:pointer}
+.apps{display:flex;gap:8px;flex-wrap:wrap}
+.apps a{font-size:13px;font-weight:700;text-decoration:none;border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+.ofoot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:13px;color:var(--mist)}
+.ofoot label{display:flex;gap:8px;align-items:center;cursor:pointer}
+@media (max-width:620px){.paths{grid-template-columns:1fr}.og{padding:0;place-items:end center}.og .box{border-radius:22px 22px 0 0;max-height:94%}}
+
+/* bundle detail */
+.bitems{display:grid;gap:10px}
+.bitem{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;border:1px solid var(--line);border-radius:16px;padding:10px 12px;background:var(--deep);text-align:left;cursor:pointer;width:100%;color:inherit;font:inherit}
+.bitem:hover{border-color:var(--mist)}
+.bitem img{width:64px;height:64px;object-fit:contain;background:var(--paper);border-radius:12px}
+.bitem b{font-size:15px;display:block}
+.bitem small{color:var(--mist);font-size:13px;display:block;line-height:1.35}
+.bitem .q{font-family:var(--f-mono);color:var(--tag);font-size:14px}
+.dtable{width:100%;border-collapse:collapse;font-size:14px}
+.dtable th,.dtable td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+.dtable th{font-family:var(--f-mono);font-size:11.5px;color:var(--mist);font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+.dtable td.n{font-variant-numeric:tabular-nums;color:var(--tag);white-space:nowrap}
+.tbl{overflow-x:auto}
+
+/* reel outro */
+.routro{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3.2cqw;padding:10cqw 8cqw 20cqw;background:radial-gradient(90% 60% at 50% 40%,#173a57,#06121f 80%);text-align:center;animation:pop .5s cubic-bezier(.2,1.4,.4,1)}
+.routro img.av{width:52cqw;height:52cqw;border-radius:50%;object-fit:cover;box-shadow:0 0 0 1.4cqw rgba(255,181,71,.9),0 20px 50px rgba(0,0,0,.5)}
+.routro b{font-family:var(--f-display);font-size:6.4cqw;color:#fff;line-height:1.1}
+.routro .t1,.routro .t2{font-size:3.6cqw;color:#cfe0ea;line-height:1.35}
+.routro .t2{display:flex;align-items:center;gap:1.6cqw;justify-content:center}
+.routro .t2 img{height:4.2cqw}
+.routro .btn{font-size:4cqw;padding:3cqw 6cqw;margin-top:2cqw}
+
 /* product scenes */
 .scene{position:relative;overflow:hidden;isolation:isolate;background:var(--w2)}
 .scene .sc-wall{position:absolute;inset:0;background:radial-gradient(90% 75% at 50% 32%,var(--w1) 0%,var(--w2) 78%)}
@@ -379,7 +445,7 @@ footer p{margin:6px 0 0;max-width:62ch}
 @media (prefers-reduced-motion:reduce){.pbox .was,.pbox .now,.pbox .save,.pbox .was::after{transition:none}.lit .pbox .now,.lit .pbox .now::after{animation:none}}
 @media (prefers-reduced-motion:reduce){.ticker .run{animation:none}.btn,.deal,.prod{transition:none}html{scroll-behavior:auto}.cap.pop,.rcta,.sheet .panel{animation:none}}
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "name": "Эрүүл амьдралын хөтөч", "url": "https://chinzkoo2017.github.io/mh-hamtragch/", "inLanguage": "mn"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Энэ эм үү?", "acceptedAnswer": {"@type": "Answer", "text": "Үгүй. Marine Health-ийн бүтээгдэхүүнүүд эм биш, өдөр тутмын эрүүл мэндийн нэмэлт. Өвчтэй, эм уудаг, эмчийн хяналтад байгаа бол хэрэглэхээсээ өмнө эмчдээ зөвлөөрэй. Найрлагыг нь Messenger-ээр илгээж өгнө."}}, {"@type": "Question", "name": "Хэн хэрэглэж болохгүй вэ?", "acceptedAnswer": {"@type": "Answer", "text": "18 нас хүрээгүй хүүхэд, жирэмсэн болон хөхүүл эхчүүд, цус шингэлэх эм (антикоагулянт) хэрэглэдэг хүмүүс, найрлагад нь харшилтай, мэдрэг хүмүүс хэрэглэхгүй."}}, {"@type": "Question", "name": "Хэрхэн захиалах вэ?", "acceptedAnswer": {"@type": "Answer", "text": "«Захиалах» товчийг дарахад Marine Health-ийн албан ёсны дэлгүүр нээгдэнэ. Тэнд нэг удаа бүртгүүлээд багц, бүтээгдэхүүнээ сонгоно. Энэ сайт дээр төлбөр хийгдэхгүй."}}, {"@type": "Question", "name": "Төлбөрөө яаж төлөх вэ?", "acceptedAnswer": {"@type": "Answer", "text": "QPay-ээр төлнө. И-баримт Marine Health-ийн апп дээр гарна."}}, {"@type": "Question", "name": "Хүргэлт ямар вэ?", "acceptedAnswer": {"@type": "Answer", "text": "Хүргэлтийн төлбөр бүтээгдэхүүний үнэ дээр тусдаа нэмэгдэнэ. Дүн нь захиалга хийх үед харагдана."}}, {"@type": "Question", "name": "Буцаалт, солилт байдаг уу?", "acceptedAnswer": {"@type": "Answer", "text": "Буцаалт, солилт хийгддэггүй. Тиймээс захиалахаасаа өмнө асуух зүйлээ Messenger-ээр лавлаарай."}}, {"@type": "Question", "name": "Урамшуулал хэзээ дуусах вэ?", "acceptedAnswer": {"@type": "Answer", "text": "6 багцын 800,000₮-ийн үнэ болон Collagen, ASHITABA шүдний оогийн 1+1 урамшуулал 2026 оны 11-р сарын 30-нд дуусна."}}, {"@type": "Question", "name": "Апп ашиглаж чадахгүй бол яах вэ?", "acceptedAnswer": {"@type": "Answer", "text": "Апп ашиглахад хүндрэлтэй ахмад настны захиалгыг хийж өгнө. Facebook хуудас руу Messenger-ээр бичээрэй."}}, {"@type": "Question", "name": "Бүтээгдэхүүн гэрчилгээтэй юу?", "acceptedAnswer": {"@type": "Answer", "text": "Тийм. Бүтээгдэхүүн бүр ЕАЭЗХ-ны улсын бүртгэлийн гэрчилгээтэй (СГР). Collagen HALAL гэрчилгээтэй. Гэрчилгээг дээрх «Гэрчилгээнүүд» хэсгээс томруулж харна. Үйлдвэрлэгч: Akyldy Food Supplements (Казахстан)."}}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "name": "Эрүүл амьдралын хөтөч", "url": "https://eruul-amidral.com/", "inLanguage": "mn"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Энэ эм үү?", "acceptedAnswer": {"@type": "Answer", "text": "Үгүй. Marine Health-ийн бүтээгдэхүүнүүд эм биш, өдөр тутмын эрүүл мэндийн нэмэлт. Өвчтэй, эм уудаг, эмчийн хяналтад байгаа бол хэрэглэхээсээ өмнө эмчдээ зөвлөөрэй. Найрлагыг нь Messenger-ээр илгээж өгнө."}}, {"@type": "Question", "name": "Хэн хэрэглэж болохгүй вэ?", "acceptedAnswer": {"@type": "Answer", "text": "18 нас хүрээгүй хүүхэд, жирэмсэн болон хөхүүл эхчүүд, цус шингэлэх эм (антикоагулянт) хэрэглэдэг хүмүүс, найрлагад нь харшилтай, мэдрэг хүмүүс хэрэглэхгүй."}}, {"@type": "Question", "name": "Хэрхэн захиалах вэ?", "acceptedAnswer": {"@type": "Answer", "text": "«Захиалах» товчийг дарахад Marine Health-ийн албан ёсны дэлгүүр нээгдэнэ. Тэнд нэг удаа бүртгүүлээд багц, бүтээгдэхүүнээ сонгоно. Энэ сайт дээр төлбөр хийгдэхгүй."}}, {"@type": "Question", "name": "Төлбөрөө яаж төлөх вэ?", "acceptedAnswer": {"@type": "Answer", "text": "QPay-ээр төлнө. И-баримт Marine Health-ийн апп дээр гарна."}}, {"@type": "Question", "name": "Хүргэлт ямар вэ?", "acceptedAnswer": {"@type": "Answer", "text": "Хүргэлтийн төлбөр бүтээгдэхүүний үнэ дээр тусдаа нэмэгдэнэ. Дүн нь захиалга хийх үед харагдана."}}, {"@type": "Question", "name": "Буцаалт, солилт байдаг уу?", "acceptedAnswer": {"@type": "Answer", "text": "Буцаалт, солилт хийгддэггүй. Тиймээс захиалахаасаа өмнө асуух зүйлээ Messenger-ээр лавлаарай."}}, {"@type": "Question", "name": "Урамшуулал хэзээ дуусах вэ?", "acceptedAnswer": {"@type": "Answer", "text": "6 багцын 800,000₮-ийн үнэ болон Collagen, ASHITABA шүдний оогийн 1+1 урамшуулал 2026 оны 11-р сарын 30-нд дуусна."}}, {"@type": "Question", "name": "Апп ашиглаж чадахгүй бол яах вэ?", "acceptedAnswer": {"@type": "Answer", "text": "Апп ашиглахад хүндрэлтэй ахмад настны захиалгыг хийж өгнө. Facebook хуудас руу Messenger-ээр бичээрэй."}}, {"@type": "Question", "name": "Бүтээгдэхүүн гэрчилгээтэй юу?", "acceptedAnswer": {"@type": "Answer", "text": "Тийм. Бүтээгдэхүүн бүр ЕАЭЗХ-ны улсын бүртгэлийн гэрчилгээтэй (СГР). Collagen HALAL гэрчилгээтэй. Гэрчилгээг дээрх «Гэрчилгээнүүд» хэсгээс томруулж харна. Үйлдвэрлэгч: Akyldy Food Supplements (Казахстан)."}}]}]}</script>
 </head>
 <body>
 
@@ -387,7 +453,7 @@ footer p{margin:6px 0 0;max-width:62ch}
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#top"><b>Эрүүл амьдралын хөтөч</b><small>Marine Health-ийн бизнес хамтрагч</small></a>
+    <a class="brand" href="#top"><b>Эрүүл амьдралын хөтөч</b><span class="bp"><img class="mhlogo" src="assets/brand/mh-white.svg" alt="Marine Health" onerror="this.replaceWith('Marine Health')"><span>-ийн бизнес хамтрагч</span></span></a>
     <nav class="links" aria-label="Хэсгүүд">
       <a href="#promo">Урамшуулал</a><a href="#products">Бүтээгдэхүүн</a><a href="#reels">Reels</a><a href="#certs">Гэрчилгээ</a><a href="#faq">Асуулт</a>
     </nav>
@@ -426,6 +492,7 @@ footer p{margin:6px 0 0;max-width:62ch}
         <div><b>QPay төлбөр</b>И-баримт апп дээр гарна</div>
         <div><b>Эм биш</b>Өдөр тутмын нэмэлт</div>
       </div>
+      <p class="notice" role="note"><span class="ic" aria-hidden="true">!</span><span><b>Эм биш, өдөр тутмын эрүүл мэндийн нэмэлт.</b> 18 нас хүрээгүй, жирэмсэн, хөхүүл, цус шингэлэх эм (антикоагулянт) хэрэглэдэг, найрлагад харшилтай хүмүүс хэрэглэхгүй. Бүтээгдэхүүн бүрийн заалтыг <i>дэлгэрэнгүй</i> хэсгээс уншина уу. Эмчийн хяналтад байгаа бол эмчдээ зөвлөөрэй.</span></p>
     </div>
   </section>
 
@@ -542,9 +609,13 @@ footer p{margin:6px 0 0;max-width:62ch}
 
 <footer>
   <div class="wrap">
-    <div>
+    <div style="display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap;max-width:640px">
+      <img src="assets/team/hamt.webp" alt="Түмээ, Зоригоо — хуудасны хөтлөгчдийн дүрс" width="88" height="88" style="border-radius:50%;object-fit:cover;background:var(--paper)" loading="lazy">
+      <div style="flex:1;min-width:220px">
       <b>Эрүүл амьдралын хөтөч</b>
-      <p>Marine Health-ийн бизнес хамтрагчийн танилцуулга сайт. Энэ нь компанийн албан ёсны вэб сайт биш. Худалдан авалт marinehealth.asia болон MH GO апп дээр хийгдэнэ. Бүтээгдэхүүний зураг, гэрчилгээ: Marine Health.</p>
+      <p style="color:var(--foam)">Сувилахуй, эрүүл хооллолтын зөвлөх Түмээ · Marine Health-ийн бизнес хамтрагч Зоригоо</p>
+      <p><img class="mhlogo" src="assets/brand/mh-white.svg" alt="Marine Health" onerror="this.replaceWith('Marine Health')" style="height:22px;vertical-align:middle;margin-right:8px">Marine Health-ийн бизнес хамтрагчийн танилцуулга сайт. Энэ нь компанийн албан ёсны вэб сайт биш. Худалдан авалт marinehealth.asia болон MH GO апп дээр хийгдэнэ. Бүтээгдэхүүний зураг, гэрчилгээ: Marine Health.</p>
+    </div>
     </div>
     <div class="socials">
       <a class="btn btn-ghost" href="https://www.facebook.com/profile.php?id=100063525612074" target="_blank" rel="noopener">Facebook / Messenger</a>
@@ -557,6 +628,35 @@ footer p{margin:6px 0 0;max-width:62ch}
   <span class="dline">−47% багц · дуусахад <b id="cd2"></b></span>
   <a class="btn btn-ghost" href="https://www.facebook.com/profile.php?id=100063525612074" target="_blank" rel="noopener">Асуух</a>
   <a class="btn btn-tag" data-order href="#">Захиалах ↗</a>
+</div>
+
+<!-- order guide -->
+<div class="og" id="og" hidden role="dialog" aria-modal="true" aria-labelledby="ogTitle">
+  <div class="box">
+    <div class="ohead"><div><h3 id="ogTitle">Захиалах — 2 арга</h3><span class="item" id="ogItem"></span></div><button class="x" type="button" id="ogClose" aria-label="Хаах">×</button></div>
+    <div class="obody">
+      <div class="paths">
+        <div class="path easy">
+          <span class="tag">Хамгийн хялбар</span>
+          <h4>Бидэнд захиалуулах</h4>
+          <div class="who"><img src="assets/team/hamt.webp" alt=""><small>Түмээ, Зоригоо<br>Бүртгэл, захиалгыг тань хамт хийж өгнө</small></div>
+          <p>Мессежээ хуулаад Messenger-т илгээхэд л болно. Нэр, утас, хаягаа бичээрэй.</p>
+          <a class="btn btn-tag" id="ogMsg" href="https://m.me/100063525612074" target="_blank" rel="noopener">Messenger-ээр захиалах ↗</a>
+        </div>
+        <div class="path">
+          <span class="tag" style="background:var(--sea)">3–5 минут</span>
+          <h4>Өөрөө захиалах</h4>
+          <p>Marine Health-ийн албан ёсны дэлгүүрт нэг удаа бүртгүүлээд QPay-ээр төлнө. Доорх алхмыг дагаарай.</p>
+          <a class="btn btn-ghost" id="ogGo" href="#" target="_blank" rel="noopener">Дэлгүүр рүү орох ↗</a>
+        </div>
+      </div>
+      <div class="sponsor"><span>Бүртгэлийн үед <b>Спонсор</b> хэсэгт <b>Чинзориг Сундуйжав</b> харагдана. Харагдахгүй бол кодыг оруулна уу:</span><code>Dinnak</code><button type="button" id="ogCopy">Хуулах</button></div>
+      <div class="tabs" role="tablist"><button type="button" role="tab" id="tabPhone" aria-selected="true" aria-controls="ogSteps">📱 Утсаар</button><button type="button" role="tab" id="tabPc" aria-selected="false" aria-controls="ogSteps">💻 Компьютерээр</button></div>
+      <ol class="osteps" id="ogSteps" role="tabpanel"></ol>
+      <div class="apps" id="ogApps"><a href="https://apps.apple.com/app/mh-go/id1639841757" target="_blank" rel="noopener">MH GO · App Store ↗</a><a href="https://play.google.com/store/apps/details?id=my.marinehealth.asia_new" target="_blank" rel="noopener">MH GO · Google Play ↗</a></div>
+      <div class="ofoot"><label><input type="checkbox" id="ogSkip"> Дахиж бүү харуул, шууд дэлгүүр рүү оруул</label><span>Гацвал Messenger-ээр бичээрэй.</span></div>
+    </div>
+  </div>
 </div>
 
 <!-- detail sheet -->
@@ -590,6 +690,7 @@ footer p{margin:6px 0 0;max-width:62ch}
       <div class="who"><div class="av">ЭА</div><div><b>eruul.amidral.hutuch</b><small id="rTitle"></small></div><span class="sp"></span><button class="rbtn" type="button" id="rShare" aria-label="Хуваалцах">↗</button><button class="rbtn" type="button" id="rMute" aria-label="Дуу хаах">🔊</button><button class="rbtn" type="button" id="rX" aria-label="Хаах">×</button></div>
     </div>
     <div class="rcta" id="rCta" hidden></div>
+    <div class="routro" id="rOutro" hidden><img class="av" src="assets/team/hamt.webp" alt=""><b>Эрүүл амьдралын хөтөч</b><span class="t1">Сувилахуй, эрүүл хооллолтын зөвлөх Түмээ</span><span class="t2"><img src="assets/brand/mh-white.svg" alt="Marine Health" onerror="this.replaceWith('Marine Health')">-ийн бизнес хамтрагч Зоригоо</span><a class="btn btn-tag" href="#" data-order>Захиалах ↗</a></div>
     <div class="audio-tag"><i>♫</i><span>Эрүүл амьдралын хөтөч · Original audio</span></div>
     <div class="legal" id="rLegal"></div>
     <div class="paused" id="rPaused" hidden><div></div></div>
@@ -610,7 +711,7 @@ const WARN_STD = "18 нас хүрээгүй, жирэмсэн, хөхүүл, ц
 
 /* ---------- Бүтээгдэхүүн (дэлгэрэнгүй) ---------- */
 const P = {
-  ashitaba:{id:"154",name:"ASHITABA",price:UNIT,reel:"ashitaba",top:"Хамгийн эрэлттэй",gal:5,
+  ashitaba:{dose:"Өдөрт 3 капсул, хоолтой эсвэл хоолны дараа",days:60,id:"154",name:"ASHITABA",price:UNIT,reel:"ashitaba",top:"Хамгийн эрэлттэй",gal:5,
     meta:"180 капсул · ~60 хоног",
     short:"Ашитаба ургамлын 100% нунтаг. Хоол боловсруулалт, эрч хүчийг дэмжинэ.",
     lead:"Японы уламжлалт ургамал ашитабагийн (Angelica keiskei) 100% нунтагтай капсул. Хоол боловсруулалт, бодисын солилцоо, өдөр тутмын эрч хүчийг дэмжих эрүүл мэндийн нэмэлт.",
@@ -622,7 +723,7 @@ const P = {
       ["Хэрхэн хэрэглэх",["Өдөрт 3 капсул, усаар даруулж, хоолтой хамт эсвэл хоолны дараа ууна. Өдөр бүр тогтмол хэрэглэнэ.","1 сав (180 капсул) ≈ 60 хоног."]],
       ["Найрлага",["Ашитабагийн нунтаг (Angelica keiskei Koidzumi) — 100%."]]],
     warn:WARN_STD, certs:["ashitaba-sgr"]},
-  cardio:{id:"121",name:"Cardio Marine",price:UNIT,reel:"cardio",top:"Нөхөр, аавдаа",gal:7,
+  cardio:{dose:"Өдөрт 3 капсул, оройн хоолны дараа",days:30,id:"121",name:"Cardio Marine",price:UNIT,reel:"cardio",top:"Нөхөр, аавдаа",gal:7,
     meta:"90 капсул · 1 сарын курс",
     short:"Наттокиназа + L-аргинин. Зүрх судас, цусны эргэлтийг дэмжинэ.",
     lead:"Натто хоолноос гаргаж авсан наттокиназа фермент ба L-аргинин амин хүчлийн хослол. Зүрх судас, цусны эргэлтийг дэмжих эрүүл мэндийн нэмэлт.",
@@ -634,7 +735,7 @@ const P = {
       ["Хэрхэн хэрэглэх",["Өдөрт 3 капсул, оройн хоолны дараа усаар даруулж ууна.","1 сав (90 капсул) = 1 сарын курс."]],
       ["Найрлага",["Наттокиназа фермент, L-аргинин амин хүчил."]]],
     warn:WARN_STD+" Даралт, зүрхний эм уудаг бол эхлээд эмчдээ зөвлөөрэй.", certs:["cardio-sgr"]},
-  squalen:{id:"214",name:"Squalen Premium",price:UNIT,reel:"squalen",gal:5,
+  squalen:{dose:"Өдөрт 3 капсул, хоолны үеэр",days:30,id:"214",name:"Squalen Premium",price:UNIT,reel:"squalen",gal:5,
     meta:"90 капсул · 30 хоног",
     short:"Акулын элэгний 100% сквален. Антиоксидант, дархлаа, арьсыг дэмжинэ.",
     lead:"Далайн гүний акулын элэгнээс гаргаж авсан 100% сквален. Антиоксидант хамгаалалт, дархлаа, арьсны гоо сайхныг дэмжих эрүүл мэндийн нэмэлт.",
@@ -646,7 +747,7 @@ const P = {
       ["Хэрхэн хэрэглэх",["Өдөрт 1 удаа 3 капсул, хоолны үеэр усаар даруулж ууна.","Зөвлөмжит курс 3 сар, жилд 1–2 удаа давтаж болно."]],
       ["Найрлага",["100% сквален (далайн гүний акулын элэгний ханд)."]]],
     warn:"Найрлагад харшилтай, мэдрэг хүмүүс хэрэглэхгүй. Жирэмсэн, хөхүүл, эмчийн хяналтад байгаа бол эмчдээ зөвлөөрэй.", certs:["squalen-sgr"]},
-  iodium:{id:"104",name:"Iodium Kelp",price:UNIT,reel:"iodium",gal:6,
+  iodium:{dose:"Өдөрт 2 удаа, 2 капсулаар, хоолны үеэр",days:30,id:"104",name:"Iodium Kelp",price:UNIT,reel:"iodium",gal:6,
     meta:"120 капсул · 30 хоног",
     short:"Бор замгийн органик иод. Бамбай булчирхай, бодисын солилцоог дэмжинэ.",
     lead:"Далайн бор замгаас (ламинари) гаргаж авсан органик иод. Бамбай булчирхай, тархи, бодисын солилцоог дэмжих эрүүл мэндийн нэмэлт.",
@@ -659,7 +760,7 @@ const P = {
       ["Хэрхэн хэрэглэх",["Өдөрт 2 удаа, 2 капсулаар, хоолны үеэр усаар даруулж ууна. Өдөр тутам тогтмол.","1 сав (120 капсул) = 30 хоног."]],
       ["Найрлага",["Хатаасан ламинари (далайн бор замаг), витамины премикс."]]],
     warn:"Найрлагад харшилтай хүмүүс хэрэглэхгүй. Бамбай булчирхайн эм уудаг, жирэмсэн, хөхүүл, эмчийн хяналтад байгаа бол эхлээд эмчдээ зөвлөөрэй.", certs:["iodium-sgr"]},
-  artro:{id:"106",name:"ArtroMarine + MSM",price:UNIT,reel:"artro",gal:6,
+  artro:{dose:"Өдөрт 2 удаа, 2 капсулаар, хоолны үеэр",days:30,id:"106",name:"ArtroMarine + MSM",price:UNIT,reel:"artro",gal:6,
     meta:"120 капсул · 30 хоног",
     short:"Глюкозамин, хондроитин, MSM. Үе мөчний хөдөлгөөнийг дэмжинэ.",
     lead:"Глюкозамин, хондроитин, MSM-ийн хослол. Үе мөч, мөгөөрс, шөрмөсний эрүүл байдал, хөдөлгөөний уян хатан байдлыг дэмжих эрүүл мэндийн нэмэлт.",
@@ -671,7 +772,7 @@ const P = {
       ["Хэрхэн хэрэглэх",["Өдөрт 2 удаа, 2 капсулаар, хоолны үеэр усаар даруулж ууна.","Зөвлөмжит курс 3 сар, жилд 1–2 удаа давтаж болно."]],
       ["Найрлага (өдрийн тун — 4 капсул)",{ul:["Глюкозамин сульфат — 1200 мг","Хондроитин сульфат — 900 мг","Метилсульфонилметан (MSM) — 600 мг"]}]],
     warn:"Найрлагад харшилтай, мэдрэг хүмүүс хэрэглэхгүй. Жирэмсэн, хөхүүл, эмчийн хяналтад байгаа бол эмчдээ зөвлөөрэй.", certs:["artro-sgr"]},
-  collagen:{id:"282",name:"Collagen",price:270000,reel:"collagen",gal:6,
+  collagen:{dose:"Өдөрт 1 халбага (5 г), өглөө цайнаас 20 минутын өмнө",days:30,id:"282",name:"Collagen",price:270000,reel:"collagen",gal:6,
     meta:"Нунтаг · 1 сав = 1 сар",
     short:"Peptan® (Франц) пептидийн коллаген. Арьс, яс шөрмөсийг дэмжинэ.",
     lead:"Францын Peptan® түүхий эдээр хийсэн гидролизжуулсан пептидийн коллаген, витамин, эрдэсийн хамт. Арьс, судас, яс шөрмөсийг дэмжих эрүүл мэндийн нэмэлт.",
@@ -683,7 +784,7 @@ const P = {
       ["Хэрхэн хэрэглэх",["Өдөрт 1 удаа 1 халбага (5 г). Усанд уусгаж, эсвэл тараг, ундаанд хольж ууна.","Хамгийн тохиромжтой нь өглөө цайнаас 20 минутын өмнө өлөн элгэн дээр, эсвэл орой унтахын өмнө.","Завсарлагагүй 1 сараас доошгүй. 1 сав = 1 сар."]],
       ["Найрлага",["Загасны болон үхрийн гаралтай гидролизжуулсан пептид, аскорбины хүчил (C витамин), гиалуроны хүчил, цайрын пиколинат, ургамлын пептидийн ханд, биотин."]]],
     warn:"Найрлагад харшилтай, жирэмсэн, хөхүүл хүмүүс хэрэглэхгүй.", certs:["collagen-sgr","collagen-halal"]},
-  toothpaste:{id:"2028",name:"ASHITABA шүдний оо",price:35000,reel:"toothpaste",gal:6,
+  toothpaste:{dose:"Өдөрт 1–2 удаа, хоолны дараа шүдээ угаана",days:0,id:"2028",name:"ASHITABA шүдний оо",price:35000,reel:"toothpaste",gal:6,
     meta:"Фторгүй · 14+ нас",
     short:"Мэдрэмтгий шүд, буйлд зориулсан ашитабатай шүдний оо.",
     lead:"Мэдрэмтгий шүд, буйлд зориулсан ашитабатай шүдний оо. Шүдийг зөөлөн цэвэрлэж, паалан ба буйлыг өдөр бүр арчилна.",
@@ -717,6 +818,18 @@ const SETS = [
   {id:"2127",n:"Урт наслалтын нууц",items:[["ASHITABA",1],["Squalen Premium",1],["Cardio Marine",1],["Iodium Kelp",1]],d:"Дөрвөн гол бүтээгдэхүүн нэг дор: зүрх судас, бамбай булчирхай, дархлаа, бодисын солилцоог дэмжинэ.",price:1147081,was:UNIT*4,wide:true},
   {id:"2102",n:"Залуу насны эрч хүч",items:[["ASHITABA",1],["Cardio Marine",1],["Squalen Premium",1],["Collagen",1]],d:"Арьс, судас, эсийн эрч хүчийг дэмжих дөрвөн бүтээгдэхүүн.",price:1147081,was:UNIT*3+270000}
 ];
+const WHY = {
+  "2301":"ASHITABA хоол боловсруулалт, өдөр тутмын эрч хүчийг, Cardio Marine зүрх судас, цусны эргэлтийг дэмжинэ. Хоёр сарын хэрэглээнд хүрэлцэхээр бүрдүүлсэн.",
+  "2302":"Бор замгийн органик иод (Iodium Kelp) бамбай булчирхай, бодисын солилцоог, ASHITABA хоол боловсруулалт, эрч хүчийг дэмжинэ.",
+  "2303":"Хамгийн эрэлттэй ASHITABA-г 4 савтайгаар: тогтмол, урт хугацааны өдөр тутмын хэрэглээнд.",
+  "2304":"ArtroMarine + MSM үе мөч, мөгөөрс, шөрмөсийг, ASHITABA өдөр тутмын эрч хүчийг дэмжинэ.",
+  "2305":"Cardio Marine зүрх судас, цусны эргэлтийг, Iodium Kelp бодисын солилцоо, эрч хүчийг дэмжинэ. Нөхөр, аавдаа бэлэглэхэд тохиромжтой.",
+  "2306":"Идэвхтэй хөдөлгөөнтэй хүмүүст: Cardio Marine зүрх судсыг, ArtroMarine + MSM үе мөч, шөрмөсийг дэмжинэ.",
+  "2127":"Дөрвөн гол бүтээгдэхүүн нэг дор: хоол боловсруулалт, антиоксидант хамгаалалт, зүрх судас, бамбай булчирхайг цогцоор дэмжинэ.",
+  "2102":"Арьс, судас, эсийн эрч хүчийг дэмжих дөрвөн бүтээгдэхүүн: ASHITABA, Cardio Marine, Squalen Premium, Collagen.",
+  "2279":"Нэг савыг авахад хоёр дахь сав бэлэг: хоёр сарын хэрэглээ нэгийн үнээр.",
+  "2275":"Нэгийг авахад нөгөө нь бэлэг: гэр бүлээрээ хэрэглэхэд хүрэлцэнэ."
+};
 const BUNDLES = Object.fromEntries([...DEALS,...GIFTS,...SETS].map(b=>[b.id,b]));
 
 /* ---------- Reels ---------- */
@@ -799,6 +912,56 @@ const hasWarn = items => items.some(([n])=>/ASHITABA|Cardio/.test(n));
 /* ======================= RENDER ======================= */
 document.querySelectorAll("[data-order]").forEach(a=>{a.href=ORDER_URL;a.target="_blank";a.rel="noopener"});
 
+/* ---------- Захиалгын заавар ---------- */
+const STEPS = {
+  phone: [
+    ["«Дэлгүүр рүү орох» дарна","Marine Health-ийн албан ёсны дэлгүүр утасны хөтчид нээгдэнэ."],
+    ["Багцаа олоод «Сагсанд нэмэх» дарна","Баруун доод булан дахь сагсыг дараад «Тооцоо хийх рүү шилжих»."],
+    ["Анх удаа бол «БҮРТГҮҮЛЭХ»","Улс: Монгол · утасны дугаараа +976-тай · нууц үг (8+ тэмдэгт) 2 удаа · зөвшөөрлийн нүдийг чагтална."],
+    ["Утсанд ирсэн кодыг оруулна","SMS ирнэ. Заримдаа дуудлага ирдэг: дуудлагын дугаарын сүүлийн 6 оронг оруулна."],
+    ["Хүргэлтийн хаяг","Хот/аймаг, дүүрэг/сум, хороо/баг, дэлгэрэнгүй хаяг, утас → «Дараах». Эсвэл «Очиж авах»."],
+    ["QPay-ээр төлнө","Банкныхаа аппыг сонгоход төлбөр шууд нээгдэнэ. И-баримт апп дээр гарна."]
+  ],
+  pc: [
+    ["«Дэлгүүр рүү орох» дарна","Шинэ цонхонд Marine Health-ийн дэлгүүр нээгдэнэ."],
+    ["Багцаа олоод «Сагсанд нэмэх» дарна","Дээд баруун буланд эсвэл баруун доод буланд сагсны тэмдэг гарна → «Тооцоо хийх рүү шилжих»."],
+    ["Анх удаа бол «БҮРТГҮҮЛЭХ»","Улс: Монгол · утасны дугаараа +976-тай · нууц үг (8+ тэмдэгт) 2 удаа · зөвшөөрлийн нүдийг чагтална."],
+    ["Утсаа бэлэн байлга","Утсанд SMS код ирнэ (эсвэл дуудлага: дугаарын сүүлийн 6 оронг оруулна)."],
+    ["Хүргэлтийн хаяг","Хот/аймаг, дүүрэг/сум, хороо/баг, дэлгэрэнгүй хаяг, утас → «Дараах»."],
+    ["QPay QR кодыг уншуулна","Дэлгэц дээр гарсан QR кодыг утасныхаа банкны аппаар уншуулж төлнө."]
+  ]
+};
+let ogItem="", ogDest=ORDER_URL;
+function renderSteps(kind){
+  $("#tabPhone").setAttribute("aria-selected",kind==="phone"); $("#tabPc").setAttribute("aria-selected",kind==="pc");
+  $("#ogSteps").innerHTML=STEPS[kind].map(([t,h])=>`<li><span><b>${esc(t)}</b><span class="hint">${esc(h)}</span></span></li>`).join("");
+}
+function orderMsg(){ return `Сайн байна уу! ${ogItem?`«${ogItem}» `:""}захиалмаар байна.\nНэр:\nУтас:\nХаяг (хот/аймаг, дүүрэг/сум, хороо/баг):`; }
+function openOrder(item){
+  let skip=false; try{ skip=localStorage.getItem("eah-og-skip")==="1"; }catch(e){}
+  if(skip){ window.open(ORDER_URL,"_blank","noopener"); return; }
+  ogItem=item||""; $("#ogItem").textContent=ogItem?("Сонгосон: "+ogItem):"";
+  $("#ogGo").href=ORDER_URL; renderSteps(matchMedia("(pointer:coarse)").matches?"phone":"pc");
+  $("#og").hidden=false; document.body.classList.add("locked"); $("#ogClose").focus();
+}
+function closeOrder(){ $("#og").hidden=true; if(sheet.hidden&&reel.hidden&&viewer.hidden) document.body.classList.remove("locked"); }
+$("#ogClose").onclick=closeOrder;
+$("#og").addEventListener("click",e=>{ if(e.target.id==="og") closeOrder(); });
+$("#tabPhone").onclick=()=>renderSteps("phone"); $("#tabPc").onclick=()=>renderSteps("pc");
+$("#ogSkip").onchange=e=>{ try{ localStorage.setItem("eah-og-skip",e.target.checked?"1":"0"); }catch(err){} };
+$("#ogCopy").onclick=async()=>{ try{ await navigator.clipboard.writeText("Dinnak"); toast("Код хуулагдлаа: Dinnak"); }catch(e){ toast("Код: Dinnak"); } };
+$("#ogMsg").addEventListener("click",async()=>{ try{ await navigator.clipboard.writeText(orderMsg()); toast("Мессеж хуулагдлаа — Messenger-т буулгаад илгээнэ үү"); }catch(e){} });
+document.addEventListener("click",e=>{
+  const a=e.target.closest('a[href^="https://marinehealth.asia/mn/products"]');
+  if(!a || a.closest("#og")) return;
+  e.preventDefault();
+  const card=a.closest(".deal,.prod,.panel,.stage");
+  let item="";
+  if(card){ const h=card.querySelector("h3,h2,#rTitle"); if(h) item=h.textContent.trim(); }
+  if(!$("#reel").hidden && typeof pause==="function") pause();
+  openOrder(item);
+},true);
+
 const tickWords=["11-Р САРЫН УРАМШУУЛАЛ","6 БАГЦ — 800,000₮","COLLAGEN 1+1","ШҮДНИЙ ОО 1+1","11.30 ХҮРТЭЛ","ЭМ БИШ — ЭРҮҮЛ МЭНДИЙН НЭМЭЛТ"];
 $("#tick").innerHTML=[...tickWords,...tickWords].map(w=>`<span>${w}</span>`).join("");
 
@@ -819,7 +982,6 @@ function bundleCard(o){
       <button class="ttl" type="button" data-bundle="${o.id}"><h3>${esc(o.n)}</h3></button>
       <div class="contents">${chips(o.items)}</div>
       <p>${esc(o.d)}</p>
-      ${hasWarn(o.items)?`<p class="cardwarn">Хэрэглэхгүй: 18-аас доош, жирэмсэн, хөхүүл, цус шингэлэх эм уудаг, найрлагад мэдрэг хүмүүс.</p>`:""}
       <div class="foot">
         ${priceBox(o)}
         <div class="acts">${reelBtn(o.reel||(o.flag?null:"promo"))}${orderLink()}</div>
@@ -924,6 +1086,20 @@ function openProduct(slug, push=true){
   openSheet(html,buy,"Бүтээгдэхүүн");
   if(push) history.replaceState(null,"","#"+slug);
 }
+function bundleBody(o){
+  const rows=o.items.map(([n,q])=>{ const sl=NAME2SLUG[n], p=P[sl]; return {n,q,sl,p}; }).filter(r=>r.p);
+  const warns=[...new Set(rows.flatMap(r=>r.p.warn.split(/(?<=\.)\s+/)).map(x=>x.trim()).filter(Boolean))];
+  const list=rows.map(r=>`<button class="bitem" type="button" data-open="${r.sl}"><img src="assets/cut/${r.p.id}.webp" alt="" loading="lazy" onerror="this.src='assets/img/${r.p.id}.webp'"><span><b>${esc(r.p.name)}</b><small>${esc(r.p.short)}</small></span><span class="q">×${r.q}</span></button>`).join("");
+  const plan=`<div class="tbl"><table class="dtable"><thead><tr><th>Бүтээгдэхүүн</th><th>Хэрхэн хэрэглэх</th><th>Хүрэх хугацаа</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${esc(r.p.name)} ×${r.q}</td><td>${esc(r.p.dose)}</td><td class="n">${r.p.days?`~${r.p.days*r.q} хоног`:"—"}</td></tr>`).join("")}</tbody></table></div>`;
+  const single = rows.length===1 && o.flag ? rows[0].p : null;
+  return `
+    <div class="dsec"><h4>Яагаад энэ ${o.flag?"урамшуулал":"багц"}</h4><p>${esc(WHY[o.id]||o.d)}</p></div>
+    <div class="dsec"><h4>${o.flag?"Юу орох вэ":"Багцад юу орох вэ"}</h4><p>Бүтээгдэхүүн дээр дарж бүрэн тайлбар, гэрчилгээг харна.</p><div class="bitems">${list}</div></div>
+    <div class="dsec"><h4>Хэрэглэх хуваарь</h4>${plan}<p style="margin-top:10px">Бүтээгдэхүүн бүрийг өөрийнх нь зааврын дагуу хэрэглэнэ.</p></div>
+    ${single?single.secs.map(secHTML).join(""):""}
+    <div class="dsec"><h4>Урамшууллын хугацаа</h4><p>2026.11.09 – 11.30. Үнийг захиалахдаа дэлгүүр дээрээс баталгаажуулна уу.</p></div>
+    <div class="dsec warn"><h4>Анхааруулга, хориглох заалт</h4>${warns.map(w=>`<p>${esc(w)}</p>`).join("")}<p>Эм биш, өдөр тутмын эрүүл мэндийн нэмэлт. Өвчтэй, эмчийн хяналтад байгаа бол эмчдээ зөвлөөрэй.</p></div>`;
+}
 function openBundle(id, push=true){
   const o=BUNDLES[id]; if(!o) return;
   const pct=o.was?Math.floor((1-o.price/o.was)*100):0;
@@ -931,9 +1107,7 @@ function openBundle(id, push=true){
     <div class="gal"><figure data-scene="${o.id}"></figure></div>
     <div class="dhead"><span class="meta">${o.flag?"1 + 1 урамшуулал":"Багц · "+o.items.reduce((a,[,q])=>a+q,0)+" сав"}</span><h2 id="dTitle">${esc(o.n)}</h2><p>${esc(o.d)}</p></div>
     <div class="facts"><div>${fmt(o.price)}</div>${o.was?`<div>Тусдаа: ${fmt(o.was)}</div><div>Хэмнэлт: ${fmt(o.was-o.price)}</div><div>−${pct}%</div>`:""}</div>
-    <div class="dsec"><h4>Багцад юу орох вэ</h4><p>Бүтээгдэхүүн дээр дарж дэлгэрэнгүйг уншина уу.</p><div class="contents" style="margin-top:8px">${chips(o.items)}</div></div>
-    <div class="dsec"><h4>Хугацаа</h4><p>Урамшуулал 2026.11.09 – 11.30. Үнийг захиалахдаа апп дээрээс баталгаажуулна уу.</p></div>
-    ${hasWarn(o.items)?`<div class="dsec warn"><h4>Анхааруулга</h4><p>${esc(WARN_STD)}</p><p>Эм биш, өдөр тутмын эрүүл мэндийн нэмэлт.</p></div>`:`<div class="dsec warn"><h4>Анхааруулга</h4><p>Найрлагад харшилтай бол хэрэглэхгүй. Эм биш, эрүүл мэндийн нэмэлт.</p></div>`}`;
+    ${bundleBody(o)}`;
   const buy=`${priceBox(o)}<div class="acts">${reelBtn(o.reel||(o.flag?null:"promo"))}${orderLink("Захиалах ↗")}</div>`;
   openSheet(html,buy,o.flag?"Урамшуулал":"Багц");
   dBuy.classList.remove("lit"); setTimeout(()=>dBuy.classList.add("lit"),250);
@@ -969,12 +1143,16 @@ let SPEC=null, R=null, raf=0, playing=false, muted=false, silentT=0, silentStart
 const SPEC_P = fetch("data/reels.json").then(r=>r.json()).then(j=>SPEC=j).catch(()=>null);
 const words = s => s.split(/\s+/).filter(Boolean);
 
-function buildTimeline(spec, bpm){
+function buildTimeline(spec, bpm, meta){
   const bar = 240/(bpm||120); let t=0;
-  const beats = spec.beats.map(b=>{
-    const t0=t, t1=t+bar*(b.bars||2); t=t1;
-    const ws=words(b.say), span=(t1-t0)*0.78, total=ws.reduce((a,w)=>a+w.length+2,0); let acc=0;
-    const wl=ws.map(w=>{ const o={t:t0+0.2+span*acc/total,w}; acc+=w.length+2; return o; });
+  const vb = meta && meta.voice && meta.beats && meta.beats.length===spec.beats.length ? meta.beats : null;
+  const beats = spec.beats.map((b,i)=>{
+    let t0,t1,s0,s1;
+    if(vb){ t0=vb[i].t0; t1=vb[i].t1; s0=vb[i].v0; s1=vb[i].v1; }
+    else { t0=t; t1=t+bar*(b.bars||2); s0=t0+0.2; s1=t0+(t1-t0)*0.98; }
+    t=t1;
+    const ws=words(b.say), total=ws.reduce((a,w)=>a+w.length+2,0); let acc=0;
+    const wl=ws.map(w=>{ const o={t:s0+(s1-s0)*acc/total,w}; acc+=w.length+2; return o; });
     return {...b,t0,t1,words:wl};
   });
   return {dur:t, bar, beats};
@@ -990,11 +1168,11 @@ async function openReel(id){
   const spec=SPEC.reels.find(r=>r.id===id); if(!spec) return;
   let meta=null;
   try{ const r=await fetch(`assets/music/${id}.json`); if(r.ok) meta=await r.json(); }catch(e){}
-  R={id,spec,tl:buildTimeline(spec,SPEC.bpm),hasAudio:!!meta};
+  R={id,spec,tl:buildTimeline(spec,SPEC.bpm,meta),hasAudio:!!meta};
   R.tl.beats.forEach(b=>b.chunks=chunks(b.words));
   const prod = P[SLUG_BY_ID[spec.pid]];
   $("#rTitle").textContent=spec.title;
-  $("#rLegal").textContent = "Эм биш, эрүүл мэндийн нэмэлт. " + (prod? prod.warn : "Хориглох заалттай: "+WARN_STD);
+  $("#rLegal").textContent = "Эм биш, эрүүл мэндийн нэмэлт. Хэрэглэхийн өмнө хориглох заалттай танилцана уу (eruul-amidral.com).";
   $("#rSegs").innerHTML=R.tl.beats.map(()=>`<i><b></b></i>`).join("");
   curBeat=-1; if(reel.hidden) reelOpener=document.activeElement; rSceneId=null;
   reel.hidden=false; document.body.classList.add("locked");
@@ -1032,7 +1210,10 @@ function showScene(id){
 }
 function setBeat(i){
   const b=R.tl.beats[i]; curBeat=i;
+  $("#rOutro").hidden=!b.outro;
+  if(b.outro){ $("#rCta").hidden=true; $("#rCap").innerHTML=""; $("#stage").classList.remove("has-cta"); return; }
   const photo=String(b.img).includes("-m");
+  
   $("#rHero").hidden=!photo; $("#rScene").hidden=photo;
   if(photo){
     const img=$("#rImg"); const src=`assets/img/${b.img}.webp`;
@@ -1064,9 +1245,11 @@ function tick(){
   const q=(t/(R.tl.bar/4))%1, pulse=Math.max(0,1-q*4);
   $("#rCap").style.scale=String(1+0.035*pulse);
   [...$("#rSegs").children].forEach((s,j)=>{ s.firstChild.style.transform=`scaleX(${j<i?1:j>i?0:k})`; });
+  if(b.outro){ $("#rSubs").innerHTML=""; } else {
   let ci=b.chunks.findIndex(c=>t < (c[c.length-1].t + 0.45)); if(ci<0) ci=b.chunks.length-1;
   const ch=b.chunks[ci], shown=ch.filter(x=>t>=x.t);
   $("#rSubs").innerHTML=ch.map(w=>`<em class="${t>=w.t?(shown[shown.length-1]===w?"on":"done"):""}" style="${t>=w.t?"":"opacity:0"}">${esc(w.w.replace(/[.,]$/,""))}</em>`).join(" ");
+  }
   const end = R.hasAudio ? (audio.ended || t>=R.tl.dur-0.02) : t>=R.tl.dur;
   if(end){
     playing=false; audio.pause(); [...$("#rSegs").children].forEach(s=>s.firstChild.style.transform="scaleX(1)");
@@ -1079,7 +1262,7 @@ function tick(){
 }
 function closeReel(){
   clearTimeout(advT); playing=false; cancelAnimationFrame(raf); audio.pause(); R=null; reel.hidden=true;
-  Scene.forget($("#rScene")); $("#rScene").innerHTML=""; rSceneId=null;
+  Scene.forget($("#rScene")); $("#rScene").innerHTML=""; rSceneId=null; $("#rOutro").hidden=true;
   if(sheet.hidden&&viewer.hidden) document.body.classList.remove("locked");
   if(location.hash.startsWith("#reel-")) history.replaceState(null,"",location.pathname);
   reelOpener&&reelOpener.focus&&reelOpener.focus();
@@ -1106,7 +1289,7 @@ document.addEventListener("click",e=>{
 });
 document.addEventListener("keydown",e=>{
   if(e.key!=="Escape") return;
-  if(!reel.hidden) closeReel(); else if(!viewer.hidden) closeViewer(); else if(!sheet.hidden) closeSheet();
+  if(!$("#og").hidden) closeOrder(); else if(!reel.hidden) closeReel(); else if(!viewer.hidden) closeViewer(); else if(!sheet.hidden) closeSheet();
 });
 function route(){
   const h=location.hash.slice(1);

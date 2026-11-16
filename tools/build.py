@@ -117,6 +117,15 @@ def music():
     d = A / "music"; d.mkdir(parents=True, exist_ok=True)
     for i, r in enumerate(spec["reels"]):
         mu = r["music"]; n = len(r["beats"])
+        full = A / "voice" / f"{r['id']}.mp3"  # one dialogue recording for the whole reel → split per beat
+        if full.exists():
+            import split_voice as SV
+            stamp = A / "voice" / r["id"] / ".source"
+            sig = hashlib.sha1(full.read_bytes() + json.dumps([b["say"] for b in r["beats"]]).encode()).hexdigest()[:12]
+            if not stamp.exists() or stamp.read_text().strip() != sig:
+                print("split", r["id"])
+                SV.split(full, [b["say"] for b in r["beats"]], A / "voice" / r["id"], [b["who"] for b in r["beats"]])
+                stamp.write_text(sig)
         vf = voice_files(r["id"], n)
         vsig = [[f.name, f.stat().st_size] for f in vf] if vf else None
         h = hashlib.sha1(json.dumps([[b["bars"] for b in r["beats"]], mu, bpm, vsig, 5]).encode()).hexdigest()[:12]

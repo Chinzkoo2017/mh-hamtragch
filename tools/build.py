@@ -49,7 +49,7 @@ def certs(cfg):
                 out = d / f"{c['key']}-p{i}.webp"
                 im = Image.open(png).convert("RGB"); im.thumbnail((1400, 1400), Image.LANCZOS)
                 im.save(out, "WEBP", quality=80, method=6); pages.append(out.name)
-        idx.append({**{k: c[k] for k in ("key", "pid", "title")}, "pdf": pdf.name, "pages": pages})
+        idx.append({**{k: c[k] for k in ("key", "pid", "title", "valid") if k in c}, "pdf": pdf.name, "pages": pages})
     (d / "index.json").write_text(json.dumps(idx, ensure_ascii=False, indent=1), encoding="utf-8")
 
 CUT_KEYS = ["154","121","214","104","106","282","2028","2301","2302","2303","2304","2305","2306",

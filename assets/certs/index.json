@@ -1,61 +1,62 @@
 [
  {
-  "key": "ashitaba-sgr",
+  "key": "ashitaba-mn",
   "pid": "154",
-  "title": "СГР — ASHITABA",
-  "pdf": "ashitaba-sgr.pdf",
+  "title": "ASHITABA — ЭМЯ-ны бүртгэлийн гэрчилгээ",
+  "valid": "2028.06.29",
+  "pdf": "ashitaba-mn.pdf",
   "pages": [
-   "ashitaba-sgr-p1.webp"
+   "ashitaba-mn-p1.webp"
   ]
  },
  {
-  "key": "cardio-sgr",
+  "key": "cardio-mn",
   "pid": "121",
-  "title": "СГР — Cardio Marine",
-  "pdf": "cardio-sgr.pdf",
+  "title": "Cardio Marine — ЭМЯ-ны бүртгэлийн гэрчилгээ",
+  "valid": "2029.01.19",
+  "pdf": "cardio-mn.pdf",
   "pages": [
-   "cardio-sgr-p1.webp"
+   "cardio-mn-p1.webp"
   ]
  },
  {
-  "key": "squalen-sgr",
+  "key": "squalen-mn",
   "pid": "214",
-  "title": "СГР — Squalen Premium",
-  "pdf": "squalen-sgr.pdf",
+  "title": "Squalen Premium — ЭМЯ-ны бүртгэлийн гэрчилгээ",
+  "valid": "2028.06.29",
+  "pdf": "squalen-mn.pdf",
   "pages": [
-   "squalen-sgr-p1.webp",
-   "squalen-sgr-p2.webp",
-   "squalen-sgr-p3.webp",
-   "squalen-sgr-p4.webp"
+   "squalen-mn-p1.webp"
   ]
  },
  {
-  "key": "iodium-sgr",
+  "key": "iodium-mn",
   "pid": "104",
-  "title": "СГР — Iodium Kelp",
-  "pdf": "iodium-sgr.pdf",
+  "title": "Iodium Kelp — ЭМЯ-ны бүртгэлийн гэрчилгээ",
+  "valid": "2029.03.27",
+  "pdf": "iodium-mn.pdf",
   "pages": [
-   "iodium-sgr-p1.webp"
+   "iodium-mn-p1.webp"
   ]
  },
  {
-  "key": "artro-sgr",
+  "key": "artro-mn",
   "pid": "106",
-  "title": "СГР — ArtroMarine + MSM",
-  "pdf": "artro-sgr.pdf",
+  "title": "Artro Marine — ЭМЯ-ны бүртгэлийн гэрчилгээ",
+  "valid": "2029.03.27",
+  "pdf": "artro-mn.pdf",
   "pages": [
-   "artro-sgr-p1.webp",
-   "artro-sgr-p2.webp"
+   "artro-mn-p1.webp"
   ]
  },
  {
-  "key": "collagen-sgr",
+  "key": "collagen-mn",
   "pid": "282",
-  "title": "СГР — MH Collagen",
-  "pdf": "collagen-sgr.pdf",
+  "title": "MH Collagen — ЭМЯ-ны бүртгэлийн гэрчилгээ",
+  "valid": "2030.03.26",
+  "pdf": "collagen-mn.pdf",
   "pages": [
-   "collagen-sgr-p1.webp",
-   "collagen-sgr-p2.webp"
+   "collagen-mn-p1.webp"
   ]
  },
  {

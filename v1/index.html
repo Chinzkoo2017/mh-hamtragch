@@ -652,7 +652,7 @@ footer p{margin:6px 0 0;max-width:62ch}
           <a class="btn btn-ghost" id="ogGo" href="#" target="_blank" rel="noopener">Дэлгүүр рүү орох ↗</a>
         </div>
       </div>
-      <div class="sponsor"><span>Бүртгэлийн үед <b>Спонсор</b> хэсэгт <b>Чинзориг Сундуйжав</b> харагдана. Харагдахгүй бол кодыг оруулна уу:</span><code>Dinnak</code><button type="button" id="ogCopy">Хуулах</button></div>
+      <div class="sponsor"><span>Бүртгэлийн үед <b>Спонсор</b> хэсэгт <b>Чинзориг Сундуйжав</b> харагдана. Харагдахгүй бол кодыг оруулна уу:</span><code>Chinzoo</code><button type="button" id="ogCopy">Хуулах</button></div>
       <div class="tabs" role="tablist"><button type="button" role="tab" id="tabPhone" aria-selected="true" aria-controls="ogSteps">📱 Утсаар</button><button type="button" role="tab" id="tabPc" aria-selected="false" aria-controls="ogSteps">💻 Компьютерээр</button></div>
       <ol class="osteps" id="ogSteps" role="tabpanel"></ol>
       <div class="apps" id="ogApps"><a href="https://apps.apple.com/app/mh-go/id1639841757" target="_blank" rel="noopener">MH GO · App Store ↗</a><a href="https://play.google.com/store/apps/details?id=my.marinehealth.asia_new" target="_blank" rel="noopener">MH GO · Google Play ↗</a></div>
@@ -703,7 +703,7 @@ footer p{margin:6px 0 0;max-width:62ch}
 <script src="scene.js"></script>
 <script>
 /* ======================= ТОХИРГОО ======================= */
-const ORDER_URL = "https://marinehealth.asia/mn/products?ref=Dinnak";
+const ORDER_URL = "https://marinehealth.asia/mn/products?ref=Chinzoo";
 const SALE_END = "2026-11-30T23:59:59+08:00";
 const MH = "https://my.marinehealth.asia/files/products/";
 const MAIN_V = {"154":"v6","121":"v14","214":"v4","104":"v9","106":"v9","282":"v3","2028":"v1","2301":"v2","2302":"v1","2303":"v1","2304":"v1","2305":"v1","2306":"v1","2279":"v1","2275":"v1","2127":"v2","2102":"v1"};
@@ -951,7 +951,7 @@ $("#ogClose").onclick=closeOrder;
 $("#og").addEventListener("click",e=>{ if(e.target.id==="og") closeOrder(); });
 $("#tabPhone").onclick=()=>renderSteps("phone"); $("#tabPc").onclick=()=>renderSteps("pc");
 $("#ogSkip").onchange=e=>{ try{ localStorage.setItem("eah-og-skip",e.target.checked?"1":"0"); }catch(err){} };
-$("#ogCopy").onclick=async()=>{ try{ await navigator.clipboard.writeText("Dinnak"); toast("Код хуулагдлаа: Dinnak"); }catch(e){ toast("Код: Dinnak"); } };
+$("#ogCopy").onclick=async()=>{ try{ await navigator.clipboard.writeText("Chinzoo"); toast("Код хуулагдлаа: Chinzoo"); }catch(e){ toast("Код: Chinzoo"); } };
 $("#ogMsg").addEventListener("click",async()=>{ try{ await navigator.clipboard.writeText(orderMsg()); toast("Мессеж хуулагдлаа — Messenger-т буулгаад илгээнэ үү"); }catch(e){} });
 document.addEventListener("click",e=>{
   const a=e.target.closest('a[href^="https://marinehealth.asia/mn/products"]');

@@ -22,7 +22,7 @@ const KEYWORDS = [
 const PUBLIC_REPLY = 'Баярлалаа 🙏 Танд чатаар илгээлээ.';
 const privateText = k =>
   `Сайн байна уу 😊 ${k.name}-ийн танилцуулгыг илгээж байна: ${k.url}\n` +
-  'Асуух зүйл байвал энд бичээрэй, Түмээ бид хоёр хариулъя.';
+  'Асуух зүйл байвал энд бичээрэй, бид хариулъя.';
 
 function props_() { return PropertiesService.getScriptProperties(); }
 
